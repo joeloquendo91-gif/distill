@@ -3,6 +3,7 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import {
   parseCSVFile, detectColumnType, analyzeColumn,
   getColumnValues, applyFilters, COL_TYPES,
+  scoreColumnRelevance, detectAnomalies,
 } from "@/lib/csvParser";
 import { TIERS } from "@/lib/tiers";
 import { supabase } from "@/lib/supabase";
@@ -12,6 +13,8 @@ import FilterBar from "@/components/FilterBar";
 import NarrativePanel from "@/components/NarrativePanel";
 import TierGateModal from "@/components/TierGateModal";
 import AuthModal from "@/components/AuthModal";
+import OnboardingModal from "@/components/OnboardingModal";
+import InsightBoard from "@/components/InsightBoard";
 
 export default function Dashboard() {
   // Data
@@ -33,6 +36,11 @@ export default function Dashboard() {
   // Share
   const [shareUrl, setShareUrl] = useState(null);
   const [sharing, setSharing] = useState(false);
+
+  // Onboarding / view
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [onboardingContext, setOnboardingContext] = useState(null);
+  const [viewMode, setViewMode] = useState("insight"); // "insight" | "explorer"
 
   // Auth / tier
   const [user, setUser] = useState(null);
@@ -70,15 +78,20 @@ export default function Dashboard() {
     return applyFilters(csvData.rows, filters);
   }, [csvData, filters]);
 
-  // Derived: analyzed columns
+  // Derived: analyzed columns (with relevance scores and anomaly flags)
   const columns = useMemo(() => {
     if (!csvData || filteredRows.length === 0) return [];
     return csvData.headers.map((header) => {
       const values = getColumnValues(filteredRows, header);
       const type = columnTypes[header] || detectColumnType(values);
-      return analyzeColumn(header, values, type, filteredRows.length);
+      const col = analyzeColumn(header, values, type, filteredRows.length);
+      return {
+        ...col,
+        relevanceScore: scoreColumnRelevance(col, onboardingContext),
+        anomaly: detectAnomalies(col),
+      };
     });
-  }, [csvData, filteredRows, columnTypes]);
+  }, [csvData, filteredRows, columnTypes, onboardingContext]);
 
   // Filterable columns (categorical / likert)
   const filterableColumns = useMemo(() =>
@@ -117,6 +130,9 @@ export default function Dashboard() {
       setColumnTypes(types);
       setCsvData(data);
       setFileName(file.name);
+      setOnboardingContext(null);
+      setViewMode("insight");
+      setShowOnboarding(true);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -166,6 +182,7 @@ export default function Dashboard() {
           rowCount: filteredRows.length,
           totalRows: csvData.rowCount,
           columnSummaries,
+          onboardingContext,
         }),
       });
       const data = await res.json();
@@ -305,14 +322,44 @@ export default function Dashboard() {
                       · {activeFilterCount} filter{activeFilterCount > 1 ? "s" : ""} active
                     </span>
                   )}
+                  {columns.some((c) => c.anomaly) && (
+                    <span className="text-amber-600 ml-2">
+                      · ⚠ {columns.filter((c) => c.anomaly).length} anomal{columns.filter((c) => c.anomaly).length > 1 ? "ies" : "y"}
+                    </span>
+                  )}
                 </p>
               </div>
-              <button
-                onClick={() => { setCsvData(null); setNarrative(null); setShareUrl(null); setFilters({}); }}
-                className="text-xs text-gray-400 hover:text-gray-700 shrink-0"
-              >
-                ↑ Upload new file
-              </button>
+              <div className="flex items-center gap-3 shrink-0">
+                {/* View toggle */}
+                <div className="flex items-center gap-1 bg-gray-100 rounded-full p-1">
+                  <button
+                    onClick={() => setViewMode("insight")}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      viewMode === "insight"
+                        ? "bg-white text-gray-900 shadow-sm"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    Insight Board
+                  </button>
+                  <button
+                    onClick={() => setViewMode("explorer")}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      viewMode === "explorer"
+                        ? "bg-white text-gray-900 shadow-sm"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    All Columns
+                  </button>
+                </div>
+                <button
+                  onClick={() => { setCsvData(null); setNarrative(null); setShareUrl(null); setFilters({}); setOnboardingContext(null); }}
+                  className="text-xs text-gray-400 hover:text-gray-700"
+                >
+                  ↑ Upload new file
+                </button>
+              </div>
             </div>
 
             {error && (
@@ -344,6 +391,13 @@ export default function Dashboard() {
                   Clear filters
                 </button>
               </div>
+            ) : viewMode === "insight" ? (
+              <InsightBoard
+                columns={columns}
+                onTypeChange={(name, newType) =>
+                  setColumnTypes((prev) => ({ ...prev, [name]: newType }))
+                }
+              />
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 {columns.map((col) => (
@@ -362,6 +416,12 @@ export default function Dashboard() {
       </main>
 
       {/* Modals */}
+      {showOnboarding && (
+        <OnboardingModal
+          onComplete={(ctx) => { setOnboardingContext(ctx); setShowOnboarding(false); }}
+          onSkip={() => setShowOnboarding(false)}
+        />
+      )}
       {showTierGate && (
         <TierGateModal
           feature={tierGateFeature}

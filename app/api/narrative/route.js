@@ -40,7 +40,7 @@ export async function POST(request) {
       return Response.json({ error: "Monthly AI narrative limit reached." }, { status: 429 });
     }
 
-    const { fileName, rowCount, totalRows, columnSummaries } = await request.json();
+    const { fileName, rowCount, totalRows, columnSummaries, onboardingContext } = await request.json();
 
     const colDescriptions = columnSummaries
       .map((c) => {
@@ -58,10 +58,25 @@ export async function POST(request) {
         ? ` (filtered to ${rowCount.toLocaleString()} of ${totalRows.toLocaleString()} total rows)`
         : "";
 
+    const contextLines = [];
+    if (onboardingContext?.dataType && onboardingContext.dataType !== "other") {
+      contextLines.push(`Data type: ${onboardingContext.dataType}`);
+    }
+    if (onboardingContext?.goal) {
+      contextLines.push(`Decision goal: ${onboardingContext.goal}`);
+    }
+    if (onboardingContext?.audience) {
+      const audienceLabels = { self: "personal use", team: "internal team", client: "client presentation", leadership: "leadership / executive" };
+      contextLines.push(`Audience: ${audienceLabels[onboardingContext.audience] || onboardingContext.audience}`);
+    }
+    const contextBlock = contextLines.length > 0
+      ? `\nContext provided by the analyst:\n${contextLines.map((l) => `- ${l}`).join("\n")}\n`
+      : "";
+
     const prompt = `You are a data analyst writing an executive summary for a client-facing report.
 
 Dataset: "${fileName || "Untitled"}" — ${rowCount.toLocaleString()} rows${filteredNote}, ${columnSummaries.length} columns.
-
+${contextBlock}
 Column summaries:
 ${colDescriptions}
 
@@ -71,7 +86,7 @@ Write a clear, professional narrative (250–350 words) that:
 3. Notes anything unexpected or worth investigating
 4. Closes with one actionable recommendation
 
-Write in plain prose paragraphs. No headers, no bullet points. Write as if presenting to a non-technical client.`;
+Write in plain prose paragraphs. No headers, no bullet points. Tailor the language to the audience specified above (if any).`;
 
     const message = await anthropic.messages.create({
       model: "claude-sonnet-4-6",
