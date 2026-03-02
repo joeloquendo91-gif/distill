@@ -35,8 +35,8 @@ function FilterDropdown({ column, selected, onChange }) {
           flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium
           border transition-colors whitespace-nowrap
           ${activeCount > 0
-            ? "border-green-500 bg-green-50 text-green-700"
-            : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
+            ? "border-green-500/60 bg-green-500/15 text-green-400"
+            : "border-white/10 bg-white/6 text-gray-300 hover:border-white/20"
           }
         `}
       >
@@ -52,11 +52,11 @@ function FilterDropdown({ column, selected, onChange }) {
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 z-50 bg-white border border-gray-200 rounded-xl shadow-lg p-2 min-w-[180px] max-h-64 overflow-y-auto">
+        <div className="absolute top-full left-0 mt-1 z-50 bg-[#1e1e35] border border-white/10 rounded-xl shadow-xl shadow-black/50 p-2 min-w-[180px] max-h-64 overflow-y-auto">
           {values.slice(0, 50).map((val) => (
             <label
               key={val}
-              className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-gray-50 cursor-pointer"
+              className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-white/6 cursor-pointer"
             >
               <input
                 type="checkbox"
@@ -64,11 +64,11 @@ function FilterDropdown({ column, selected, onChange }) {
                 onChange={() => toggle(val)}
                 className="accent-green-500 w-3.5 h-3.5"
               />
-              <span className="text-xs text-gray-700 truncate">{val}</span>
+              <span className="text-xs text-gray-300 truncate">{val}</span>
             </label>
           ))}
           {values.length > 50 && (
-            <p className="text-xs text-gray-400 px-2 py-1">+{values.length - 50} more values</p>
+            <p className="text-xs text-gray-500 px-2 py-1">+{values.length - 50} more values</p>
           )}
         </div>
       )}
@@ -93,7 +93,7 @@ export default function FilterBar({ columns, filters, onFilterChange, onClear })
       {activeCount > 0 && (
         <button
           onClick={onClear}
-          className="text-xs text-gray-500 hover:text-gray-700 ml-1"
+          className="text-xs text-gray-500 hover:text-gray-300 ml-1"
         >
           Clear all
         </button>
