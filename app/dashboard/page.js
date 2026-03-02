@@ -219,10 +219,10 @@ export default function Dashboard() {
   const activeFilterCount = Object.keys(filters).length;
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-slate-100">
+    <div className="min-h-screen bg-slate-50 text-gray-900">
       {/* Nav */}
-      <nav className="border-b border-white/5 px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
-        <a href="/" className="text-lg font-bold bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent shrink-0">
+      <nav className="bg-white border-b border-gray-100 px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
+        <a href="/" className="text-lg font-bold text-[#1a3a2a] shrink-0">
           Distill
         </a>
 
@@ -232,37 +232,37 @@ export default function Dashboard() {
               <button
                 onClick={generateNarrative}
                 disabled={narrativeLoading}
-                className="flex items-center gap-1.5 px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-medium transition-colors disabled:opacity-50"
+                className="flex items-center gap-1.5 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full text-xs font-medium transition-colors disabled:opacity-50"
               >
                 {narrativeLoading ? (
                   <><span className="animate-spin inline-block">⟳</span> Generating…</>
                 ) : (
                   <><span>✦</span> AI Narrative
-                    {userTier === "free" && <span className="opacity-50 ml-1">PRO</span>}
+                    {userTier === "free" && <span className="opacity-60 ml-1">PRO</span>}
                   </>
                 )}
               </button>
               <button
                 onClick={shareDashboard}
                 disabled={sharing}
-                className="flex items-center gap-1.5 px-3 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-xs font-medium transition-colors disabled:opacity-50"
+                className="flex items-center gap-1.5 px-4 py-2 bg-white border border-gray-200 hover:border-gray-300 text-gray-700 rounded-full text-xs font-medium transition-colors disabled:opacity-50"
               >
                 {sharing ? "…" : copied ? "✓ Copied!" : "↑ Share"}
-                {userTier === "free" && !copied && <span className="opacity-50">PRO</span>}
+                {userTier === "free" && !copied && <span className="opacity-50 ml-1">PRO</span>}
               </button>
             </>
           )}
           {user ? (
             <button
               onClick={() => supabase.auth.signOut()}
-              className="text-xs text-slate-500 hover:text-slate-300 px-2 py-2"
+              className="text-xs text-gray-400 hover:text-gray-600 px-2 py-2"
             >
               Sign out
             </button>
           ) : (
             <button
               onClick={() => setShowAuth(true)}
-              className="text-xs text-slate-400 hover:text-white px-2 py-2"
+              className="text-xs text-gray-500 hover:text-gray-900 px-2 py-2"
             >
               Sign in
             </button>
@@ -274,19 +274,19 @@ export default function Dashboard() {
         {!csvData ? (
           /* Upload view */
           <div className="flex flex-col items-center justify-center min-h-[65vh]">
-            <h1 className="text-3xl sm:text-4xl font-bold text-center mb-3 text-white">
+            <h1 className="text-3xl sm:text-4xl font-bold text-center mb-3 text-gray-900">
               Drop in your CSV.
               <br />
-              <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+              <span className="text-green-500">
                 Get instant insights.
               </span>
             </h1>
-            <p className="text-slate-500 text-center mb-10 max-w-sm">
+            <p className="text-gray-500 text-center mb-10 max-w-sm">
               Every column auto-charted. No setup, no formulas.
               {!user && " Free for up to 1,000 rows."}
             </p>
             <CSVUpload onUpload={handleUpload} loading={loading} loadingMessage={loadingMsg} />
-            {error && <p className="mt-4 text-red-400 text-sm text-center">{error}</p>}
+            {error && <p className="mt-4 text-red-500 text-sm text-center">{error}</p>}
           </div>
         ) : (
           /* Explore view */
@@ -294,14 +294,14 @@ export default function Dashboard() {
             {/* Dashboard header */}
             <div className="mb-5 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
               <div>
-                <h1 className="text-lg font-semibold text-white">
+                <h1 className="text-lg font-semibold text-gray-900">
                   {fileName.replace(/\.(csv|tsv|txt)$/i, "")}
                 </h1>
-                <p className="text-sm text-slate-500 mt-0.5">
+                <p className="text-sm text-gray-500 mt-0.5">
                   {filteredRows.length.toLocaleString()} of {csvData.rowCount.toLocaleString()} rows
                   &nbsp;·&nbsp; {csvData.headers.length} columns
                   {activeFilterCount > 0 && (
-                    <span className="text-indigo-400 ml-2">
+                    <span className="text-green-600 ml-2">
                       · {activeFilterCount} filter{activeFilterCount > 1 ? "s" : ""} active
                     </span>
                   )}
@@ -309,14 +309,14 @@ export default function Dashboard() {
               </div>
               <button
                 onClick={() => { setCsvData(null); setNarrative(null); setShareUrl(null); setFilters({}); }}
-                className="text-xs text-slate-500 hover:text-slate-300 shrink-0"
+                className="text-xs text-gray-400 hover:text-gray-700 shrink-0"
               >
                 ↑ Upload new file
               </button>
             </div>
 
             {error && (
-              <div className="mb-4 px-4 py-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm">
+              <div className="mb-4 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
                 {error}
               </div>
             )}
@@ -338,9 +338,9 @@ export default function Dashboard() {
 
             {/* Column grid */}
             {filteredRows.length === 0 ? (
-              <div className="text-center py-20 text-slate-500">
+              <div className="text-center py-20 text-gray-400">
                 No rows match the current filters.
-                <button onClick={() => setFilters({})} className="block mx-auto mt-2 text-indigo-400 text-sm hover:text-indigo-300">
+                <button onClick={() => setFilters({})} className="block mx-auto mt-2 text-green-600 text-sm hover:text-green-700">
                   Clear filters
                 </button>
               </div>
