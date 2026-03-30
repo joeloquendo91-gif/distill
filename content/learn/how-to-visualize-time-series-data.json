@@ -1,0 +1,65 @@
+{
+  "intro": "If you have data that changes over time, a time series chart is the clearest way to show what's happening. Whether you're tracking daily sales, monthly signups, or weekly server load, the pattern only becomes obvious when you plot it on a timeline. The fastest way to visualize time series data is to upload your CSV to Distill and let it auto-generate the chart for you.",
+
+  "whatIs": {
+    "heading": "What Is a Time Series Chart?",
+    "body": "A time series chart plots data points in chronological order, with time on the horizontal axis and a measured value on the vertical axis. It works best when your dataset has a date or timestamp column paired with at least one numeric column. Line charts are the most common format, though area charts and bar charts are also used depending on whether you want to emphasize flow or individual periods."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Time Series Chart?",
+    "bullets": [
+      "You want to show how a metric changes over days, weeks, months, or years, such as revenue or user growth.",
+      "You need to spot trends, cycles, or seasonal patterns in your data over a continuous period.",
+      "You are comparing how two or more metrics evolved across the same time range, such as traffic versus conversions."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Time Series Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel. Make sure one column contains dates and at least one column contains numeric values.",
+      "Select the date column and the value column(s) together. Hold Ctrl to select non-adjacent columns.",
+      "Go to the Insert tab and click the Line Chart icon. Choose 'Line with Markers' or plain 'Line' depending on preference.",
+      "Excel will insert a chart. If the date column did not land on the horizontal axis automatically, right-click the chart and choose 'Select Data', then move the date column to the Horizontal Axis Labels box.",
+      "Format the date axis by right-clicking it and choosing 'Format Axis'. Set the minimum and maximum bounds if the default range is too wide.",
+      "Add a chart title and axis labels using the Chart Design tab, then save your file."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Time Series Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV into Google Sheets via File > Import. Choose 'Replace current sheet' or create a new one.",
+      "Confirm that your date column is formatted as a date. Select the column, then go to Format > Number > Date.",
+      "Highlight the date column and the value column(s) you want to chart.",
+      "Click Insert > Chart. Google Sheets will usually auto-detect a time series and default to a line chart.",
+      "In the Chart Editor panel on the right, switch the chart type to 'Line chart' if it picked something else. Check that the X-axis shows your date column.",
+      "Edit the chart title and axis labels in the Customize tab of the Chart Editor, then close the panel."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Distill removes the setup entirely. You upload your CSV, and it automatically detects date columns, pairs them with numeric values, and renders a time series chart on the spot. There is no need to format axes, adjust date types, or configure a chart editor. You get the visualization in seconds, along with an AI-written summary that describes the trend in plain language. The free tier supports CSV files up to 1,000 rows with no account required, so you can go from raw data to a shareable chart without touching a spreadsheet."
+  },
+
+  "gifAlt": "A screen recording of a CSV file with date and value columns being dragged into Distill, which instantly renders a time series line chart with a trend summary below it.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles time series charts well and is free to use. Distill is another option that requires no spreadsheet setup at all. Just upload your CSV and it builds the chart automatically."
+    },
+    {
+      "q": "What date formats work best for time series charts?",
+      "a": "ISO 8601 format (YYYY-MM-DD) is the most reliable across all tools. Excel and Google Sheets can parse most common formats like MM/DD/YYYY, but inconsistent formats in a column will cause parsing errors. Distill auto-detects common date formats and handles mixed formats gracefully."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
