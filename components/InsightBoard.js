@@ -20,13 +20,13 @@ export default function InsightBoard({
     <div>
       {/* Anomaly banner */}
       {anomalyColumns.length > 0 && (
-        <div className="mb-5 px-4 py-3 bg-amber-950/30 border border-amber-700/30 rounded-xl">
-          <p className="text-amber-400 text-sm font-semibold mb-1.5">
+        <div className="mb-5 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl">
+          <p className="text-amber-800 text-sm font-semibold mb-1.5">
             ⚠ {anomalyColumns.length} anomal{anomalyColumns.length > 1 ? "ies" : "y"} detected
           </p>
           <ul className="space-y-1">
             {anomalyColumns.map((c) => (
-              <li key={c.name} className="text-amber-300/80 text-xs leading-relaxed">
+              <li key={c.name} className="text-amber-700 text-xs leading-relaxed">
                 <span className="font-medium">{c.name}:</span> {c.anomaly.description}
               </li>
             ))}
@@ -39,11 +39,11 @@ export default function InsightBoard({
         {topColumns.map((col) => (
           <div key={col.name} className="flex flex-col gap-2">
             {/* AI insight sentence */}
-            <p className="text-sm text-gray-200 leading-relaxed px-1">
-              <span className="text-green-400 font-semibold">✦</span>{" "}
+            <p className="text-sm text-gray-700 leading-relaxed px-1">
+              <span className="text-green-600 font-semibold">✦</span>{" "}
               {generateInsightSentence(col)}
               {col.anomaly && (
-                <span className="ml-1.5 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-amber-950/50 text-amber-400 rounded text-[10px] font-medium border border-amber-700/40 align-middle">
+                <span className="ml-1.5 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded text-[10px] font-medium border border-amber-200 align-middle">
                   ⚠ anomaly
                 </span>
               )}

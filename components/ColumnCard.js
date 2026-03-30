@@ -17,13 +17,13 @@ const TYPE_LABELS = {
 };
 
 const TYPE_BADGE = {
-  [COL_TYPES.CATEGORICAL]:  "bg-indigo-500/15 text-indigo-400",
-  [COL_TYPES.NUMERIC]:      "bg-violet-500/15 text-violet-400",
-  [COL_TYPES.DATE]:         "bg-cyan-500/15 text-cyan-400",
-  [COL_TYPES.LIKERT_NUM]:   "bg-amber-500/15 text-amber-400",
-  [COL_TYPES.LIKERT_TEXT]:  "bg-amber-500/15 text-amber-400",
-  [COL_TYPES.TEXT]:         "bg-rose-500/15 text-rose-400",
-  [COL_TYPES.MULTI_SELECT]: "bg-emerald-500/15 text-emerald-400",
+  [COL_TYPES.CATEGORICAL]:  "bg-indigo-50 text-indigo-600",
+  [COL_TYPES.NUMERIC]:      "bg-violet-50 text-violet-600",
+  [COL_TYPES.DATE]:         "bg-cyan-50 text-cyan-700",
+  [COL_TYPES.LIKERT_NUM]:   "bg-amber-50 text-amber-700",
+  [COL_TYPES.LIKERT_TEXT]:  "bg-amber-50 text-amber-700",
+  [COL_TYPES.TEXT]:         "bg-rose-50 text-rose-600",
+  [COL_TYPES.MULTI_SELECT]: "bg-emerald-50 text-emerald-700",
 };
 
 const CAT_PALETTE = [
@@ -51,10 +51,10 @@ function Tooltip$({ active, payload, label }) {
   if (!active || !payload?.[0]) return null;
   const d = payload[0].payload;
   return (
-    <div className="bg-[#1e1e35] border border-white/10 rounded-lg px-3 py-2 text-xs shadow-xl">
-      <p className="text-white font-medium mb-0.5 max-w-[180px] break-words">{d.fullLabel || label}</p>
-      <p className="text-gray-400">{payload[0].value?.toLocaleString()} responses</p>
-      {d.pct !== undefined && <p className="text-gray-500">{d.pct}%</p>}
+    <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs shadow-lg">
+      <p className="text-gray-900 font-medium mb-0.5 max-w-[180px] break-words">{d.fullLabel || label}</p>
+      <p className="text-gray-500">{payload[0].value?.toLocaleString()} responses</p>
+      {d.pct !== undefined && <p className="text-gray-400">{d.pct}%</p>}
     </div>
   );
 }
@@ -144,7 +144,7 @@ function CategoricalChart({ chartData }) {
   return (
     <ResponsiveContainer width="100%" height={150}>
       <BarChart data={chartData} margin={{ top: 4, right: 0, bottom: 0, left: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
+        <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
         <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
         <YAxis hide />
         <Tooltip content={<Tooltip$ />} />
@@ -163,16 +163,16 @@ function NumericChart({ column }) {
       {stats && (
         <div className="grid grid-cols-3 gap-1.5 mb-3">
           {[["Mean", stats.mean], ["Median", stats.median], ["Std dev", stats.stddev]].map(([lbl, val]) => (
-            <div key={lbl} className="bg-white/6 rounded-lg p-2 text-center">
+            <div key={lbl} className="bg-gray-50 rounded-lg p-2 text-center">
               <div className="text-[10px] text-gray-500">{lbl}</div>
-              <div className="text-xs font-semibold text-white mt-0.5">{val?.toLocaleString()}</div>
+              <div className="text-xs font-semibold text-gray-900 mt-0.5">{val?.toLocaleString()}</div>
             </div>
           ))}
         </div>
       )}
       <ResponsiveContainer width="100%" height={130}>
         <BarChart data={chartData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
           <XAxis dataKey="label" hide />
           <YAxis hide />
           <Tooltip content={<Tooltip$ />} />
@@ -194,7 +194,7 @@ function DateChart({ chartData }) {
             <stop offset="95%" stopColor="#06b6d4" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
+        <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
         <XAxis
           dataKey="label"
           tick={{ fontSize: 9, fill: "#9ca3af" }}
@@ -216,8 +216,8 @@ function LikertChart({ column }) {
     <>
       {avg !== undefined && (
         <div className="flex items-baseline gap-1.5 mb-2">
-          <span className="text-2xl font-bold text-white">{avg}</span>
-          <span className="text-gray-400 text-sm">/ {scaleMax || chartData.length}</span>
+          <span className="text-2xl font-bold text-gray-900">{avg}</span>
+          <span className="text-gray-500 text-sm">/ {scaleMax || chartData.length}</span>
           <span className="text-xs text-gray-400 ml-1">avg</span>
         </div>
       )}
@@ -325,11 +325,11 @@ export default function ColumnCard({
   const canBreakdown = BREAKDOWN_TYPES.has(type) && groupableColumns.length > 0;
 
   return (
-    <div className="bg-[#16162a] border border-white/8 rounded-2xl p-5 hover:shadow-xl hover:shadow-black/30 hover:border-white/15 transition-all flex flex-col">
+    <div className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md hover:border-gray-200 transition-all flex flex-col">
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-1">
         <div className="flex-1 min-w-0">
-          <h3 className="text-sm font-semibold text-white leading-snug truncate" title={name}>
+          <h3 className="text-sm font-semibold text-gray-900 leading-snug truncate" title={name}>
             {name}
           </h3>
           {column.reconDescription && (
@@ -343,14 +343,14 @@ export default function ColumnCard({
             value={type}
             onChange={(e) => onTypeChange(e.target.value)}
             title="Change detected type"
-            className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 font-medium cursor-pointer border-0 outline-none bg-transparent ${TYPE_BADGE[type] || "bg-white/8 text-gray-400"}`}
+            className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 font-medium cursor-pointer border-0 outline-none bg-transparent ${TYPE_BADGE[type] || "bg-gray-100 text-gray-500"}`}
           >
             {Object.entries(TYPE_LABELS).map(([val, label]) => (
               <option key={val} value={val}>{label}</option>
             ))}
           </select>
         ) : (
-          <span className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 font-medium ${TYPE_BADGE[type] || "bg-white/8 text-gray-400"}`}>
+          <span className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 font-medium ${TYPE_BADGE[type] || "bg-gray-100 text-gray-500"}`}>
             {TYPE_LABELS[type] || type}
           </span>
         )}
@@ -360,7 +360,7 @@ export default function ColumnCard({
       <div className="flex items-center gap-3 mb-4 text-[11px] mt-2">
         <span className="text-gray-400">{totalCount.toLocaleString()} responses</span>
         {emptyCount > 0 && (
-          <span className="text-amber-400">{emptyCount} missing</span>
+          <span className="text-amber-600">{emptyCount} missing</span>
         )}
         {completeness < 100 && (
           <span className="text-gray-500">{completeness}% complete</span>
@@ -378,7 +378,7 @@ export default function ColumnCard({
             No data for this combination
           </div>
         ) : !hasData ? (
-          <div className="h-24 flex items-center justify-center text-gray-600 text-xs">
+          <div className="h-24 flex items-center justify-center text-gray-400 text-xs">
             No data to display
           </div>
         ) : type === COL_TYPES.CATEGORICAL || type === COL_TYPES.MULTI_SELECT ? (
@@ -441,7 +441,7 @@ export default function ColumnCard({
       )}
 
       {/* Footer stats */}
-      <div className={`${canBreakdown ? "mt-2" : "mt-4"} pt-3 border-t border-white/8 flex items-center justify-between text-[11px] text-gray-500`}>
+      <div className={`${canBreakdown ? "mt-2" : "mt-4"} pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500`}>
         {(type === COL_TYPES.CATEGORICAL || type === COL_TYPES.MULTI_SELECT) && (
           <>
             <span>{(column.uniqueCount || 0).toLocaleString()} unique values</span>
