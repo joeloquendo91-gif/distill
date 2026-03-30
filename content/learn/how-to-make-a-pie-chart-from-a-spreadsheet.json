@@ -1,0 +1,58 @@
+{
+  "intro": "You have category data in a spreadsheet and you want to show how each slice compares to the whole. Making a pie chart from a spreadsheet should take seconds, not a frustrating detour through menus and formatting options. The fastest way is to upload your CSV to Distill and get a polished pie chart instantly, but we will also walk through how to do it in Excel and Google Sheets.",
+  "whatIs": {
+    "heading": "What Is a Pie Chart?",
+    "body": "A pie chart is a circular graph divided into slices, where each slice represents a category's proportion of the total. It works best when you have one set of categories that add up to 100%, like budget allocations, market share, or survey responses. Keep the number of slices under seven or eight. Beyond that, the chart becomes hard to read."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Pie Chart?",
+    "bullets": [
+      "When you want to show how a total breaks down into a small number of categories, such as revenue by product line.",
+      "When your audience needs a quick, visual sense of proportion rather than exact values.",
+      "When comparing parts of a whole at a single point in time, like the percentage of survey respondents who chose each answer."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a Pie Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet and make sure your data has two columns: one for category names and one for their values.",
+      "Select both columns, including the header row.",
+      "Go to the Insert tab in the ribbon at the top of the screen.",
+      "Click the pie chart icon in the Charts group and choose a style. The basic 2-D pie is usually the clearest option.",
+      "Excel will drop a chart onto your sheet. Click the chart title to rename it to something descriptive.",
+      "Right-click any slice and select Add Data Labels if you want percentages or values displayed on each slice."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a Pie Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your Google Sheet and confirm your data is organized in two columns: categories and values.",
+      "Highlight both columns, including headers.",
+      "Click Insert in the top menu, then select Chart.",
+      "Google Sheets will suggest a chart type. If it does not default to a pie chart, open the Chart editor sidebar and change the Chart type to Pie chart.",
+      "Use the Customize tab in the Chart editor to add a title, adjust colors, or toggle data labels on.",
+      "Click the three-dot menu on the chart to download it as a PNG or PDF, or share the sheet directly."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you would rather skip the clicking and formatting, upload your CSV to Distill. It reads your data, detects the structure, and auto-generates pie charts along with other relevant chart types in seconds. You also get an AI-written narrative that explains what the data shows, plus a shareable dashboard you can send to anyone with a link. No software to install, no formulas to write. Just drop the file and review the results."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which automatically generates a pie chart from the spreadsheet data within seconds.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets is a free browser-based option that handles pie charts well. You can also use Distill, which skips the manual chart-building entirely. Just upload a CSV and it generates pie charts and other visuals automatically."
+    },
+    {
+      "q": "How many slices can a pie chart have before it becomes confusing?",
+      "a": "Most readability guidelines suggest keeping it to six or seven slices at most. If you have more categories, consider grouping the smallest ones into an \"Other\" slice. For data with many categories, a bar chart is often a better choice."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

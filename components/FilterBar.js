@@ -32,17 +32,17 @@ function FilterDropdown({ column, selected, onChange }) {
       <button
         onClick={() => setOpen((o) => !o)}
         className={`
-          flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
+          flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium
           border transition-colors whitespace-nowrap
           ${activeCount > 0
-            ? "border-indigo-500 bg-indigo-500/15 text-indigo-300"
-            : "border-white/10 bg-white/5 text-slate-300 hover:border-white/20"
+            ? "border-green-500/60 bg-green-500/15 text-green-400"
+            : "border-white/10 bg-white/6 text-gray-300 hover:border-white/20"
           }
         `}
       >
         <span className="truncate max-w-[100px]">{column.name}</span>
         {activeCount > 0 && (
-          <span className="bg-indigo-500 text-white rounded-full px-1.5 py-0.5 text-[10px] leading-none">
+          <span className="bg-green-500 text-white rounded-full px-1.5 py-0.5 text-[10px] leading-none">
             {activeCount}
           </span>
         )}
@@ -52,23 +52,23 @@ function FilterDropdown({ column, selected, onChange }) {
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 z-50 bg-gray-900 border border-white/10 rounded-xl shadow-2xl p-2 min-w-[180px] max-h-64 overflow-y-auto">
+        <div className="absolute top-full left-0 mt-1 z-50 bg-[#1e1e35] border border-white/10 rounded-xl shadow-xl shadow-black/50 p-2 min-w-[180px] max-h-64 overflow-y-auto">
           {values.slice(0, 50).map((val) => (
             <label
               key={val}
-              className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-white/5 cursor-pointer"
+              className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-white/6 cursor-pointer"
             >
               <input
                 type="checkbox"
                 checked={selected?.includes(val) || false}
                 onChange={() => toggle(val)}
-                className="accent-indigo-500 w-3.5 h-3.5"
+                className="accent-green-500 w-3.5 h-3.5"
               />
-              <span className="text-xs text-slate-300 truncate">{val}</span>
+              <span className="text-xs text-gray-300 truncate">{val}</span>
             </label>
           ))}
           {values.length > 50 && (
-            <p className="text-xs text-slate-500 px-2 py-1">+{values.length - 50} more values</p>
+            <p className="text-xs text-gray-500 px-2 py-1">+{values.length - 50} more values</p>
           )}
         </div>
       )}
@@ -81,7 +81,7 @@ export default function FilterBar({ columns, filters, onFilterChange, onClear })
 
   return (
     <div className="flex items-center gap-2 mb-6 flex-wrap">
-      <span className="text-xs text-slate-500 shrink-0">Filter by:</span>
+      <span className="text-xs text-gray-500 shrink-0">Filter by:</span>
       {columns.map((col) => (
         <FilterDropdown
           key={col.name}
@@ -93,7 +93,7 @@ export default function FilterBar({ columns, filters, onFilterChange, onClear })
       {activeCount > 0 && (
         <button
           onClick={onClear}
-          className="text-xs text-slate-500 hover:text-slate-300 ml-1"
+          className="text-xs text-gray-500 hover:text-gray-300 ml-1"
         >
           Clear all
         </button>

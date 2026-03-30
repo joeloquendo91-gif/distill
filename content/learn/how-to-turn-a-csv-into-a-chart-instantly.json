@@ -1,0 +1,58 @@
+{
+  "intro": "You have a CSV file full of data and you need a chart. You don't want to spend fifteen minutes fiddling with Excel's chart wizard or wrestling with axis labels. The fastest way to turn a CSV into a chart is to upload the file to a tool that reads your data and builds the visual for you, which is exactly what Distill does.",
+  "whatIs": {
+    "heading": "What Is a CSV-to-Chart Workflow?",
+    "body": "A CSV-to-chart workflow is any process that takes raw tabular data stored in a .csv file and produces a visual chart from it. This can mean a bar chart, line chart, scatter plot, pie chart, or any other standard visualization. It works best when your CSV has clean column headers and structured rows, like sales figures by month, survey responses by category, or website traffic over time."
+  },
+  "whenToUse": {
+    "heading": "When Should You Turn a CSV into a Chart?",
+    "bullets": [
+      "You pulled an export from a database, CRM, or analytics tool and need to present the numbers in a meeting within the hour.",
+      "You're writing a report or blog post and want a quick visual to support a specific data point without building a full dashboard.",
+      "A teammate sent you a CSV and you need to spot trends or outliers before deciding on next steps."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Turn a CSV into a Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open Excel. Go to File > Open and select your .csv file. Excel will parse the columns automatically.",
+      "Review the data. Make sure column headers are in Row 1 and there are no blank rows or merged cells that could confuse the chart engine.",
+      "Select the data range you want to chart. Click and drag from the top-left header cell to the bottom-right data cell.",
+      "Go to the Insert tab on the ribbon. In the Charts group, click Recommended Charts. Excel will suggest chart types based on your data shape.",
+      "Pick a chart type. Bar and column charts work well for categories. Line charts suit time series. Click OK to insert the chart.",
+      "Customize the chart. Click on the chart title to rename it. Use the Chart Design tab to change colors, add data labels, or switch the axis layout."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Turn a CSV into a Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Go to Google Sheets and open a new spreadsheet. Click File > Import, then upload your .csv file.",
+      "In the import dialog, choose 'Replace spreadsheet' and set the separator type to 'Detect automatically.' Click Import data.",
+      "Check that your headers and data look correct. Fix any columns that were split or merged incorrectly.",
+      "Select the range of data you want to visualize. Include the header row.",
+      "Click Insert > Chart. Google Sheets will open the Chart Editor sidebar and suggest a chart type based on your selection.",
+      "Use the Chart Editor to change the chart type, edit axis titles, adjust colors, or switch rows and columns. Close the editor when you're done."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you don't want to open a spreadsheet app, select ranges, and configure chart options by hand, Distill handles the entire process for you. Upload your CSV and Distill reads the column types, picks appropriate chart formats, and generates visualizations automatically. It also writes a plain-language narrative explaining what the data shows, so you get both the chart and the story in one step. The result is a shareable dashboard you can send to your team or embed in a report. No formatting, no fiddling, no chart wizard menus."
+  },
+  "gifAlt": "Screen recording showing a CSV file being dragged into Distill, followed by auto-generated bar charts, line charts, and a written data summary appearing on a shareable dashboard.",
+  "faqs": [
+    {
+      "q": "Can I turn a CSV into a chart without Excel?",
+      "a": "Yes. Google Sheets is a free browser-based option that handles CSV imports and chart creation. Distill is another alternative that skips the manual steps entirely. You upload your CSV and it generates charts and narratives automatically."
+    },
+    {
+      "q": "What chart type should I use for my CSV data?",
+      "a": "It depends on what your columns represent. Use a line chart for data over time, a bar chart for comparing categories, and a scatter plot for showing relationships between two numeric variables. If you're unsure, tools like Distill will analyze your columns and suggest the best chart type for you."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

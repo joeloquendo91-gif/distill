@@ -1,0 +1,58 @@
+{
+  "intro": "A single unusual spike or dip in your monthly revenue can hide a pricing error, a fraud pattern, or a broken tracking script. The faster you spot anomalies in sales data, the faster you fix the root cause and stop losing money. Distill lets you upload a CSV and get auto-generated charts that make outliers visible in seconds, no formulas required.",
+  "whatIs": {
+    "heading": "What Is an Anomaly in Sales Data?",
+    "body": "An anomaly is any data point that falls significantly outside the expected pattern. In sales data, that could be an order total ten times higher than average, a day with zero transactions during peak season, or a sudden shift in return rates. Anomalies show up most clearly in time-series data, transaction logs, and revenue breakdowns by region or product."
+  },
+  "whenToUse": {
+    "heading": "When Should You Look for Sales Anomalies?",
+    "bullets": [
+      "During monthly or quarterly reviews, when you compare actual revenue against forecasts and need to explain variances.",
+      "After launching a new promotion or price change, to confirm the impact matches expectations and catch unintended side effects.",
+      "When onboarding a new data source or CRM integration, to verify that records are syncing correctly and no duplicate or missing transactions exist."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Spot Anomalies in Sales Data Using Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your sales CSV in Excel. Make sure each row is a transaction or a time period, with columns for date, amount, product, and any other dimensions you care about.",
+      "Sort your data by date. Then create a new column that calculates a rolling average. For example, in cell E2 enter =AVERAGE(D2:D31) to get a 30-day moving average of the amount column.",
+      "Add another column for standard deviation using =STDEV(D2:D31). This gives you a measure of how spread out the values are.",
+      "Flag anomalies by creating a column with a formula like =IF(ABS(D2-E2)>2*F2,\"Anomaly\",\"\"). This marks any value more than two standard deviations from the rolling average.",
+      "Select your date and amount columns, then insert a line chart. Add the rolling average as a second series so you can visually compare actual values against the trend.",
+      "Highlight flagged anomalies on the chart by adding data labels or conditional formatting to the flagged rows. Review each one to determine if it is a real issue or an expected outlier."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Spot Anomalies in Sales Data Using Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV into Google Sheets using File > Import. Confirm the date and numeric columns parsed correctly.",
+      "Sort the sheet by date (Data > Sort sheet > Sort by date column, A to Z).",
+      "In a new column, calculate a rolling average with =AVERAGE(D2:D31). Drag the formula down for every row.",
+      "In the next column, calculate rolling standard deviation with =STDEV(D2:D31). Drag it down to match.",
+      "Add an anomaly flag column: =IF(ABS(D2-E2)>2*F2,\"Anomaly\",\"\"). This labels values that deviate sharply from the trend.",
+      "Select the date, amount, and rolling average columns. Insert a chart (Insert > Chart), choose a line chart, and scan for points that jump away from the average line. Cross-reference those with your flag column."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If building rolling averages and standard deviation columns sounds tedious, Distill handles it for you. Upload your sales CSV and Distill auto-generates time-series charts, summary statistics, and AI-written narratives that call out unusual patterns in plain language. Outliers that would take twenty minutes of formula work to identify show up the moment your file finishes uploading. The free tier supports files up to 1,000 rows, so you can test it on real data without any commitment."
+  },
+  "gifAlt": "Screen recording showing a sales CSV being uploaded to Distill, which instantly generates a time-series line chart with anomalous data points highlighted and an AI-written narrative describing the outliers.",
+  "faqs": [
+    {
+      "q": "Can I spot anomalies without Excel?",
+      "a": "Yes. Google Sheets supports the same rolling average and standard deviation formulas described above. You can also use Distill, which skips formulas entirely and flags outliers automatically when you upload a CSV."
+    },
+    {
+      "q": "How do I choose the right threshold for flagging an anomaly?",
+      "a": "Two standard deviations from the mean is a common starting point. It catches roughly the top and bottom 5% of values. If your data is highly variable or seasonal, you may want to use three standard deviations to reduce false positives, or apply the threshold to a seasonally adjusted baseline instead of a simple rolling average."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+deal_id,revenue,stage,close_date,satisfaction_score,sales_rep,region,deal_notes,products
+1001,7200,Prospecting,2024-01-10,3,Alice,North,Initial outreach went well, client interested in demo,CRM Software,Analytics Dashboard
+1002,5400,Prospecting,2024-01-22,2,Bob,South,Left voicemail, following up next week,Email Tool
+1003,8100,Prospecting,2024-02-08,2,Carol,East,Sent proposal deck, waiting on procurement approval,CRM Software,API Access
+1004,6700,Discovery,2024-02-19,3,David,West,Qualified lead, budget confirmed for Q2,Analytics Dashboard,Support Package
+1005,9200,Prospecting,2024-03-01,1,Alice,North,Responded to inbound inquiry from website,CRM Software
+1006,5800,Prospecting,2024-03-02,2,Bob,South,Referred by existing customer, needs full demo,Training,Email Tool
+1007,7600,Prospecting,2024-03-03,3,Emma,East,Early stage conversation, identified key stakeholders,CRM Software,Analytics Dashboard
+1008,8400,Prospecting,2024-03-04,2,Alice,West,Competitive deal, also evaluating two other vendors,API Access
+1009,6300,Prospecting,2024-03-05,1,Carol,North,Cold outreach responded positively,CRM Software,Support Package
+1010,9500,Prospecting,2024-03-06,2,David,South,Requested pricing for enterprise tier,Analytics Dashboard
+1011,7100,Proposal,2024-03-07,3,Emma,East,Proposal submitted, follow-up scheduled for Friday,CRM Software,Training
+1012,5600,Prospecting,2024-03-08,1,Bob,West,Initial call completed, pain points identified,Email Tool,API Access
+1013,8800,Prospecting,2024-03-09,2,Alice,North,Budget holder confirmed, moving to next stage soon,CRM Software
+1014,6900,Prospecting,2024-03-10,2,Carol,South,Contract template shared with legal team,Analytics Dashboard,Support Package
+1015,7400,Prospecting,2024-03-11,1,David,East,Decision expected by end of month,CRM Software,Email Tool
+1016,9100,Discovery,2024-03-12,3,Emma,West,Technical requirements call completed successfully,API Access,Training
+1017,5300,Prospecting,2024-03-13,2,Alice,North,Sent case studies relevant to their industry,CRM Software
+1018,8600,Prospecting,2024-03-14,1,Bob,South,Champion identified, setting up executive meeting,Analytics Dashboard
+1019,7800,Prospecting,2024-03-15,2,Carol,East,Positive momentum, deal progressing well,CRM Software,Support Package
+1020,6100,Prospecting,2024-03-16,1,David,West,Procurement kicked off evaluation process,Email Tool
+1021,9700,Negotiation,2024-03-17,3,Emma,North,Legal review in progress, minor redlines,CRM Software,API Access,Training
+1022,5900,Prospecting,2024-03-18,2,Alice,South,Demo completed, strong positive feedback,Analytics Dashboard
+1023,8200,Prospecting,2024-03-19,1,Bob,East,Waiting on internal sign-off from VP,CRM Software,Email Tool
+1024,7000,Prospecting,2024-03-20,2,Carol,West,Follow-up meeting scheduled next week,Support Package
+1025,9400,Proposal,2024-03-21,3,David,North,Custom proposal drafted based on requirements,CRM Software,Analytics Dashboard
+1026,6500,Prospecting,2024-03-22,1,Emma,South,Sent ROI calculator, client reviewing numbers,Training
+1027,8000,Prospecting,2024-03-23,2,Alice,East,Verbal commitment received pending board approval,CRM Software,API Access
+1028,7300,Discovery,2024-03-24,1,Bob,West,Full discovery session completed, recording shared,Analytics Dashboard,Email Tool
+1029,5700,Prospecting,2024-03-25,2,Carol,North,Introductory call booked for next Tuesday,CRM Software
+1030,9800,Prospecting,2024-03-26,1,David,South,Request for references sent to three customers,Support Package,Training
+1031,6800,Prospecting,2024-03-27,3,Emma,East,Stakeholder mapping completed,CRM Software,Analytics Dashboard
+1032,8300,Prospecting,2024-03-28,2,Alice,West,Trial account set up, usage tracking active,API Access
+1033,7500,Negotiation,2024-03-29,1,Bob,North,Final pricing discussion underway,CRM Software,Email Tool
+1034,5100,Prospecting,2024-03-30,2,Carol,South,Budget cycle opens next quarter,Training
+1035,95000,Closed Won,2024-04-05,9,David,West,Enterprise deal signed — full platform license,CRM Software,Analytics Dashboard,API Access,Support Package,Training
+1036,6200,Prospecting,2024-04-17,2,Emma,North,Sent follow-up after trade show meeting,CRM Software
+1037,8700,Prospecting,2024-04-28,1,Alice,South,Reengaging after a 6-week silence,Email Tool,Analytics Dashboard
+1038,7900,Prospecting,2024-05-03,2,Bob,East,Responded to newsletter lead magnet,CRM Software,Support Package
+1039,5500,Discovery,2024-05-14,3,Carol,West,Requirements workshop scheduled for next month,API Access,Training
+1040,9300,Prospecting,2024-05-25,1,David,North,Long sales cycle expected, 6 months to close,CRM Software,Analytics Dashboard

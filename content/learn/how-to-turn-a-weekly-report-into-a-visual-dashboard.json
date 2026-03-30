@@ -1,0 +1,58 @@
+{
+  "intro": "Most weekly reports are flat tables buried in email threads. Nobody reads them carefully, and the trends they contain go unnoticed. Turning your weekly report into a visual dashboard fixes that problem fast, and tools like Distill make the conversion almost instant by generating charts from a simple CSV upload.",
+  "whatIs": {
+    "heading": "What Is a Weekly Report Visual Dashboard?",
+    "body": "A weekly report visual dashboard is a collection of charts and summaries that represent the same data you would normally share in a spreadsheet or email table. Instead of rows and columns, your audience sees bar charts, line graphs, and key metrics at a glance. It works best with structured, recurring data like sales figures, support tickets, marketing performance, or project status updates."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Weekly Report Visual Dashboard?",
+    "bullets": [
+      "When your team skims or ignores the spreadsheet you send every Monday morning.",
+      "When leadership wants a quick status overview without reading through rows of numbers.",
+      "When you need to spot trends across weeks, like declining response times or rising costs, and a flat table makes that difficult."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Turn a Weekly Report into a Visual Dashboard in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your weekly report spreadsheet and make sure each column has a clear header (Date, Metric, Value, Category, etc.).",
+      "Select the data range you want to visualize. Include headers but exclude any summary rows at the bottom.",
+      "Go to Insert > Chart and pick a chart type. Line charts work well for trends over time. Bar charts work for comparing categories.",
+      "Repeat the process for each metric you want to display. Create one chart per key metric to keep things readable.",
+      "Move all charts to a new sheet. Right-click each chart, select Move Chart, and choose a dedicated 'Dashboard' sheet.",
+      "Arrange the charts on the Dashboard sheet so the most important metric sits at the top left. Resize them so everything fits on one screen."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Turn a Weekly Report into a Visual Dashboard in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your weekly report in Google Sheets and confirm your data has clean headers and consistent formatting.",
+      "Highlight the columns relevant to your first chart. For example, select Date and Revenue columns together.",
+      "Click Insert > Chart. Google Sheets will suggest a chart type. Switch to a line chart for time-based data or a bar chart for comparisons.",
+      "Use the Chart Editor sidebar to adjust titles, axis labels, and colors. Keep labels short and legible.",
+      "Create additional charts for each metric you report on. Place them all on a separate tab named 'Dashboard.'",
+      "Share the sheet with your team using the Share button. Set permissions to 'Viewer' so nobody accidentally edits the dashboard."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you already export your weekly report as a CSV, Distill can turn it into a visual dashboard in seconds. Upload the file and Distill auto-generates the right chart types based on your data structure. It also writes a plain-English narrative summarizing the key takeaways, so you get both the visuals and the story without building anything by hand. You can share the resulting dashboard with a link, which means no more attaching files or copying charts into slide decks."
+  },
+  "gifAlt": "Screen recording showing a weekly report CSV file being uploaded to Distill, which instantly generates a dashboard with line charts, bar charts, and an AI-written summary.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles the same workflow and is free to use. If you want to skip manual chart building entirely, Distill lets you upload a CSV and generates a full dashboard automatically. Both are solid alternatives depending on how much setup time you want to spend."
+    },
+    {
+      "q": "What chart types work best for a weekly report dashboard?",
+      "a": "Line charts are the best fit for showing how a metric changes week over week. Bar charts are useful when you compare categories, like performance across team members or regions. If you track progress toward a goal, a simple gauge or progress bar can round out the dashboard."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

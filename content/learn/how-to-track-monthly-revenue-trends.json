@@ -1,0 +1,58 @@
+{
+  "intro": "Revenue numbers in a spreadsheet tell you what happened. A trend line tells you what's happening. If you want to track monthly revenue trends without spending hours on formatting and formulas, the fastest path is uploading your CSV to Distill and getting charts plus written analysis in seconds.",
+  "whatIs": {
+    "heading": "What Is a Monthly Revenue Trend Chart?",
+    "body": "A monthly revenue trend chart is a line chart (or sometimes a bar chart) that plots total revenue on the Y-axis against each month on the X-axis. It makes it easy to spot growth, seasonal dips, and plateaus at a glance. It works best with time-series data where you have at least one column for the month or date and one column for revenue amounts."
+  },
+  "whenToUse": {
+    "heading": "When Should You Track Monthly Revenue Trends?",
+    "bullets": [
+      "When preparing board updates or investor reports that need a clear picture of revenue trajectory over the past 6 to 12 months.",
+      "When comparing revenue across product lines, regions, or customer segments to find which areas are growing or declining.",
+      "When planning budgets or forecasts and you need to understand seasonal patterns before setting targets for the next quarter."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Track Monthly Revenue Trends in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet and make sure you have two columns: one for the month (e.g., Jan 2024, Feb 2024) and one for revenue.",
+      "Select both columns, including headers.",
+      "Go to Insert > Charts and choose Line Chart (the one with markers works well for monthly data).",
+      "Excel will generate a basic chart. Click on the chart title and rename it to something descriptive like 'Monthly Revenue 2024.'",
+      "Right-click the horizontal axis, select Format Axis, and confirm the dates are in chronological order. Adjust the number format if months display incorrectly.",
+      "Add a trendline by clicking on the data series, then selecting Add Trendline > Linear to see the overall direction of your revenue."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Track Monthly Revenue Trends in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Enter or paste your data so column A contains months and column B contains revenue figures.",
+      "Highlight both columns from header to last row of data.",
+      "Click Insert > Chart. Google Sheets will usually suggest a line chart automatically.",
+      "In the Chart Editor sidebar, confirm the Chart type is set to Line chart. Check that your month column is the X-axis and revenue is the Series.",
+      "Under the Customize tab, edit the chart title, axis labels, and colors to make the chart easier to read.",
+      "To add a trendline, go to Customize > Series, scroll down, and check the Trendline box. Choose Linear for a simple direction indicator."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your revenue data already lives in a CSV file, Distill removes every manual step. Upload the file and Distill automatically detects your date and revenue columns, generates a trend chart, and writes a plain-English narrative explaining what the data shows. You can share the resulting dashboard with a link. No pivot tables, no axis formatting, no trendline menus. Just drop the file and get your answer."
+  },
+  "gifAlt": "Screen recording showing a CSV file with monthly revenue data being uploaded to Distill, which instantly generates a line chart displaying revenue trends over time.",
+  "faqs": [
+    {
+      "q": "Can I track monthly revenue trends without Excel?",
+      "a": "Yes. Google Sheets offers nearly identical charting features and is free with a Google account. Distill is another option that skips the chart-building entirely. You upload a CSV and get a trend chart plus a written summary automatically."
+    },
+    {
+      "q": "How many months of data do I need for a useful revenue trend?",
+      "a": "You can create a chart with as few as three months, but patterns become much clearer with 12 months or more. A full year of data lets you distinguish genuine growth from seasonal spikes. If you have multi-year data, you can also compare year-over-year performance."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

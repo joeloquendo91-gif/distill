@@ -1,0 +1,58 @@
+{
+  "intro": "Most people store their data in Excel, but static spreadsheets make it hard to spot trends or share findings. If you want to convert Excel data to interactive charts, you have a few options ranging from built-in Excel features to tools that do the work for you. The fastest path is exporting your spreadsheet as a CSV and uploading it to Distill, which auto-generates charts and narratives in seconds.",
+  "whatIs": {
+    "heading": "What Is an Interactive Chart?",
+    "body": "An interactive chart is a visual representation of data that lets viewers hover, filter, zoom, or click to explore the underlying numbers. Unlike a static image or printed graph, it responds to user input. Interactive charts work best with structured tabular data, like sales figures over time, survey responses, or any dataset with clear columns and rows."
+  },
+  "whenToUse": {
+    "heading": "When Should You Convert Excel Data to Interactive Charts?",
+    "bullets": [
+      "When you need to present quarterly results to stakeholders who want to filter by region, product, or time period.",
+      "When you are exploring a dataset yourself and want to visually compare categories or spot outliers faster than scanning rows.",
+      "When you need to share a dashboard with teammates who do not have Excel installed or prefer a browser-based view."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make Interactive Charts in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your workbook and make sure your data is in a clean table format with headers in the first row and no merged cells.",
+      "Select the full data range including headers. Go to the Insert tab on the ribbon.",
+      "Choose a chart type. For time series data, pick a line chart. For comparisons, try a bar or column chart. Excel will generate a basic chart on your sheet.",
+      "Click the chart, then use the Chart Design and Format tabs to adjust colors, labels, and axis titles.",
+      "To add interactivity, insert slicers. Go to Insert, then Slicer, and pick the columns you want as filters. Connect each slicer to your chart's underlying data table.",
+      "Save the file as an Excel workbook (.xlsx) to preserve interactivity. Note that exporting to PDF or image will remove all interactive features."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make Interactive Charts in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open Google Sheets and import your Excel file or paste your data so that each column has a clear header.",
+      "Select the data range you want to chart, including headers.",
+      "Go to Insert and click Chart. Google Sheets will suggest a chart type based on your data structure.",
+      "In the Chart Editor sidebar, switch between chart types, adjust the data range, and configure series options under the Setup tab.",
+      "Use the Customize tab to format axis labels, legend position, colors, and tooltips. Hover interactivity is enabled by default in Sheets charts.",
+      "Click the three-dot menu on the chart and select Publish chart to generate a shareable link or embed code for a webpage."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you would rather skip the formatting, chart selection, and configuration steps entirely, Distill handles all of it. Export your Excel file as a CSV, upload it to Distill, and the tool auto-generates interactive charts along with AI-written narratives that explain what your data shows. You get a shareable dashboard without touching a single chart setting. It is free for files up to 1,000 rows, and the whole process takes less time than reading through Excel's chart menu."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which then automatically generates multiple interactive charts and a written summary of the data.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets creates interactive charts natively and works entirely in your browser. You can also use Distill, which only requires a CSV file and produces interactive charts plus written analysis with no spreadsheet software needed."
+    },
+    {
+      "q": "Will my interactive charts still work if I share the file as a PDF?",
+      "a": "No. Exporting to PDF or any image format flattens the chart into a static picture. If you need recipients to interact with the data, share the original Excel file, a Google Sheets link, or a Distill dashboard URL instead."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

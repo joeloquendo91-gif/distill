@@ -1,0 +1,58 @@
+{
+  "intro": "Comparing products, regions, or time periods side by side is one of the most common tasks in any spreadsheet. A comparison chart in Excel makes those differences visible at a glance, but building one from scratch takes more clicks than most people expect. If you want the fastest path from raw data to a polished visual, there are better options than fiddling with Excel's chart menus.",
+  "whatIs": {
+    "heading": "What Is a Comparison Chart?",
+    "body": "A comparison chart places two or more data series next to each other so you can spot differences, trends, or rankings quickly. The most common format is a grouped bar or column chart, where each category has multiple bars sitting side by side. It works best when you have categorical data (like product names, departments, or cities) and want to compare a shared metric (like revenue, headcount, or satisfaction scores) across those categories."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Comparison Chart?",
+    "bullets": [
+      "You want to show how sales figures differ across multiple regions or stores for the same quarter.",
+      "You need to compare before-and-after results, like performance metrics before and after a process change.",
+      "You are presenting budget vs. actual spend across several departments to stakeholders who need a quick visual summary."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a Comparison Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Organize your data so that categories (like product names or months) are in the first column, and each data series you want to compare has its own column with a header.",
+      "Select the entire data range, including headers. For example, if you have three columns and ten rows of data, highlight all of them.",
+      "Go to the Insert tab on the ribbon. In the Charts group, click the Clustered Column or Clustered Bar icon. Excel will generate a grouped chart with one bar per series for each category.",
+      "Click the chart title to edit it. Give it something descriptive, like 'Q3 Revenue by Region' instead of the default label.",
+      "Right-click any bar series to open Format Data Series. Adjust colors so each series is easy to distinguish. Stick to two or three distinct colors.",
+      "Fine-tune the chart by adding data labels (click the plus icon next to the chart), adjusting axis titles, and removing gridlines if they add clutter. Then resize or move the chart to fit your report layout."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a Comparison Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Enter your data with categories in column A and each comparison series in columns B, C, and so on. Include headers in the first row.",
+      "Select the full data range. Click Insert in the top menu, then choose Chart.",
+      "Google Sheets will suggest a chart type. If it does not default to a grouped column chart, open the Chart editor panel on the right and change the Chart type to 'Column chart.'",
+      "In the Chart editor under the Customize tab, click Chart & axis titles to add a clear, descriptive title.",
+      "Under the Series section in the Customize tab, change the colors of each data series so they are visually distinct.",
+      "Add data labels by toggling them on in the Series section. Close the editor, then drag the chart to position it where you need it in your sheet."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you already have your data in a CSV file, Distill lets you skip all the formatting and menu hunting. Upload your file and Distill auto-generates comparison charts, along with other relevant chart types, in seconds. It also writes plain-language narratives that explain what the data shows, so you get a shareable dashboard without building anything by hand. For files up to 1,000 rows, it is completely free."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which instantly generates a grouped comparison chart and a written narrative summary.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets has built-in charting tools that handle comparison charts well and cost nothing. You can also use Distill, which auto-generates comparison charts the moment you upload a CSV, with no spreadsheet skills required."
+    },
+    {
+      "q": "What is the best chart type for comparing more than five categories?",
+      "a": "A clustered bar chart (horizontal) tends to work better than a column chart when you have many categories, because the labels are easier to read. If you have more than two data series on top of that, consider splitting into multiple charts to avoid visual overload."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

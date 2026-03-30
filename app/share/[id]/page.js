@@ -68,7 +68,7 @@ export default async function SharePage({ params }) {
         {/* Column grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {columns.map((col) => (
-            <ColumnCard key={col.name} column={col} onTypeChange={() => {}} />
+            <ColumnCard key={col.name} column={col} />
           ))}
         </div>
 

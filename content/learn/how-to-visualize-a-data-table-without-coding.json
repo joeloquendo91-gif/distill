@@ -1,0 +1,58 @@
+{
+  "intro": "You have a data table full of numbers, but staring at rows and columns tells you almost nothing. You need a chart, and you need it fast. The quickest way to visualize a data table without coding is to upload your CSV to a tool like Distill, which auto-generates charts and narratives in seconds.",
+  "whatIs": {
+    "heading": "What Is Data Table Visualization?",
+    "body": "Data table visualization is the process of converting structured rows and columns into charts, graphs, or dashboards that reveal patterns at a glance. It works with any tabular data: sales figures, survey responses, inventory counts, website metrics, or scientific measurements. The goal is to replace mental math with something your eyes can process instantly."
+  },
+  "whenToUse": {
+    "heading": "When Should You Visualize a Data Table?",
+    "bullets": [
+      "When you need to spot trends, outliers, or clusters that are invisible in raw numbers.",
+      "When you are preparing a report or presentation and need a clear visual summary for your audience.",
+      "When you want to compare categories, track changes over time, or show how parts relate to a whole."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Visualize a Data Table in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your data file in Excel. Make sure each column has a header in the first row.",
+      "Select the range of cells you want to chart, including the headers.",
+      "Go to the Insert tab on the ribbon and click Recommended Charts.",
+      "Browse the suggestions. Excel will propose bar charts, line charts, or pie charts based on your data shape.",
+      "Pick a chart type and click OK. The chart will appear on your worksheet.",
+      "Right-click the chart to adjust titles, colors, axis labels, and data series as needed."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Visualize a Data Table in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open or import your CSV file into Google Sheets.",
+      "Highlight the data range you want to visualize, including column headers.",
+      "Click Insert in the top menu, then select Chart.",
+      "Google Sheets will suggest a chart type in the Chart Editor panel on the right.",
+      "Use the Chart type dropdown to switch between bar, line, scatter, pie, or other options.",
+      "Customize titles, legend placement, colors, and gridlines in the Customize tab of the Chart Editor."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you would rather skip the selecting, formatting, and tweaking, Distill handles it all for you. Upload a CSV file and Distill instantly generates a set of relevant charts based on your data types and column relationships. It also writes plain-language narratives that explain what the charts show, so you get analysis alongside the visuals. You can share the entire dashboard with a link. No formulas, no formatting menus, no code."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which then automatically generates bar charts, line charts, and a summary dashboard from the data table.",
+  "faqs": [
+    {
+      "q": "Can I visualize a data table without Excel?",
+      "a": "Yes. Google Sheets is a free browser-based option that handles most of the same chart types. Distill is another alternative that requires even less effort. You upload a CSV and get auto-generated charts without selecting data ranges or configuring chart settings manually."
+    },
+    {
+      "q": "How do I choose the right chart type for my data table?",
+      "a": "It depends on what you want to show. Use bar or column charts to compare categories, line charts to show trends over time, scatter plots to reveal relationships between two numeric variables, and pie charts to display proportions of a whole. If you are unsure, tools like Distill analyze your columns and suggest appropriate chart types automatically."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

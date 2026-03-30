@@ -1,0 +1,58 @@
+{
+  "intro": "You have time-series data and need to spot patterns fast. A line chart to show trends is the most direct way to visualize how a metric changes over days, months, or years. The fastest option is to upload your CSV to Distill and get a trend chart generated for you in seconds.",
+  "whatIs": {
+    "heading": "What Is a Line Chart?",
+    "body": "A line chart plots data points along a horizontal time axis and connects them with a continuous line. It makes it easy to see direction, speed of change, and overall patterns in your data. Line charts work best with sequential or time-based data, such as monthly revenue, daily temperatures, or weekly signups."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Line Chart to Show Trends?",
+    "bullets": [
+      "You want to track how a single metric changes over a continuous time period, like quarterly sales over three years.",
+      "You need to compare trends across two or more categories on the same timeline, such as traffic from organic search versus paid ads.",
+      "You want to identify seasonal patterns, growth rates, or anomalies that are hard to spot in a raw data table."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a Line Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet and organize your data with dates or time periods in column A and your values in column B (and additional columns if comparing multiple series).",
+      "Select the entire data range, including headers.",
+      "Go to the Insert tab on the ribbon and click the Line Chart icon in the Charts group.",
+      "Choose the line chart subtype you want. A simple 2-D line works for most trend visualizations.",
+      "Click on the chart title to rename it to something descriptive, like 'Monthly Revenue 2023-2025.'",
+      "Right-click the axes or data series to format colors, add data labels, or adjust the axis scale for clarity."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a Line Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Enter or paste your data so that time values are in the first column and metric values are in the columns to the right.",
+      "Highlight the full data range, including headers.",
+      "Click Insert in the top menu, then select Chart.",
+      "In the Chart editor panel on the right, set the Chart type to Line chart.",
+      "Use the Customize tab to edit the chart title, axis labels, line colors, and legend position.",
+      "Click the three-dot menu on the chart to download it as a PNG or publish it to the web for sharing."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you would rather skip the formatting and configuration, Distill handles it for you. Upload your CSV and Distill automatically detects time-based columns, generates a line chart to show trends, writes a plain-English narrative explaining what the data means, and packages everything into a shareable dashboard. There is nothing to install, and the free tier covers files up to 1,000 rows."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which then automatically generates a line chart displaying trends over time.",
+  "faqs": [
+    {
+      "q": "Can I make a line chart without Excel?",
+      "a": "Yes. Google Sheets is a free browser-based option that supports line charts with similar functionality. You can also upload your CSV to Distill, which auto-generates charts and narratives without any manual chart setup."
+    },
+    {
+      "q": "How many data series can I plot on one line chart before it gets hard to read?",
+      "a": "A good rule of thumb is to keep it to five or fewer lines. Beyond that, the chart becomes cluttered and individual trends are difficult to distinguish. If you have more series, consider splitting them across multiple charts or using color grouping strategically."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

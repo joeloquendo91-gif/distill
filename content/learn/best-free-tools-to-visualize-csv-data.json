@@ -1,0 +1,58 @@
+{
+  "intro": "Most people working with CSV files just want a quick chart without fighting a spreadsheet for 20 minutes. The good news: several free tools to visualize CSV data now exist that turn raw rows into clear charts in seconds. This guide compares the best options for 2026, including one that skips manual steps entirely.",
+  "whatIs": {
+    "heading": "What Is a CSV Data Visualization Tool?",
+    "body": "A CSV data visualization tool reads your comma-separated values file and turns the columns and rows into charts, graphs, or dashboards. Some require manual setup, while others auto-detect your data types and suggest the best chart automatically. These tools work best with structured tabular data like sales figures, survey responses, time series, or any dataset that fits neatly into columns."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a CSV Visualization Tool?",
+    "bullets": [
+      "You exported data from a database, CRM, or form and need to spot trends or outliers quickly.",
+      "You need to share a visual summary with a teammate or stakeholder who won't open a spreadsheet.",
+      "You're preparing a report or presentation and want clean charts without building them from scratch in Excel."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Visualize CSV Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open Excel, go to File > Open, and select your CSV file. Excel will parse the columns automatically.",
+      "Review the imported data. Check that numbers are formatted as numbers and dates are recognized correctly.",
+      "Select the range of cells you want to chart, including headers.",
+      "Go to the Insert tab and pick a chart type. Bar, line, and scatter are the most common starting points for CSV data.",
+      "Use the Chart Design tab to adjust colors, labels, axis titles, and layout.",
+      "Save the workbook as .xlsx if you want to preserve the chart, or copy the chart into a presentation or document."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Visualize CSV Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Go to Google Sheets and click File > Import. Upload your CSV and choose 'Replace spreadsheet' or 'Insert new sheet.'",
+      "Verify that columns imported correctly. Fix any date or number formatting issues in the toolbar.",
+      "Highlight the data range you want to visualize, including column headers.",
+      "Click Insert > Chart. Google Sheets will suggest a chart type based on your selection.",
+      "Open the Chart Editor sidebar to switch chart types, customize axes, change colors, or add data labels.",
+      "Click the three-dot menu on the chart to download it as a PNG, or publish the sheet to share an interactive version."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Distill removes every manual step from the process. Upload your CSV file, and Distill auto-generates relevant charts, writes plain-language narratives explaining what the data shows, and packages everything into a shareable dashboard. There is no formatting, no column selection, and no chart configuration. It reads your data, picks the right visualizations, and gives you a finished result in seconds. The free tier covers CSV files up to 1,000 rows with every chart type included."
+  },
+  "gifAlt": "Screen recording showing a CSV file being dragged into Distill, which then automatically generates a bar chart, line chart, and summary dashboard from the uploaded data.",
+  "faqs": [
+    {
+      "q": "Can I visualize CSV data without Excel?",
+      "a": "Yes. Google Sheets handles CSV imports and charting entirely in the browser at no cost. Distill goes further by auto-generating charts and narratives the moment you upload a file, so you skip the setup entirely."
+    },
+    {
+      "q": "What chart types work best for CSV data?",
+      "a": "It depends on what your columns contain. Time-based data pairs well with line charts. Categorical comparisons suit bar charts. If you have two numeric columns, scatter plots reveal correlations. Tools like Distill detect column types and suggest the best chart for you automatically."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "intro": "Tracking KPIs shouldn't require a BI tool, a data team, or a week of setup. If your numbers live in a spreadsheet, you can build a KPI dashboard from CSV data in minutes. Distill is one of the fastest ways to do it: upload your file and get auto-generated charts, narratives, and a shareable dashboard instantly.",
+  "whatIs": {
+    "heading": "What Is a KPI Dashboard?",
+    "body": "A KPI dashboard is a single view that displays your most important performance metrics in one place. It typically combines charts, summary numbers, and trend lines so you can spot problems or progress at a glance. It works best with structured data that includes a time column, a metric name or category, and numeric values like revenue, conversion rate, or ticket count."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a KPI Dashboard from CSV?",
+    "bullets": [
+      "You export weekly or monthly metrics from tools like Stripe, HubSpot, or Google Analytics and need a quick visual summary for your team.",
+      "You are preparing a board update or stakeholder report and want clear charts instead of raw spreadsheet rows.",
+      "Your company doesn't have a dedicated BI platform yet, but leadership still needs to track performance against targets."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a KPI Dashboard in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV file in Excel. Make sure each column has a clear header like Date, Metric, and Value.",
+      "Create a summary table using formulas. Use SUMIFS or AVERAGEIFS to calculate each KPI's current value and compare it to a target or previous period.",
+      "Insert a chart for each KPI. Bar charts work well for comparisons, and line charts work well for trends over time. Select the relevant data range and choose Insert > Chart.",
+      "Add conditional formatting or icon sets to your summary table so readers can quickly see which KPIs are on track and which are not.",
+      "Arrange your charts and summary table onto a single worksheet. Resize and align them so everything fits on one screen without scrolling.",
+      "Save the workbook and share it. If you need to update it later, paste new CSV data into the source sheet and refresh your formulas and charts."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a KPI Dashboard in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV by going to File > Import and selecting your file. Choose 'Replace current sheet' or 'Insert new sheet' depending on your preference.",
+      "Create a new sheet called Dashboard. Use QUERY or FILTER functions to pull summarized KPI values from your raw data sheet.",
+      "Add sparklines using the SPARKLINE function to show inline trend lines next to each KPI value.",
+      "Insert full charts by selecting a data range and clicking Insert > Chart. Pick chart types that match each metric: scorecards for single numbers, line charts for trends.",
+      "Use data validation and named ranges if you want dropdown filters, like selecting a specific month or department.",
+      "Share the Google Sheet with your team using the Share button. Set permissions to View Only if you want to prevent accidental edits to the dashboard."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If building formulas and formatting charts feels like busywork, Distill removes all of it. Upload your CSV and Distill automatically detects your KPIs, generates relevant charts, writes plain-language narratives explaining the trends, and packages everything into a shareable dashboard. There is no pivot table to configure and no chart formatting to fiddle with. You get a finished KPI dashboard in seconds, not hours. It is especially useful when you need to turn a raw export into something presentable for a meeting or a report on short notice."
+  },
+  "gifAlt": "Screen recording showing a CSV file with monthly KPI data being uploaded to Distill, which then automatically generates a KPI dashboard with summary charts, trend lines, and written narratives.",
+  "faqs": [
+    {
+      "q": "Can I create a KPI dashboard without Excel?",
+      "a": "Yes. Google Sheets is a solid free alternative that supports charts, sparklines, and shared editing. Distill is another option that skips the manual setup entirely. Just upload your CSV and get a finished dashboard with auto-generated visuals and narratives."
+    },
+    {
+      "q": "How should I structure my CSV for a KPI dashboard?",
+      "a": "At a minimum, include a date or time period column, a column identifying the metric or KPI name, and a numeric value column. One row per metric per time period is the cleanest format. Avoid merged cells, blank rows, or inconsistent date formats, as these cause problems in every tool."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

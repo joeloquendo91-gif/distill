@@ -1,0 +1,58 @@
+{
+  "intro": "You have a column of numbers and you need to see how they're distributed. Building a histogram from raw data is the fastest way to spot patterns, outliers, and clusters in any numeric dataset. You can do it manually in Excel or Google Sheets, or you can upload your CSV to Distill and get one generated automatically in seconds.",
+  "whatIs": {
+    "heading": "What Is a Histogram?",
+    "body": "A histogram is a chart that groups continuous numeric data into bins (ranges) and shows how many values fall into each bin using vertical bars. Unlike a bar chart, the bars in a histogram touch each other because they represent adjacent ranges on a continuous scale. Histograms work best with a single column of numeric data, like test scores, response times, salaries, or sensor readings."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Histogram?",
+    "bullets": [
+      "You want to understand the shape of a distribution, for example whether customer ages skew young, old, or cluster in the middle.",
+      "You need to identify outliers or unusual gaps in a dataset before running further analysis.",
+      "You're comparing how a single metric is spread across a population, like delivery times across thousands of orders."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a Histogram from Raw Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet and make sure your raw numeric data is in a single column with a header, like 'Response Time' in column A.",
+      "Select the entire data range, including the header cell.",
+      "Go to the Insert tab on the ribbon and click the Statistics Chart icon (it looks like a small histogram).",
+      "Choose Histogram from the dropdown. Excel will generate a chart with automatic bins.",
+      "Right-click the horizontal axis and select Format Axis to adjust the bin width or number of bins to better fit your data.",
+      "Add a chart title and axis labels by clicking the chart and using the Chart Elements (+) button."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a Histogram from Raw Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Paste or enter your raw numeric data into a single column with a header row.",
+      "Select the full data range, including the header.",
+      "Click Insert in the top menu, then select Chart.",
+      "In the Chart Editor panel on the right, change the Chart type dropdown to Histogram.",
+      "Click the Customize tab, then open the Histogram section to adjust the bucket size (bin width) if the default grouping doesn't look right.",
+      "Update the chart title and axis labels under the Chart & axis titles section of the Customize tab."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you'd rather skip the bin configuration and formatting, Distill handles it for you. Upload your CSV and Distill automatically detects numeric columns, picks appropriate bin sizes, and generates a histogram along with other relevant charts. It also writes a plain-English narrative explaining what the distribution looks like, so you can share insights with your team without building anything from scratch. The whole process takes a few seconds, not a few minutes."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which automatically generates a histogram from the raw numeric data in the file.",
+  "faqs": [
+    {
+      "q": "Can I make a histogram without Excel?",
+      "a": "Yes. Google Sheets has a built-in histogram chart type that works well for basic use. You can also upload your CSV to Distill, which auto-generates histograms and other charts without any manual setup."
+    },
+    {
+      "q": "How do I choose the right number of bins for my histogram?",
+      "a": "There's no single correct answer, but a common starting point is the square root of your row count. For example, 100 data points would suggest roughly 10 bins. If the bins are too wide, you lose detail. If they're too narrow, the chart looks noisy. Adjust until the shape of the distribution is clear."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

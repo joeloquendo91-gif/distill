@@ -1,0 +1,58 @@
+{
+  "intro": "Comparing trends across multiple categories over time is one of the most common tasks in data analysis. A multi-series line chart is the fastest way to visualize those overlapping trends in a single view. You can build one manually in Excel or Google Sheets, or skip the setup entirely by uploading a CSV to Distill and getting the chart in seconds.",
+  "whatIs": {
+    "heading": "What Is a Multi-Series Line Chart?",
+    "body": "A multi-series line chart plots two or more data series on the same set of axes, with each series represented by its own line. The x-axis is typically a time dimension (dates, months, quarters), and the y-axis shows the measured values. It works best when you want to compare how several categories, products, or groups change over the same time period."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Multi-Series Line Chart?",
+    "bullets": [
+      "When you need to compare revenue, traffic, or growth across multiple products or regions over the same time range.",
+      "When you want to spot where one trend diverges from another, such as one marketing channel outperforming the rest after a campaign launch.",
+      "When you are tracking parallel KPIs, like sign-ups versus cancellations, and need to see how they move relative to each other."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a Multi-Series Line Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Organize your data so the first column contains your time values (dates, months, etc.) and each additional column holds a separate data series with a header label.",
+      "Select the entire data range, including all column headers.",
+      "Go to the Insert tab in the ribbon and click the Line chart icon in the Charts group.",
+      "Choose the first 2-D Line option. Excel will plot each column as a separate line.",
+      "Click on the chart title to rename it to something descriptive, like 'Monthly Revenue by Product Line.'",
+      "Right-click any line to format colors or line styles. Use the Chart Design tab to add data labels, adjust the legend position, or switch the color palette."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a Multi-Series Line Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Enter your data with time values in column A and each data series in its own column (B, C, D, etc.), with headers in row 1.",
+      "Highlight the full data range, including headers.",
+      "Click Insert in the top menu, then select Chart.",
+      "In the Chart editor panel on the right, set the Chart type to Line chart. Google Sheets usually detects multiple series automatically.",
+      "Under the Customize tab, open the Series section to change individual line colors or add data point markers.",
+      "Update the chart title and axis labels under the Chart & axis titles section, then close the editor."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you already have your data in a CSV file, Distill removes every manual step. Upload the file, and Distill automatically detects your time column and data series, then generates a multi-series line chart along with an AI-written narrative that explains the key trends. You can customize the chart, share it as a live dashboard, or export it. The whole process takes a few seconds instead of the usual formatting marathon in a spreadsheet."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which automatically generates a multi-series line chart with labeled legends and an AI-written summary.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets can create multi-series line charts for free using the built-in chart editor. You can also upload your CSV to Distill, which auto-generates the chart without any manual configuration. Both options work entirely in a web browser."
+    },
+    {
+      "q": "How many series can I put on one line chart before it gets hard to read?",
+      "a": "A good rule of thumb is to keep it to five or fewer series. Beyond that, the lines start to overlap and the legend becomes cluttered. If you have more categories, consider filtering to the most important ones or splitting the data across multiple charts."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
