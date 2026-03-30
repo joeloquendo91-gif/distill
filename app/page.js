@@ -1,4 +1,29 @@
 import Link from "next/link";
+import SITE_URL from "@/lib/siteUrl";
+
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Distill",
+  description:
+    "Upload a CSV and instantly get auto-charts, AI-written narrative, and shareable dashboards. No setup, no formulas.",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: SITE_URL,
+  offers: [
+    { "@type": "Offer", name: "Free", price: "0", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Pro", price: "19", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Agency", price: "49", priceCurrency: "USD" },
+  ],
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Distill",
+  url: SITE_URL,
+  description: "Turn any CSV into insights in seconds.",
+};
 
 const CARD_COLORS = ["bg-[#f0fdf4]", "bg-[#f5f3ff]", "bg-[#eff6ff]"];
 
@@ -71,12 +96,23 @@ const TIERS = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+      />
 
       {/* Nav + Hero — dark forest green */}
       <div className="bg-[#1a3a2a]">
         <nav className="px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
           <span className="text-xl font-bold text-white">Distill</span>
           <div className="flex items-center gap-6">
+            <Link href="/learn" className="text-sm text-white/70 hover:text-white transition-colors hidden sm:block">
+              Guides
+            </Link>
             <a href="#pricing" className="text-sm text-white/70 hover:text-white transition-colors hidden sm:block">
               Pricing
             </a>

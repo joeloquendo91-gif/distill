@@ -1,0 +1,58 @@
+{
+  "intro": "You have two columns of numbers in a CSV and you want to see if they are related. A scatter plot from CSV data is the fastest way to spot correlations, clusters, and outliers. You can build one manually in Excel or Google Sheets, or you can upload your file to Distill and get one generated in seconds.",
+  "whatIs": {
+    "heading": "What Is a Scatter Plot?",
+    "body": "A scatter plot places individual data points on an X and Y axis, with each point representing one row of your data. It is the standard chart for showing the relationship between two numeric variables. Scatter plots work best when you want to see whether values in one column tend to increase, decrease, or show no pattern relative to values in another column."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Scatter Plot?",
+    "bullets": [
+      "You want to check whether two variables are correlated, like advertising spend and revenue.",
+      "You need to identify outliers that fall far outside the general pattern of your data.",
+      "You are comparing measurements across a population, such as height versus weight for a group of participants."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a Scatter Plot in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV file in Excel. Your two numeric columns should be side by side, with the independent variable on the left.",
+      "Select both columns, including headers.",
+      "Go to the Insert tab on the ribbon and click the scatter chart icon in the Charts group.",
+      "Choose the first option, Scatter with only markers, for a basic scatter plot.",
+      "Click the chart title to rename it to something descriptive.",
+      "Right-click any data point and select Add Trendline if you want to overlay a line of best fit."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a Scatter Plot in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open Google Sheets and import your CSV file using File > Import.",
+      "Select the two columns containing your numeric data, including headers.",
+      "Click Insert > Chart from the top menu.",
+      "In the Chart editor panel on the right, change the Chart type to Scatter chart.",
+      "Use the Customize tab to edit the chart title, axis labels, and point colors.",
+      "Close the editor and click the three-dot menu on the chart to download it as a PNG or PDF."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you would rather skip the formatting and configuration, Distill handles it for you. Upload your CSV and Distill automatically detects numeric column pairs, generates scatter plots along with other relevant chart types, and writes a plain-language narrative explaining what the data shows. You get a shareable dashboard with no manual chart building, no formula wrangling, and no design decisions required. It is especially useful when you need results quickly or when you are presenting data to people who just want the takeaway."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which then automatically generates a scatter plot and other charts from the data.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles scatter plots well and is free with a Google account. You can also upload your CSV to Distill, which auto-generates scatter plots and other charts without any manual setup."
+    },
+    {
+      "q": "How many data points can a scatter plot handle before it becomes unreadable?",
+      "a": "Standard scatter plots start to feel cluttered around 500 to 1,000 points, depending on how spread out the data is. If your points overlap heavily, try reducing marker size or adjusting opacity. For very large datasets, a heatmap or hexbin plot may be a better alternative."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

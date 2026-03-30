@@ -1,0 +1,58 @@
+{
+  "intro": "Most sales teams already have the data they need sitting in a spreadsheet. The problem is turning that raw export into something visual, shareable, and actually useful for making decisions. Building a sales dashboard from a spreadsheet is one of the fastest ways to get there, and with the right tool, it takes minutes instead of hours.",
+  "whatIs": {
+    "heading": "What Is a Sales Dashboard?",
+    "body": "A sales dashboard is a single view that pulls together your key sales metrics into charts, tables, and summaries. It turns columns of numbers into visual patterns you can act on. It works best with data that includes fields like date, rep name, deal value, product, region, and deal stage."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Sales Dashboard?",
+    "bullets": [
+      "You need to report weekly or monthly sales performance to leadership without rebuilding slides every time.",
+      "You want to compare revenue across reps, regions, or products and spot trends at a glance.",
+      "You just exported data from your CRM and need a quick visual summary before a meeting."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Build a Sales Dashboard in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your sales spreadsheet and make sure each column has a clear header: Date, Rep, Product, Region, Revenue, Deal Stage, etc.",
+      "Create a PivotTable by selecting your data range, clicking Insert > PivotTable, and placing it in a new worksheet.",
+      "Drag fields into the PivotTable to summarize your data. For example, put Rep in Rows and Revenue in Values to see total sales by rep.",
+      "Insert a chart from the PivotTable by selecting it and clicking Insert > Chart. Choose a bar chart for comparisons or a line chart for trends over time.",
+      "Repeat the process for other views you want: revenue by region, monthly totals, or deal stage breakdown. Each one gets its own PivotTable and chart.",
+      "Arrange all charts on a single worksheet. Resize them, add titles, and format the sheet so it reads like a dashboard. Use slicers if you want interactive filters."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Build a Sales Dashboard in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet in Google Sheets and confirm your data is clean, with consistent column headers and no blank rows.",
+      "Create a new tab called Dashboard. This is where all your charts will live.",
+      "Go back to your data tab and select a range. Click Insert > Chart. Google Sheets will suggest a chart type, but you can change it in the Chart Editor panel.",
+      "Build a bar chart showing revenue by rep, a line chart showing monthly sales trends, and a pie or donut chart for revenue by product or region.",
+      "Move each chart to your Dashboard tab by clicking the three-dot menu on the chart and selecting Move to own sheet or dragging it manually.",
+      "Add summary metrics at the top of the Dashboard tab using formulas like SUMIFS and COUNTIFS. Format cells with bold text and color to make key numbers stand out."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you want the dashboard without the PivotTables, chart formatting, and layout work, Distill does it for you. Upload your sales CSV and Distill auto-generates relevant charts, writes plain-language narratives about what the data shows, and gives you a shareable dashboard link. There are no formulas to write, no chart types to pick, and no formatting to fiddle with. You get a finished result in seconds that you can send straight to your team or manager."
+  },
+  "gifAlt": "Screen recording of a sales CSV file being uploaded to Distill, which then automatically generates bar charts, line charts, and a written narrative summarizing sales performance.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets gives you similar charting and PivotTable capabilities for free in your browser. You can also use Distill, which skips the manual chart-building entirely and generates a dashboard the moment you upload your CSV."
+    },
+    {
+      "q": "What columns should my sales spreadsheet include for a good dashboard?",
+      "a": "At minimum, include a date column, a revenue or deal value column, and at least one category like rep name, region, or product. The more dimensions you have, the more ways you can slice the data. Columns for deal stage or lead source are also useful if you want to track pipeline health."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

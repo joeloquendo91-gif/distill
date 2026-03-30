@@ -2,7 +2,14 @@
 import { generateInsightSentence } from "@/lib/csvParser";
 import ColumnCard from "@/components/ColumnCard";
 
-export default function InsightBoard({ columns, onTypeChange }) {
+export default function InsightBoard({
+  columns,
+  onTypeChange,
+  groupableColumns = [],
+  activeBreakdowns = {},
+  onBreakdownChange,
+  filteredRows = [],
+}) {
   const topColumns = [...columns]
     .sort((a, b) => b.relevanceScore - a.relevanceScore)
     .slice(0, 8);
@@ -44,6 +51,10 @@ export default function InsightBoard({ columns, onTypeChange }) {
             <ColumnCard
               column={col}
               onTypeChange={(newType) => onTypeChange(col.name, newType)}
+              groupableColumns={groupableColumns}
+              activeBreakdown={activeBreakdowns[col.name] ?? null}
+              onBreakdownChange={(groupBy) => onBreakdownChange?.(col.name, groupBy)}
+              filteredRows={filteredRows}
             />
           </div>
         ))}

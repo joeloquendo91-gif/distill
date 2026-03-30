@@ -1,0 +1,58 @@
+{
+  "intro": "You have a spreadsheet full of data and you need a chart five minutes ago. Most people open Excel or Google Sheets and spend fifteen minutes wrestling with chart wizards, formatting axes, and picking colors. There is a faster way to upload a spreadsheet and get instant charts. Distill lets you drop in a CSV and walks away with polished visuals before you finish your coffee.",
+  "whatIs": {
+    "heading": "What Is Instant Chart Generation from a Spreadsheet?",
+    "body": "Instant chart generation means a tool reads your spreadsheet data and automatically picks the right chart types, maps your columns, and renders the visuals for you. No manual axis labeling or series selection required. It works best with structured tabular data: sales figures over time, survey responses, budget breakdowns, or any CSV where columns have clear headers and rows represent individual records."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use Instant Chart Generation?",
+    "bullets": [
+      "You need to present data in a meeting within the hour and have no time to fiddle with chart settings in Excel.",
+      "You received a CSV export from another tool and want a quick visual summary before deciding on next steps.",
+      "You are writing a report or blog post and need clean, shareable charts without installing desktop software."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make Instant Charts from a Spreadsheet in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet in Excel. Make sure your data has clear column headers in the first row.",
+      "Select the entire data range, including headers. You can press Ctrl+A if the data fills the sheet.",
+      "Go to the Insert tab on the ribbon and click Recommended Charts. Excel will suggest chart types based on your data structure.",
+      "Browse the suggestions. Pick the one that fits your message, whether that is a bar chart for comparisons or a line chart for trends.",
+      "Click OK to insert the chart. It will appear on the same sheet as your data.",
+      "Right-click the chart to adjust titles, colors, and labels. Then copy or export the chart wherever you need it."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make Instant Charts from a Spreadsheet in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV or spreadsheet in Google Sheets. Confirm that column headers are in row one.",
+      "Highlight the data range you want to chart. Include headers but skip any blank rows at the bottom.",
+      "Click Insert in the menu bar, then select Chart.",
+      "Google Sheets will auto-detect a chart type. The Chart Editor panel on the right shows its suggestion.",
+      "Use the Chart Editor to switch chart types, change axes, or adjust series if the automatic pick is not quite right.",
+      "Click the three-dot menu on the chart to download it as a PNG, publish it to the web, or copy it into a Google Doc."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Distill removes every manual step from the process. You upload a CSV, and Distill reads your columns, detects data types, and auto-generates a set of relevant charts in seconds. It also writes plain-English narratives that explain what the data shows, so you get both the visuals and the story without touching a single chart setting. The results land on a shareable dashboard you can send to anyone with a link. If your file is under 1,000 rows, the whole thing is free."
+  },
+  "gifAlt": "Screen recording showing a user dragging a CSV file into Distill and watching multiple charts, including bar charts, line charts, and summary cards, generate automatically on a shareable dashboard.",
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Absolutely. Google Sheets handles chart creation in the browser with no software install. Distill goes a step further by removing manual chart configuration entirely. Just upload your CSV and the charts appear on their own."
+    },
+    {
+      "q": "What chart types work best for auto-generated visuals from a spreadsheet?",
+      "a": "Bar and column charts work well for comparing categories. Line charts are strong for time-series data. Pie charts suit simple part-to-whole breakdowns. Most auto-generation tools, including Distill, analyze your column types and pick the best fit so you do not have to guess."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

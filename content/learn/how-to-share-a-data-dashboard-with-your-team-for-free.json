@@ -1,0 +1,58 @@
+{
+  "intro": "You built a dashboard with useful charts, but now your team can't see it without downloading software or requesting access. Getting visualizations in front of the right people shouldn't be the hardest part of the process. Distill lets you share a data dashboard with your team free of charge by turning any CSV into auto-generated charts and a shareable link in seconds.",
+  "whatIs": {
+    "heading": "What Is a Shareable Data Dashboard?",
+    "body": "A shareable data dashboard is a collection of charts and summaries that anyone on your team can view through a link, without installing software or logging into a specific tool. It works best when you have structured data in a CSV or spreadsheet and need others to quickly understand trends, comparisons, or totals. The goal is to remove friction between your analysis and the people who need to act on it."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Shareable Data Dashboard?",
+    "bullets": [
+      "You need to send weekly or monthly performance summaries to a team that doesn't use your analytics tools.",
+      "A stakeholder asks for a visual breakdown of results, and you don't have time to build a slide deck.",
+      "You're collaborating across departments and need everyone looking at the same numbers in the same format."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Share a Data Dashboard in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV file in Excel and review your data. Make sure column headers are clear and consistent.",
+      "Select the data range you want to visualize, then go to Insert and choose a chart type like bar, line, or pie.",
+      "Repeat for each metric you want to include. Arrange your charts on a single worksheet so they function as a dashboard.",
+      "Add titles, labels, and any summary text to make the dashboard easy to read without extra context.",
+      "Save the file to OneDrive or SharePoint. Click Share in the top right corner and set permissions to allow viewing.",
+      "Copy the sharing link and send it to your team. Recipients will need a Microsoft account to view it in the browser."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Share a Data Dashboard in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV file into Google Sheets by going to File, then Import, and selecting your file.",
+      "Highlight the data you want to chart. Go to Insert, then Chart, and pick the appropriate chart type.",
+      "Create additional charts for each key metric. Move and resize them on a dedicated 'Dashboard' tab.",
+      "Add text cells with titles and notes so viewers understand what each chart represents.",
+      "Click the Share button in the top right corner. Set access to 'Anyone with the link' and choose 'Viewer' permissions.",
+      "Copy the link and distribute it. Your team can view the dashboard in any browser without a Google account if you allow it."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Distill removes the manual chart building entirely. Upload your CSV and Distill auto-generates relevant charts, writes AI-powered narrative summaries of your data, and produces a shareable dashboard you can send with a single link. There's no formatting, no dragging chart elements around, and no configuring share permissions. Your team gets a clean, readable dashboard within seconds of your upload. It's free for files up to 1,000 rows, and no account is required to try it."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which automatically generates a multi-chart dashboard with narrative summaries and a shareable link.",
+  "faqs": [
+    {
+      "q": "Can I share a dashboard without Excel?",
+      "a": "Yes. Google Sheets lets you build and share dashboards through a browser with no software to install. Distill is another option that skips the chart-building step entirely. You upload a CSV, and it generates a shareable dashboard for you automatically."
+    },
+    {
+      "q": "What file format works best for creating a quick dashboard?",
+      "a": "CSV is the most portable and widely supported format. Almost every tool accepts it, and it keeps your data clean without embedded formatting or macros. If your data is already in an Excel or Google Sheets file, you can export it as a CSV before uploading to a tool like Distill."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

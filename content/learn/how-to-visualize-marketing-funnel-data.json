@@ -1,0 +1,58 @@
+{
+  "intro": "Most marketing teams track funnel stages in a spreadsheet but never turn those numbers into a clear picture. That makes it hard to spot where prospects drop off and where to focus budget. The fastest way to visualize marketing funnel data is to upload your CSV to a tool that builds the chart for you automatically.",
+  "whatIs": {
+    "heading": "What Is a Marketing Funnel Visualization?",
+    "body": "A marketing funnel visualization is a chart that shows how many people move from one stage of your funnel to the next. It typically starts wide at the top (awareness or impressions) and narrows toward the bottom (conversions or closed deals). It works best with stage-based data where each row represents a funnel stage and a corresponding count, like Visitors, Leads, MQLs, SQLs, and Customers."
+  },
+  "whenToUse": {
+    "heading": "When Should You Visualize Marketing Funnel Data?",
+    "bullets": [
+      "When you need to show stakeholders exactly where prospects drop out of the pipeline during a quarterly review.",
+      "When you are comparing funnel performance across channels, campaigns, or time periods to decide where to allocate spend.",
+      "When you want to set conversion rate benchmarks between stages and track improvement over time."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Visualize Marketing Funnel Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Organize your data in two columns: Stage (e.g., Visitors, Leads, MQLs, SQLs, Customers) and Count. Sort them from the largest stage at the top to the smallest at the bottom.",
+      "Add a helper column that calculates the difference between each stage count and the maximum count, then divide by two. This centers each bar to create the funnel shape.",
+      "Select both the helper column and the Count column, then insert a 2-D Stacked Bar chart.",
+      "Click the helper series (the first colored section of each bar) and set its fill to No Fill so it becomes invisible. This pushes the visible bars to the center.",
+      "Reverse the vertical axis order so your widest stage appears at the top. Right-click the axis, choose Format Axis, and check Categories in reverse order.",
+      "Remove gridlines, add data labels to each visible bar, and apply your brand colors. Give the chart a clear title like Marketing Funnel Q2 2024."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Visualize Marketing Funnel Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Enter your funnel stages in column A and their counts in column B, ordered from highest to lowest (e.g., Visitors at the top, Customers at the bottom).",
+      "In column C, create a centering formula: =(MAX($B$2:$B$6)-B2)/2. Drag this formula down for all rows.",
+      "Select columns A, C, and B (in that order) and go to Insert > Chart.",
+      "In the Chart Editor, change the chart type to Stacked Bar Chart. Make sure the centering series (column C) is the first series in the stack.",
+      "Click on the centering series inside the chart, open the series formatting options, and set its color to None or match it to the background. This hides it and centers the visible bars.",
+      "Adjust axis labels, add data labels, and remove the legend entry for the hidden series. Rename the chart to reflect the funnel you are tracking."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Building a funnel chart manually means helper columns, formatting tricks, and a lot of clicking. Distill removes all of that. Upload your CSV with stage names and counts, and Distill auto-generates a funnel visualization in seconds. It also writes a plain-English narrative that summarizes your conversion rates and biggest drop-off points. You can share the resulting dashboard with a link, no screenshots or slide decks required. For files up to 1,000 rows, it is completely free."
+  },
+  "gifAlt": "Screen recording showing a CSV file with marketing funnel stages and counts being uploaded to Distill, which automatically generates a funnel chart and summary narrative.",
+  "faqs": [
+    {
+      "q": "Can I visualize marketing funnel data without Excel?",
+      "a": "Yes. Google Sheets supports stacked bar charts that you can format into a funnel shape using the same helper-column method. If you want to skip manual formatting entirely, Distill lets you upload a CSV and generates the funnel chart automatically."
+    },
+    {
+      "q": "What conversion rate between funnel stages is considered healthy?",
+      "a": "It depends on your industry and funnel definition, but a common benchmark is a 10-15% conversion rate from lead to marketing qualified lead. Visitor-to-lead rates vary widely, often landing between 2% and 5% for B2B websites. The most useful approach is to track your own rates over time rather than relying solely on external benchmarks."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

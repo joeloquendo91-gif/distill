@@ -1,0 +1,58 @@
+{
+  "intro": "You have a dataset with multiple categories stacked inside each group, and you need a clear way to show both the total and the breakdown. A stacked bar chart is the fastest way to do that. You can build one in Excel or Google Sheets, or skip the setup entirely by uploading your CSV to Distill for instant, auto-generated charts.",
+  "whatIs": {
+    "heading": "What Is a Stacked Bar Chart?",
+    "body": "A stacked bar chart places multiple data series on top of each other within a single bar. Each segment represents a sub-category, and the full bar shows the total. It works best when you want to compare totals across groups while also showing how each group breaks down into parts, like quarterly revenue split by product line or survey responses split by answer type."
+  },
+  "whenToUse": {
+    "heading": "When Should You Use a Stacked Bar Chart?",
+    "bullets": [
+      "When you want to show how a total is divided among sub-categories, such as total sales broken down by region.",
+      "When comparing the composition of several groups side by side, like the age distribution of customers across different stores.",
+      "When you have a small number of segments per bar (two to five) so the chart stays readable and each slice is easy to distinguish."
+    ]
+  },
+  "excelSteps": {
+    "heading": "How to Make a Stacked Bar Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Organize your data so that categories (like months or regions) are in the first column and each sub-category has its own column to the right.",
+      "Select the entire data range, including headers.",
+      "Go to the Insert tab on the ribbon and click the Bar Chart icon in the Charts group.",
+      "Choose Stacked Bar from the dropdown options. Excel will generate the chart on your worksheet.",
+      "Click the chart title to rename it. Right-click the axes or legend to adjust formatting, colors, or label positions.",
+      "To reorder segments or change colors, click a segment in the chart, then use the Format Data Series pane on the right."
+    ]
+  },
+  "sheetsSteps": {
+    "heading": "How to Make a Stacked Bar Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Enter your data with group labels in column A and each sub-category as a separate column (B, C, D, etc.).",
+      "Highlight the full data range, including headers.",
+      "Click Insert in the top menu, then select Chart.",
+      "In the Chart editor panel on the right, open the Chart type dropdown and select Stacked bar chart.",
+      "Switch to the Customize tab to edit the chart title, legend position, bar colors, and axis labels.",
+      "Close the editor when you are satisfied. You can move or resize the chart directly on the sheet."
+    ]
+  },
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If formatting spreadsheets and tweaking chart settings feels like busywork, Distill removes all of it. Upload your CSV and Distill auto-generates the right charts for your data, including stacked bar charts, along with AI-written narratives that explain what the data shows. You get a shareable dashboard in seconds instead of spending minutes clicking through menus. It is free for files up to 1,000 rows, so you can try it on real data with zero commitment."
+  },
+  "gifAlt": "Screen recording showing a CSV file being uploaded to Distill, which automatically generates a stacked bar chart and a written summary of the data.",
+  "faqs": [
+    {
+      "q": "Can I make a stacked bar chart without Excel?",
+      "a": "Yes. Google Sheets has a built-in stacked bar chart option that works almost identically to Excel. You can also upload your CSV to Distill, which detects the right chart type automatically and builds it for you with no manual configuration."
+    },
+    {
+      "q": "What is the difference between a stacked bar chart and a grouped bar chart?",
+      "a": "A stacked bar chart places segments on top of each other inside one bar, making it easy to see the total and the composition. A grouped (or clustered) bar chart puts bars side by side, which makes it easier to compare individual segments across groups but harder to read totals. Choose stacked when the total matters. Choose grouped when comparing individual segments matters more."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}

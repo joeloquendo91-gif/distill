@@ -1,0 +1,65 @@
+{
+  "intro": "You have a spreadsheet full of numbers. A bar chart is the fastest way to make those numbers mean something. You can see at a glance which category is highest, which is lowest, and where the gaps are. Here's how to build one in Excel and Google Sheets, and a faster option if you'd rather skip the manual steps entirely.",
+
+  "whatIs": {
+    "heading": "What Is a Bar Chart?",
+    "body": "A bar chart is a visualization that uses horizontal or vertical bars to compare values across categories. Each bar's length represents its value, making it easy to rank and compare data at a glance. Bar charts work with any dataset that pairs a categorical column (product names, regions, months) with a numeric value, making them one of the most versatile chart types available."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Bar Chart?",
+    "bullets": [
+      "Comparing values across a fixed set of categories, like sales by product, revenue by region, or responses by survey option.",
+      "Ranking items from highest to lowest to quickly identify your top and bottom performers.",
+      "Showing changes across a small number of time periods. For longer time series, a line chart is a better choice."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Bar Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel: go to File, then Open, then Browse and select your file. Excel will import it as a spreadsheet.",
+      "Select your data range. Highlight the categorical column and the numeric column you want to chart, including the header row.",
+      "Click the Insert tab in the ribbon at the top of the screen.",
+      "In the Charts group, click Bar Chart (for horizontal bars) or Column Chart (for vertical bars).",
+      "Choose Clustered Bar or Clustered Column for a standard side-by-side comparison.",
+      "Excel generates the chart immediately. Use the Chart Design tab to add a title, axis labels, and adjust colors to match your needs."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Bar Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open Google Sheets and import your file: go to File, then Import, then Upload and select your CSV.",
+      "Select the data range you want to visualize. Click and drag to highlight your category column and numeric column, including headers.",
+      "Go to Insert, then Chart in the top menu. The Chart Editor panel will open on the right.",
+      "In the Chart Type dropdown, select Bar chart (horizontal) or Column chart (vertical).",
+      "Confirm that the X-axis field shows your category column and the Series field shows your numeric column. Adjust if needed.",
+      "Click the Customize tab to add a chart title, axis labels, and update the color scheme."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your goal is to see your data charted as fast as possible, without building a spreadsheet or configuring a chart editor, Distill handles the entire process in one step. Upload your CSV and every column is auto-detected and visualized immediately. Categorical columns become bar charts automatically. There's no range selection, no chart editor, and no formatting to configure. You get a clean, interactive dashboard the moment your file loads."
+  },
+
+  "gifAlt": "CSV file uploading to Distill and automatically generating a bar chart from the data",
+
+  "faqs": [
+    {
+      "q": "Can I make a bar chart without Excel?",
+      "a": "Yes. Google Sheets is a free browser-based alternative with full chart support. Tools like Distill go further. Upload a CSV file and bar charts are generated automatically from your categorical columns, with no spreadsheet software required."
+    },
+    {
+      "q": "What's the difference between a bar chart and a column chart?",
+      "a": "They represent the same data in different orientations. A column chart uses vertical bars, while a bar chart uses horizontal bars. Both compare values across categories. Excel treats them as separate chart types, but most other tools use the terms interchangeably."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types: bar, line, pie, scatter, and more. No account is required to try it."
+    }
+  ]
+}
