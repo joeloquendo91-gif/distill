@@ -162,11 +162,21 @@ export default function Dashboard() {
     ),
   [columns]);
 
-  // Groupable columns for the "Compare by" feature — categorical, date, and URL-derived dimensions
+  // Groupable columns for the "Compare by" feature — categorical, date, and URL-derived dimensions.
+  // Year-like categoricals (all values are 4-digit years) are promoted to DATE so they appear in
+  // the "View over time" selector and sort chronologically in breakdown charts.
   const groupableColumns = useMemo(() => {
     const base = columns
       .filter((c) => c.type === COL_TYPES.CATEGORICAL || c.type === COL_TYPES.DATE)
-      .map((c) => ({ name: c.name, type: c.type }));
+      .map((c) => {
+        const isYearLike =
+          c.type === COL_TYPES.CATEGORICAL &&
+          c.chartData?.length > 0 &&
+          c.chartData.filter((d) => d.label !== "Other").every((d) =>
+            /^\d{4}$/.test(String(d.fullLabel || d.label).trim())
+          );
+        return { name: c.name, type: isYearLike ? COL_TYPES.DATE : c.type };
+      });
     return [...base, ...derivedColumns];
   }, [columns, derivedColumns]);
 

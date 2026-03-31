@@ -42,7 +42,8 @@ Chart recipe rules:
 - metric must be a numeric column (type numeric)
 - xDim is the primary grouping axis — categorical or time dimension
 - stackDim is only used with stacked_100 or stacked_absolute — it adds a second dimension
-- Prefer "bar" for year/quarter; use "line" for date or 8+ time periods
+- For time-based bar charts, ALWAYS prefer a discrete time column (Year, Quarter) over a raw date column — Year and Quarter produce clean grouped bars; raw dates produce hundreds of bars
+- Use "line" only when xDim is a raw date column or there are genuinely many continuous periods
 - Order recipes most-to-least strategically important
 - Use EXACT column names from the input list above
 

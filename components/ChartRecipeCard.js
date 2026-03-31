@@ -79,7 +79,7 @@ function SimpleBarChart({ data }) {
   const items = data.entries.slice(0, 10);
   return (
     <ResponsiveContainer width="100%" height={180}>
-      <BarChart data={items} margin={{ top: 4, right: 0, bottom: 0, left: 0 }}>
+      <BarChart data={items} margin={{ top: 4, right: 12, bottom: 4, left: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
         <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
         <YAxis hide tickFormatter={fmtVal} />
@@ -158,23 +158,43 @@ function DonutChart({ data }) {
     pct: total > 0 ? Math.round((e.value / total) * 100) : 0,
   }));
   return (
-    <ResponsiveContainer width="100%" height={180}>
-      <PieChart>
-        <Pie
-          data={items}
-          dataKey="value"
-          nameKey="name"
-          innerRadius="50%"
-          outerRadius="78%"
-          paddingAngle={2}
-        >
-          {items.map((_, i) => (
-            <Cell key={i} fill={PALETTE[i % PALETTE.length]} />
-          ))}
-        </Pie>
-        <Tooltip content={<DonutTooltip />} />
-      </PieChart>
-    </ResponsiveContainer>
+    <>
+      <ResponsiveContainer width="100%" height={150}>
+        <PieChart>
+          <Pie
+            data={items}
+            dataKey="value"
+            nameKey="name"
+            innerRadius="48%"
+            outerRadius="76%"
+            paddingAngle={2}
+          >
+            {items.map((_, i) => (
+              <Cell key={i} fill={PALETTE[i % PALETTE.length]} />
+            ))}
+          </Pie>
+          <Tooltip content={<DonutTooltip />} />
+        </PieChart>
+      </ResponsiveContainer>
+      {/* Legend: name + value + pct — makes the donut readable without hovering */}
+      <div className="mt-2 space-y-1.5">
+        {items.map((item, i) => (
+          <div key={item.name} className="flex items-center justify-between text-xs">
+            <span className="flex items-center gap-1.5 text-gray-600 min-w-0">
+              <span
+                className="w-2.5 h-2.5 rounded-sm shrink-0"
+                style={{ background: PALETTE[i % PALETTE.length] }}
+              />
+              <span className="truncate">{item.fullLabel || item.name}</span>
+            </span>
+            <span className="text-gray-700 font-medium ml-3 shrink-0">
+              {fmtVal(item.value)}{" "}
+              <span className="text-gray-400 font-normal">({item.pct}%)</span>
+            </span>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
