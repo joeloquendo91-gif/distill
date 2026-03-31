@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import {
   parseCSVFile, detectColumnType, analyzeColumn,
   getColumnValues, applyFilters, COL_TYPES,
@@ -17,6 +17,8 @@ import AuthModal from "@/components/AuthModal";
 import OnboardingModal from "@/components/OnboardingModal";
 import InsightBoard from "@/components/InsightBoard";
 import DashboardCanvas from "@/components/DashboardCanvas";
+import DecisionBriefPanel from "@/components/DecisionBriefPanel";
+import { extractSignals } from "@/lib/signalExtractor";
 
 // Set NEXT_PUBLIC_DEV_TIER=agency in .env.local to bypass tier checks during development
 const DEV_TIER = process.env.NEXT_PUBLIC_DEV_TIER;
@@ -45,11 +47,15 @@ export default function Dashboard() {
   // Onboarding / view
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [onboardingContext, setOnboardingContext] = useState(null);
-  const [viewMode, setViewMode] = useState("insight"); // "insight" | "explorer"
+  // Holds parsed CSV data until onboarding completes so recon runs with context
+  const pendingReconRef = useRef(null);
 
   // AI recon (lightweight Haiku call on upload, free tier)
   const [reconData, setReconData] = useState(null);
   const [reconLoading, setReconLoading] = useState(false);
+
+  // View mode — decision brief is the default after upload
+  const [activeMode, setActiveMode] = useState("decision");
 
   // Breakdown state — lifted so suggestion chips can pre-set any card's groupBy
   const [activeBreakdowns, setActiveBreakdowns] = useState({});
@@ -89,22 +95,29 @@ export default function Dashboard() {
   const tierConfig = TIERS[userTier] || TIERS.free;
 
   // Recon: run once after upload, non-blocking, graceful failure
-  async function runRecon(headers, rows, types) {
+  async function runRecon(headers, rows, types, context = null) {
     setReconLoading(true);
     try {
+      // Spread sample indices across the full dataset so date ranges and
+      // value distributions are representative, not just the first rows.
+      const sampleIndices = Array.from({ length: 20 }, (_, i) =>
+        Math.min(Math.floor((i / 19) * (rows.length - 1)), rows.length - 1)
+      );
       const columnInput = headers.map((h) => ({
         name: h,
         type: types[h],
-        samples: rows
-          .slice(0, 20)
-          .map((r) => String(r[h] ?? "").trim())
+        uniqueCount: new Set(
+          rows.map((r) => String(r[h] ?? "").trim()).filter(Boolean)
+        ).size,
+        samples: sampleIndices
+          .map((i) => String(rows[i][h] ?? "").trim())
           .filter((s) => s && s.toLowerCase() !== "n/a" && s !== "-")
           .slice(0, 5),
       }));
       const res = await fetch("/api/recon", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ columns: columnInput, rowCount: rows.length }),
+        body: JSON.stringify({ columns: columnInput, rowCount: rows.length, userContext: context }),
       });
       if (res.ok) {
         const data = await res.json();
@@ -123,29 +136,20 @@ export default function Dashboard() {
     return applyFilters(csvData.rows, filters);
   }, [csvData, filters]);
 
-  // Build a lookup from recon data for fast per-column access
-  const reconColMap = useMemo(() => {
-    if (!reconData?.columns) return {};
-    return Object.fromEntries(reconData.columns.map((c) => [c.name, c]));
-  }, [reconData]);
-
-  // Derived: analyzed columns (with relevance scores, anomaly flags, recon context)
+  // Derived: analyzed columns (with relevance scores and anomaly flags)
   const columns = useMemo(() => {
     if (!csvData || filteredRows.length === 0) return [];
     return csvData.headers.map((header) => {
       const values = getColumnValues(filteredRows, header);
       const type = columnTypes[header] || detectColumnType(values);
       const col = analyzeColumn(header, values, type, filteredRows.length);
-      const baseScore = scoreColumnRelevance(col, onboardingContext);
-      const reconEntry = reconColMap[header];
       return {
         ...col,
-        relevanceScore: Math.min(1, baseScore + (reconEntry?.isKPI ? 0.2 : 0)),
+        relevanceScore: scoreColumnRelevance(col, onboardingContext),
         anomaly: detectAnomalies(col),
-        reconDescription: reconEntry?.description ?? null,
       };
     });
-  }, [csvData, filteredRows, columnTypes, onboardingContext, reconColMap]);
+  }, [csvData, filteredRows, columnTypes, onboardingContext]);
 
   // Business KPIs — computed from recon dataProfile against live filtered rows
   const kpis = useMemo(
@@ -153,13 +157,28 @@ export default function Dashboard() {
     [filteredRows, reconData]
   );
 
+  // Decision Brief — deterministic signal extraction over the full dataset.
+  // Uses csvData.rows (not filteredRows) so filters don't collapse the brief.
+  const liveBrief = useMemo(
+    () =>
+      csvData && reconData?.dataProfile
+        ? extractSignals(csvData.rows, reconData.dataProfile)
+        : null,
+    [csvData, reconData]
+  );
+
   // Filterable columns (categorical / likert)
+  // Sub-year time columns (Month, Quarter) are excluded from filters — filtering by
+  // "Q1" without a year context mixes data across all years and is misleading.
+  const SUB_YEAR_PATTERN = /\b(month|quarter|week|day)\b/i;
   const filterableColumns = useMemo(() =>
-    columns.filter((c) =>
-      c.type === COL_TYPES.CATEGORICAL ||
-      c.type === COL_TYPES.LIKERT_TEXT ||
-      (c.type === COL_TYPES.LIKERT_NUM && (c.scaleMax || 0) <= 10)
-    ),
+    columns.filter((c) => {
+      if (SUB_YEAR_PATTERN.test(c.name)) return false;
+      return (
+        c.type === COL_TYPES.CATEGORICAL ||
+        c.type === COL_TYPES.LIKERT_TEXT
+      );
+    }),
   [columns]);
 
   // Groupable columns for the "Compare by" feature — categorical, date, and URL-derived dimensions.
@@ -190,6 +209,7 @@ export default function Dashboard() {
     setReconData(null);
     setActiveBreakdowns({});
     setDerivedColumns([]);
+    setActiveMode("decision");
 
     try {
       setLoadingMsg("Parsing CSV…");
@@ -216,9 +236,9 @@ export default function Dashboard() {
       setCsvData(data);
       setFileName(file.name);
       setOnboardingContext(null);
-      setViewMode("insight");
+      // Store parsed data — recon fires after onboarding so context is available
+      pendingReconRef.current = { headers: data.headers, rows: data.rows, types };
       setShowOnboarding(true);
-      runRecon(data.headers, data.rows, types);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -416,29 +436,6 @@ export default function Dashboard() {
                 </p>
               </div>
               <div className="flex items-center gap-3 shrink-0">
-                {/* View toggle */}
-                <div className="flex items-center gap-1 bg-gray-100 rounded-full p-1">
-                  <button
-                    onClick={() => setViewMode("insight")}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      viewMode === "insight"
-                        ? "bg-white text-gray-900 shadow-sm"
-                        : "text-gray-400 hover:text-gray-700"
-                    }`}
-                  >
-                    Dashboard
-                  </button>
-                  <button
-                    onClick={() => setViewMode("explorer")}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      viewMode === "explorer"
-                        ? "bg-white text-gray-900 shadow-sm"
-                        : "text-gray-400 hover:text-gray-700"
-                    }`}
-                  >
-                    All Columns
-                  </button>
-                </div>
                 <button
                   onClick={() => { setCsvData(null); setNarrative(null); setShareUrl(null); setFilters({}); setOnboardingContext(null); setReconData(null); setActiveBreakdowns({}); setDerivedColumns([]); }}
                   className="text-xs text-gray-400 hover:text-gray-700"
@@ -517,95 +514,144 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Filter bar */}
-            {filterableColumns.length > 0 && (
-              <FilterBar
-                columns={filterableColumns}
-                filters={filters}
-                onFilterChange={updateFilter}
-                onClear={() => setFilters({})}
-              />
-            )}
-
             {/* Narrative panel */}
             {narrative && (
               <NarrativePanel narrative={narrative} onClose={() => setNarrative(null)} />
             )}
 
-            {/* AI recon context banner */}
-            {(reconLoading || reconData) && (
-              <div className="mb-4 px-4 py-3 bg-green-50 border border-green-100 rounded-xl">
-                {reconLoading ? (
-                  <p className="text-sm text-green-600 animate-pulse">✦ Reading your data…</p>
-                ) : (
-                  <>
-                    <p className="text-sm text-green-800">
-                      <span className="font-semibold text-green-600">✦</span>{" "}
-                      {reconData.dataContext}
-                    </p>
-                    {reconData.suggestedComparisons?.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mt-2 items-center">
-                        <span className="text-[11px] text-green-600">Try:</span>
-                        {reconData.suggestedComparisons.map((s) => (
-                          <button
-                            key={s.label}
-                            onClick={() =>
-                              setActiveBreakdowns((prev) => ({ ...prev, [s.metric]: s.groupBy }))
-                            }
-                            className="text-[11px] px-2.5 py-1 bg-white border border-green-200 text-green-700 rounded-full hover:bg-green-50 transition-colors"
-                          >
-                            {s.label} →
-                          </button>
+            {/* Loading skeleton — shown while recon is running */}
+            {reconLoading ? (
+              <div>
+                <div className="w-full h-0.5 bg-gray-100 rounded-full overflow-hidden mb-6">
+                  <div className="h-full bg-green-400 rounded-full animate-[recon-progress_3.5s_ease-out_forwards]" />
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                  {[
+                    { label: "Analysing growth trends…" },
+                    { label: "Identifying top performers…" },
+                    { label: "Mapping geographic distribution…" },
+                    { label: "Detecting concentration risk…" },
+                  ].map(({ label }) => (
+                    <div key={label} className="bg-white border border-gray-100 rounded-2xl p-5">
+                      <div className="mb-4 space-y-2">
+                        <div className="h-2.5 bg-gray-100 rounded-full animate-pulse" style={{ width: "35%" }} />
+                        <div className="h-4 bg-gray-100 rounded-full animate-pulse" style={{ width: "60%" }} />
+                      </div>
+                      <div className="flex items-end gap-2 h-[120px] px-2">
+                        {[0.45, 0.8, 0.6, 0.95, 0.7, 0.5].map((h, i) => (
+                          <div key={i} className="flex-1 bg-gray-100 rounded-t animate-pulse"
+                            style={{ height: `${h * 100}%`, animationDelay: `${i * 80}ms` }} />
                         ))}
                       </div>
+                      <p className="text-[10px] text-green-500 mt-3 animate-pulse">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Mode tabs */}
+                <div className="flex items-center gap-1 bg-gray-100 rounded-xl p-1 w-fit mb-6">
+                  <button
+                    onClick={() => setActiveMode("decision")}
+                    className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      activeMode === "decision"
+                        ? "bg-white text-gray-900 shadow-sm"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    ✦ Decision Brief
+                  </button>
+                  <button
+                    onClick={() => setActiveMode("dashboard")}
+                    className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      activeMode === "dashboard"
+                        ? "bg-white text-gray-900 shadow-sm"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    Dashboard
+                  </button>
+                </div>
+
+                {activeMode === "decision" ? (
+                  <DecisionBriefPanel
+                    brief={liveBrief}
+                    dataProfile={reconData?.dataProfile ?? null}
+                    dataContext={reconData?.dataContext ?? null}
+                  />
+                ) : (
+                  <>
+                    {/* AI recon context banner — dashboard mode only */}
+                    {reconData && (
+                      <div className="mb-4 px-4 py-3 bg-green-50 border border-green-100 rounded-xl">
+                        <p className="text-sm text-green-800">
+                          <span className="font-semibold text-green-600">✦</span>{" "}
+                          {reconData.dataContext}
+                        </p>
+                        {reconData.dataProfile && (
+                          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
+                            {reconData.dataProfile.grain && (
+                              <span className="text-[11px] text-green-700">
+                                <span className="text-green-500 font-medium">Each row:</span> {reconData.dataProfile.grain}
+                              </span>
+                            )}
+                            {reconData.dataProfile.primaryMetric && (
+                              <span className="text-[11px] text-green-700">
+                                <span className="text-green-500 font-medium">Primary metric:</span> {reconData.dataProfile.primaryMetric}
+                              </span>
+                            )}
+                            {(() => {
+                              const d = reconData.dataProfile.dimensions;
+                              const allDims = [...(d?.who ?? []), ...(d?.where ?? []), ...(d?.when ?? []), ...(d?.what ?? [])].filter(Boolean);
+                              return allDims.length > 0 ? (
+                                <span className="text-[11px] text-green-700">
+                                  <span className="text-green-500 font-medium">Dimensions:</span> {allDims.join(", ")}
+                                </span>
+                              ) : null;
+                            })()}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Filter bar — dashboard mode only */}
+                    {filterableColumns.length > 0 && (
+                      <FilterBar
+                        columns={filterableColumns}
+                        filters={filters}
+                        onFilterChange={updateFilter}
+                        onClear={() => setFilters({})}
+                      />
+                    )}
+
+                    {filteredRows.length === 0 ? (
+                      <div className="text-center py-20 text-gray-500">
+                        No rows match the current filters.
+                        <button onClick={() => setFilters({})} className="block mx-auto mt-2 text-green-600 text-sm hover:text-green-700">
+                          Clear filters
+                        </button>
+                      </div>
+                    ) : (
+                      <DashboardCanvas
+                        key={fileName}
+                        columns={columns}
+                        filteredRows={filteredRows}
+                        groupableColumns={groupableColumns}
+                        activeBreakdowns={activeBreakdowns}
+                        onBreakdownChange={(colName, groupBy) =>
+                          setActiveBreakdowns((prev) => ({ ...prev, [colName]: groupBy ?? undefined }))
+                        }
+                        onTypeChange={(name, newType) =>
+                          setColumnTypes((prev) => ({ ...prev, [name]: newType }))
+                        }
+                        anomalyColumns={columns.filter((c) => c.anomaly)}
+                        chartRecipes={reconData?.chartRecipes ?? []}
+                      />
                     )}
                   </>
                 )}
-              </div>
-            )}
-
-            {/* Column grid */}
-            {filteredRows.length === 0 ? (
-              <div className="text-center py-20 text-gray-500">
-                No rows match the current filters.
-                <button onClick={() => setFilters({})} className="block mx-auto mt-2 text-green-600 text-sm hover:text-green-700">
-                  Clear filters
-                </button>
-              </div>
-            ) : viewMode === "insight" ? (
-              <DashboardCanvas
-                key={fileName}
-                columns={columns}
-                filteredRows={filteredRows}
-                groupableColumns={groupableColumns}
-                activeBreakdowns={activeBreakdowns}
-                onBreakdownChange={(colName, groupBy) =>
-                  setActiveBreakdowns((prev) => ({ ...prev, [colName]: groupBy ?? undefined }))
-                }
-                onTypeChange={(name, newType) =>
-                  setColumnTypes((prev) => ({ ...prev, [name]: newType }))
-                }
-                anomalyColumns={columns.filter((c) => c.anomaly)}
-                chartRecipes={reconData?.chartRecipes ?? []}
-              />
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                {columns.map((col) => (
-                  <ColumnCard
-                    key={col.name}
-                    column={col}
-                    onTypeChange={(newType) =>
-                      setColumnTypes((prev) => ({ ...prev, [col.name]: newType }))
-                    }
-                    groupableColumns={groupableColumns}
-                    activeBreakdown={activeBreakdowns[col.name] ?? null}
-                    onBreakdownChange={(groupBy) =>
-                      setActiveBreakdowns((prev) => ({ ...prev, [col.name]: groupBy ?? undefined }))
-                    }
-                    filteredRows={filteredRows}
-                  />
-                ))}
-              </div>
+              </>
             )}
           </>
         )}
@@ -614,8 +660,17 @@ export default function Dashboard() {
       {/* Modals */}
       {showOnboarding && (
         <OnboardingModal
-          onComplete={(ctx) => { setOnboardingContext(ctx); setShowOnboarding(false); }}
-          onSkip={() => setShowOnboarding(false)}
+          onComplete={(ctx) => {
+            setOnboardingContext(ctx);
+            setShowOnboarding(false);
+            const p = pendingReconRef.current;
+            if (p) { runRecon(p.headers, p.rows, p.types, ctx); pendingReconRef.current = null; }
+          }}
+          onSkip={() => {
+            setShowOnboarding(false);
+            const p = pendingReconRef.current;
+            if (p) { runRecon(p.headers, p.rows, p.types, null); pendingReconRef.current = null; }
+          }}
         />
       )}
       {showTierGate && (

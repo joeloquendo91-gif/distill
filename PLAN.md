@@ -72,9 +72,15 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
   2. Maps 7 universal executive questions to chart recipes using the actual column names
 - Returns `dataProfile` (grain, primaryMetric, dimensions) + `chartRecipes` array
 - Chart recipes validated server-side — any recipe referencing a non-existent column is stripped
-- Recon prompt explicitly prefers Year/Quarter over raw Date for bar charts
-- `suggestedComparisons` chips still returned for the legacy compare-by feature
-- `max_tokens` increased to 1500
+- `max_tokens` increased to 2500
+- `uniqueCount` per column now sent to the prompt so the LLM avoids donuts for 50-category columns
+
+#### Recon prompt — chart type selection rules (hardened 2026-03-30 / 2026-03-31)
+- **donut** — use for status/risk/tier/categorical columns with ≤6 unique values and distribution questions
+- **stacked_100** — use when xDim is a geographic, industry, or segment dimension (one region almost always dominates in absolute terms; stacked_100 shows composition regardless)
+- **stacked_absolute** — only when xDim is a time dimension (year/quarter) to show volume AND composition change
+- **Year vs Quarter for growth question** — explicit rules added: Q1 MUST use Year as xDim (never Quarter); Quarter is only for intra-year seasonality questions; "growing/growth/trend over" in the question title bans Quarter
+- Quarterly chart question framed as "aggregates ALL years together" — prevents single-year question framing
 
 #### AI chart recipes — Dashboard mode (new 2026-03-30, fixed 2026-03-30)
 - `DashboardCanvas` renders `ChartRecipeCard` components when recipes are available
@@ -89,6 +95,7 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
   - `stacked_absolute` — stacked bar showing volume AND composition
 - `computeChartData(rows, recipe)` in csvParser executes any recipe against live filtered rows
 - `computeKPIs(rows, dataProfile)` derives headline numbers (total, YoY%, top entity)
+- **StackedBarChart TypeError fix** — `computeChartData` now routes by `chartType` (not `stackDim` presence) to `_computeStacked` or `_computeSimple`
 
 #### Chart rendering fixes (2026-03-30)
 - **Date sorting bug fixed** — line charts with raw date xDim (e.g. "15-Jul-2019") now call `_computeDateAggregated` which parses dates, groups by month or year depending on span, and sorts chronologically. Previously raw date strings fell through `getTimeRank` and sorted by value, scrambling the x-axis
@@ -99,6 +106,29 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
 #### Business KPI tiles (upgraded 2026-03-30)
 - When recon `dataProfile` is available: shows Total metric, YoY%, Top entity + value, data quality
 - Falls back to technical stats (rows, columns, completeness, anomalies) when no profile
+
+#### Decision Brief — Sprint 1: UI shell with mock data (2026-03-31)
+- New mode tabs (segmented control): **✦ Decision Brief** (default after upload) | **Dashboard**
+- `activeMode` state resets to `"decision"` on every new upload
+- Filter bar + recon context banner moved into Dashboard mode only
+- `DecisionBriefPanel` — two-column layout:
+  - Left: priority badge summary + `PriorityCard` list
+  - Right: brief summary, data context (wired to `reconData.dataProfile`), "How to use this brief" guide
+- `PriorityCard` — expandable evidence panel per priority:
+  - Header: title, priority badge (high/medium/watch), confidence level
+  - Summary: why it surfaced, affected segments with share %
+  - Expanded: why it matters, evidence signals, recommended next steps, validation questions
+- Mock data shows 3 priorities using specific named values (Direct Sales 94%, North America 94%, 2024 decline 9.3%)
+- `isMock` flag shows "Example priorities — real analysis runs automatically after upload" disclaimer
+
+#### Decision Brief — Sprint 2: Live signal extraction (2026-03-31)
+- `lib/signalExtractor.js` — deterministic, LLM-free signal extraction from rows + dataProfile:
+  - **Concentration signal** — fires when a single dimension value exceeds 50% of the primary metric; severity: high if >70%, medium if 50–70%; one signal per dimension group (who/where/what), takes strongest
+  - **Trend signal** — fires when the most recent year declined vs prior year; severity: high if >10%, medium if 5–10%, watch if 3–5%; reads Year column from `dimensions.when`
+  - **Disparity signal** — fires when top entity is ≥3× the average; medium priority; "who" dimensions only
+- All signals produce fully-structured priority objects (title, whySurfaced, whyItMatters, affectedSegments, evidence signals, recommendedActions, validationQuestions)
+- `liveBrief` useMemo in `page.js` — runs over `csvData.rows` (full dataset, not filtered) when both `csvData` and `reconData` are available
+- `DecisionBriefPanel` receives `liveBrief` — mock fallback only when no file is loaded or recon hasn't completed
 
 #### Dashboard Canvas (Looker Studio-style)
 - Recipe mode: AI-generated chart set, 2-column grid, answers executive questions
@@ -161,9 +191,27 @@ The recon doesn't use per-dataset rules. It uses a question-driven framework tha
 
 ## What's Still Missing
 
-### Fix First (Next Session)
+### Decision Brief — Remaining Sprints
 
-0. **Recon prompt — Year column not used for growth question** — when a `Year` column exists, the AI ignores it and uses `Quarter` instead for the "IS REVENUE GROWING OVER TIME?" recipe. This produces a misleading chart: Q1–Q4 totals collapse all years together, so Q1 looks biggest simply because it accumulates 3+ years of data — not because it's a strong quarter. Fix: update the recon prompt to explicitly instruct the AI to prefer a `Year` column over `Quarter` when answering the growth-over-time question. One-line prompt change in `app/api/recon/route.js`. Also: recon is returning "throughout 2019" as the data context for a dataset that spans 2019–2022 — likely because it's only reading sample values from early rows. Prompt needs to account for the full date range.
+**Sprint 3 — Claude Haiku synthesis layer**
+- Add `POST /api/decision-brief` endpoint: takes extracted signals (not raw rows), calls Claude Haiku to rewrite titles, whySurfaced, whyItMatters, and recommendations in natural, specific language
+- Signal extraction stays client-side (`lib/signalExtractor.js`); only the signal JSON (not rows) is sent to the API
+- UI: show a brief-specific loading state while Haiku synthesises (separate from recon loading)
+- Brief summary auto-generated by Claude from all signals together
+- Fallback: if API call fails, surface the deterministic brief (Sprint 2 output) rather than mock
+
+**Sprint 4 — Evidence drawer + related charts**
+- Expand each `PriorityCard` to link to a related chart from the Dashboard's recipe set
+- "Explore in Dashboard" button on each card pre-navigates to Dashboard mode and highlights the relevant chart
+- Copy-to-clipboard action on each priority (title + evidence bullets as plain text)
+- Optional: "Export brief as PDF" button (Agency tier)
+
+**Sprint 5 — Scoring refinement + edge cases**
+- Tune concentration threshold (currently 50%) — test with survey, SaaS, HR datasets
+- Add watch-level items for near-misses (e.g. 45% concentration)
+- Handle datasets with no numeric primary metric (text/categorical only)
+- Handle single-year datasets (no trend signal possible) with graceful messaging
+- Test signal quality on: survey data, employee records, marketing analytics, SaaS accounts
 
 ### Phase 2 — Revenue & accounts
 
@@ -217,6 +265,8 @@ app/
 components/
   DashboardCanvas.js         Recipe mode + manual canvas with time axis
   ChartRecipeCard.js         Renders any chart recipe (bar/line/donut/stacked) — new 2026-03-30
+  DecisionBriefPanel.js      Two-column brief layout (priority cards + summary sidebar) — new 2026-03-31
+  PriorityCard.js            Expandable priority card (evidence, actions, questions) — new 2026-03-31
   ColumnCard.js              Single column chart card with Compare by
   InsightBoard.js            Legacy top-8 layout (kept for reference)
   CSVUpload.js               Drag-drop upload UI
@@ -228,6 +278,7 @@ components/
 
 lib/
   csvParser.js               CSV parsing, type detection, analysis, chart recipe execution (~800 lines)
+  signalExtractor.js         Deterministic signal extraction (concentration/trend/disparity) — new 2026-03-31
   supabase.js                Supabase client with no-op stub for local dev
   tiers.js                   Tier config + canUseFeature() helper
 
