@@ -1,0 +1,65 @@
+{
+  "intro": "If you need to visualize survey results, the fastest path is to export your responses as a CSV, then chart each question. Most survey tools (Google Forms, SurveyMonkey, Typeform) include a one-click export. From there, Excel, Google Sheets, or a tool like Distill can turn that file into bar charts, pie charts, and summaries without any setup. This guide covers all three options.",
+
+  "whatIs": {
+    "heading": "What Is Survey Data Visualization?",
+    "body": "Survey data visualization means converting raw response data (rows of answers) into charts that make patterns easy to read. It works best with structured data: multiple-choice questions, rating scales, and yes/no responses. Open-text responses require a separate analysis step before they can be charted."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Survey Results?",
+    "bullets": [
+      "You collected responses from 20 or more people and need to spot trends across the group rather than reading row by row.",
+      "You are presenting findings to stakeholders who need a quick summary, not a spreadsheet of raw answers.",
+      "You want to compare responses across segments, such as age groups, departments, or time periods."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Survey Results in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your survey responses as a CSV or XLSX file from your survey platform.",
+      "Open the file in Excel. Each row should represent one respondent; each column should represent one question.",
+      "For a multiple-choice question, use COUNTIF to tally each answer option. For example: =COUNTIF(B2:B200, \"Yes\") counts all 'Yes' responses in column B.",
+      "Select your tally table (answer options in one column, counts in another), then go to Insert > Chart and choose Bar Chart or Pie Chart depending on the question type.",
+      "Add a chart title that matches the question text so the chart is self-explanatory.",
+      "Repeat for each question you want to visualize. Group related charts on one sheet to create a simple results summary."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Survey Results in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your survey data as a CSV. If you used Google Forms, go to the Responses tab and click the green Sheets icon to open responses directly in Google Sheets.",
+      "Each row is one respondent. Scan the columns to confirm the data looks clean with no merged headers or blank rows at the top.",
+      "For each multiple-choice question, create a summary table nearby using COUNTIF: =COUNTIF(B2:B200, \"Option A\") for each answer option.",
+      "Select the summary table, then click Insert > Chart. Google Sheets will suggest a chart type. Choose Bar chart for ranked or comparative questions, and Pie chart for part-of-whole questions.",
+      "Edit the chart title in the Chart editor to match the question wording.",
+      "To share results, click Share or publish the sheet as a webpage. Anyone with the link can view the charts without needing a Google account."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you do not want to build COUNTIF tables by hand, upload your survey CSV directly to Distill. Distill reads each column, detects the data type, and auto-generates the most appropriate chart for each question. A yes/no column becomes a bar chart. A 1-to-5 rating column becomes a histogram. You get a full visual summary of your survey in a few seconds, plus an AI-written narrative that highlights the key findings. The shareable dashboard link means you can send results to stakeholders without asking them to open a spreadsheet."
+  },
+
+  "gifAlt": "A screen recording of a survey CSV being dragged into Distill, with bar charts and a written summary appearing automatically for each question column.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize survey results without Excel?",
+      "a": "Yes. Google Sheets handles the same COUNTIF approach and is free. Distill is an even faster option: upload your exported CSV and all columns are charted automatically, no formulas required."
+    },
+    {
+      "q": "What chart type works best for multiple-choice survey questions?",
+      "a": "Bar charts work well when you want to compare how many people chose each option. Pie charts work when you want to show the share of respondents per option, though they get hard to read with more than five answer choices. For rating-scale questions (1 to 5), a bar chart or histogram shows the distribution clearly."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
