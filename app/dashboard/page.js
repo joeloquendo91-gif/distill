@@ -4,6 +4,7 @@ import {
   parseCSVFile, detectColumnType, analyzeColumn,
   getColumnValues, applyFilters, COL_TYPES,
   scoreColumnRelevance, detectAnomalies, augmentWithURLDimensions,
+  computeKPIs,
 } from "@/lib/csvParser";
 import { TIERS } from "@/lib/tiers";
 import { supabase } from "@/lib/supabase";
@@ -145,6 +146,12 @@ export default function Dashboard() {
       };
     });
   }, [csvData, filteredRows, columnTypes, onboardingContext, reconColMap]);
+
+  // Business KPIs — computed from recon dataProfile against live filtered rows
+  const kpis = useMemo(
+    () => (reconData?.dataProfile ? computeKPIs(filteredRows, reconData.dataProfile) : null),
+    [filteredRows, reconData]
+  );
 
   // Filterable columns (categorical / likert)
   const filterableColumns = useMemo(() =>
@@ -431,10 +438,51 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Stats bar */}
+            {/* KPI tiles — business metrics when recon has a data profile, else technical stats */}
             {columns.length > 0 && (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                {[
+                {kpis ? (() => {
+                  function fmtKpi(n) {
+                    if (n == null) return "—";
+                    if (n >= 1e9) return "$" + (n / 1e9).toFixed(1) + "B";
+                    if (n >= 1e6) return "$" + (n / 1e6).toFixed(1) + "M";
+                    if (n >= 1000) return "$" + (n / 1000).toFixed(1) + "K";
+                    return n.toLocaleString();
+                  }
+                  const tiles = [
+                    {
+                      label: `Total ${kpis.metric}`,
+                      value: fmtKpi(kpis.total),
+                    },
+                    kpis.yoy
+                      ? {
+                          label: `${kpis.yoy.year} vs prior year`,
+                          value: (kpis.yoy.positive ? "+" : "") + kpis.yoy.pct + "%",
+                          positive: kpis.yoy.positive,
+                          delta: true,
+                        }
+                      : { label: "Rows analyzed", value: filteredRows.length.toLocaleString() },
+                    kpis.topEntity
+                      ? {
+                          label: `Top ${kpis.topEntity.dim}`,
+                          value: kpis.topEntity.name.split(" ")[0],
+                          sub: fmtKpi(kpis.topEntity.value),
+                        }
+                      : { label: "Columns", value: csvData.headers.length },
+                    columns.filter((c) => c.anomaly).length > 0
+                      ? { label: "Anomalies found", value: columns.filter((c) => c.anomaly).length, warn: true }
+                      : { label: "Data quality", value: "Clean", clean: true },
+                  ];
+                  return tiles.map((s) => (
+                    <div key={s.label} className="bg-white border border-gray-100 rounded-xl p-4">
+                      <div className={`text-2xl font-bold tracking-tight truncate ${s.warn ? "text-amber-600" : s.clean ? "text-green-600" : s.delta ? (s.positive ? "text-green-600" : "text-red-500") : "text-gray-900"}`}>
+                        {s.value}
+                      </div>
+                      {s.sub && <div className="text-xs text-gray-400 mt-0.5">{s.sub}</div>}
+                      <div className="text-xs text-gray-500 mt-1">{s.label}</div>
+                    </div>
+                  ));
+                })() : [
                   { label: "Rows analyzed", value: filteredRows.length.toLocaleString() },
                   { label: "Columns", value: csvData.headers.length },
                   { label: "Avg completeness", value: `${Math.round(columns.reduce((s, c) => s + (c.totalCount / (c.totalRows || 1)), 0) / columns.length * 100)}%` },
@@ -528,6 +576,7 @@ export default function Dashboard() {
                   setColumnTypes((prev) => ({ ...prev, [name]: newType }))
                 }
                 anomalyColumns={columns.filter((c) => c.anomaly)}
+                chartRecipes={reconData?.chartRecipes ?? []}
               />
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
