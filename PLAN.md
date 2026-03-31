@@ -38,7 +38,7 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
 | `/dashboard` | Main app — upload, explore, filter, narrative, share |
 | `/share/[id]` | Public read-only dashboard view (server-rendered) |
 | `POST /api/narrative` | Generates AI narrative via Claude (auth + tier-gated) |
-| `POST /api/recon` | Lightweight Haiku call on upload — column context + suggestions |
+| `POST /api/recon` | Haiku call on upload — profiles data + generates chart recipes |
 | `POST /api/share` | Creates a shared dashboard record in Supabase |
 | `GET /api/share?id=` | Fetches a shared dashboard + increments view count |
 | `GET /api/tier` | Returns user's tier info |
@@ -51,56 +51,70 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
 - Currency/percent stripping before numeric detection (`$1,000` → numeric)
 - Likert text uses exact match only (no more "good morning" false positives)
 - Comma multi-select requires finite vocabulary (≤30 unique options) — avoids "Smith, John" false positives
-- High-cardinality columns (>80% unique) classified as TEXT instead of categorical — no more useless "Other" bar charts
+- High-cardinality columns (>80% unique) classified as TEXT instead of categorical
+
+#### Type detection (all fixed)
+- `tryParseDate()` handles DD-MMM-YYYY format (e.g. "15-Jul-2019") which `new Date()` rejects in V8
+- Date check runs **before** numeric check — prevents alpha-month strings being swallowed as partial numbers
+- Year columns (integers 1900–2100, ≤20 unique values) classified as `categorical` — no more "Year averages 2,020.93"
+- Year-like categoricals promoted to `DATE` in `groupableColumns` so they appear in "View over time" and sort chronologically
+- `analyzeDate` and `computeTimeSeriesBreakdown` both use `tryParseDate`
+
+#### Insight sentences (data-analyst framing)
+- Categorical: full distribution inline — `South (35%) · East (28%) · West (20%) · North (17%)`
+- Numeric: total + median + range for large-value columns (mean ≥ 1000); mean + median + range otherwise
+- Date: span + peak — `Jul 2019 – Dec 2022 · peak in 2021 (82 records)`
+- `sum` added to `analyzeNumeric` stats
+
+#### AI recon — analyst framework (rewritten 2026-03-30)
+- Recon now runs a full data analyst framework on every upload:
+  1. Profiles grain (what one row represents), primary metric, and dimension roles (who/where/when/what)
+  2. Maps 7 universal executive questions to chart recipes using the actual column names
+- Returns `dataProfile` (grain, primaryMetric, dimensions) + `chartRecipes` array
+- Chart recipes validated server-side — any recipe referencing a non-existent column is stripped
+- Recon prompt explicitly prefers Year/Quarter over raw Date for bar charts
+- `suggestedComparisons` chips still returned for the legacy compare-by feature
+- `max_tokens` increased to 1500
+
+#### AI chart recipes — Dashboard mode (new 2026-03-30)
+- `DashboardCanvas` renders `ChartRecipeCard` components when recipes are available
+- Falls back to manual column-card canvas when recon hasn't returned recipes yet
+- "All Columns" view always shows the column cards unchanged
+- **6 chart types now supported** in `ChartRecipeCard`:
+  - `bar` — vertical bar for discrete categories/periods
+  - `bar_horizontal` — horizontal ranked bar for long labels
+  - `line` — area/line for continuous trends
+  - `donut` — proportional share with full legend (name + value + %) below chart
+  - `stacked_100` — 100% stacked bar for concentration/dependency risk
+  - `stacked_absolute` — stacked bar showing volume AND composition
+- `computeChartData(rows, recipe)` in csvParser executes any recipe against live filtered rows
+- `computeKPIs(rows, dataProfile)` derives headline numbers (total, YoY%, top entity)
+
+#### Business KPI tiles (upgraded 2026-03-30)
+- When recon `dataProfile` is available: shows Total metric, YoY%, Top entity + value, data quality
+- Falls back to technical stats (rows, columns, completeness, anomalies) when no profile
 
 #### Dashboard Canvas (Looker Studio-style)
-- Starts with top 4 KPI columns by relevance score
-- 2-column layout — wider cards, more readable charts
-- Hover to reveal **×** remove button per card
-- **"+ Add chart"** picker — shows all remaining columns grouped by type
-- View toggle: **Dashboard** (curated canvas) ↔ **All Columns** (full grid)
-
-#### Global time axis
-- "View over time" selector at canvas toolbar — picks any date column
-- When active, all numeric/Likert cards switch to time series (area chart) automatically
-- Stays pinned as you add/remove charts or change filters
-- Per-card "Compare by" still works for categorical slicing on top
+- Recipe mode: AI-generated chart set, 2-column grid, answers executive questions
+- Manual mode (no recipes): top 4 columns by relevance, add/remove, "View over time" time axis
+- "View over time" selector now includes year-like categorical columns (not just DATE type)
+- View toggle: **Dashboard** (recipe or curated canvas) ↔ **All Columns** (full column grid)
 
 #### Compare by (cross-column breakdown)
-- On any numeric/Likert card — a "Compare by" dropdown at card bottom
-- Three optgroups: **Group by** (categorical), **URL breakdowns** (derived), **Over time** (date)
+- On any numeric/Likert card — "Compare by" dropdown at card bottom
+- Three optgroups: **Group by** (categorical), **URL breakdowns** (derived), **Over time** (date + year-like)
 - Month/Quarter/Year labels sort chronologically and render as area charts
 - Actual date columns use `computeTimeSeriesBreakdown` — aggregates by day/month/year based on span
-- Chart area replaces the default histogram when a breakdown is active; **✕** to clear
 
 #### URL dimension extraction
 - Automatically detects URL columns (>70% of values start with `http://`)
-- Extracts 3 derived grouping columns per URL column — no charts, only appear in "Compare by":
-  - `page / subdomain` — `app`, `www`, `go`, `(root domain)`
-  - `page / section` — first path segment (`/users/`, `/blog/`, `(homepage)`)
-  - `page / depth` — `Homepage`, `1 level`, `2 levels`, `3+ levels`
-- Works automatically with Search Console, analytics, and any URL-heavy dataset
-
-#### AI recon (on upload)
-- Single Haiku call fires automatically after upload — non-blocking, free tier
-- Returns: one-sentence data context, column descriptions, up to 3 suggested comparisons
-- Context sentence shown in green banner above canvas
-- Suggestion chips (e.g. "Revenue by Stage →") pre-set the breakdown on the target card with one click
-- KPI columns flagged by AI get a +0.2 relevance boost — surface at top of canvas
-- Column descriptions shown as subtitles below column names on cards
+- Extracts 3 derived grouping columns per URL column — subdomain, section, depth
+- Only appear in "Compare by", not as chart cards
 
 #### AI narrative
 - Claude Sonnet generates 250–350 word executive summary (Pro/Agency)
 - Context-aware: uses onboarding data (data type, goal, audience)
 - Rate-limited by tier with monthly reset
-
-#### Charts (all fixed)
-- Numeric histogram: X-axis hidden (range shown in footer), no label overlap
-- Date area chart: tick interval limited to ~5 labels regardless of data length
-- Date/time series charts: 16px horizontal margin — no clipping at ends
-- Likert text: colors inverted (Strongly Agree = green, not red)
-- Likert numeric: colors based on actual scale position, not array index
-- Type badge on each card is now a `<select>` — users can correct misdetections
 
 #### Auth & tiers
 - Supabase email/password auth
@@ -111,6 +125,31 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
 #### Sharing
 - Unique public URLs, only aggregated data stored (never raw CSV)
 - View counter, tier-gated share limits
+
+---
+
+## The Chart Selection Framework
+
+The recon doesn't use per-dataset rules. It uses a question-driven framework that generalizes to any business dataset:
+
+**Step 1 — Profile the data**
+- Grain: what one row represents (transaction, survey response, employee record, daily snapshot)
+- Primary metric: the numeric column being measured
+- Dimension roles: who (entity), where (geography), when (time), what (category)
+
+**Step 2 — Map universal executive questions to chart types**
+
+| Question | Chart type |
+|---|---|
+| Is it growing? | Bar by Year or Quarter |
+| Who/what drives the most value? | Ranked bar or horizontal bar |
+| What's the distribution/mix? | Donut |
+| Where exactly did it peak or drop? | Line by quarter/month |
+| Are we dangerously concentrated? | Stacked 100% bar |
+| Many small deals or few large ones? | Horizontal bar (avg) |
+| Which segments are growing vs shrinking? | Stacked absolute bar |
+
+**This scales without per-dataset rules.** The AI maps questions to columns for any dataset. You only extend the framework when you encounter a genuinely new data shape or question type.
 
 ---
 
@@ -126,16 +165,18 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
 
 3. **PDF export** (Pro + Agency) — listed in pricing, not implemented. Approach: `html2canvas` + `jspdf` to capture the canvas, or a print stylesheet. Needs a gated "Export PDF" button.
 
-4. **Client management dashboard** (Agency) — `/my-dashboards` page listing all shared dashboards with title, view count, date, link, delete. Also where to set/edit the `description` field (in DB schema, unused in UI).
+4. **Client management dashboard** (Agency) — `/my-dashboards` page listing all shared dashboards with title, view count, date, link, delete.
 
 5. **White-label branding** (Agency) — custom logo + brand color on shared dashboards. Needs `branding_json` column on `shared_dashboards` and settings page.
 
 ### Phase 4 — Polish
 
-6. **Dashboard description field** — `shared_dashboards.description` exists in DB, never set or displayed.
-7. **Narrative copy button** — one-click copy in NarrativePanel.
-8. **Mobile responsiveness** — filter bar and charts need review on small screens.
-9. **Empty state for `/share/[id]`** — better 404 when a shared dashboard is deleted or ID is invalid.
+6. **Recipe user controls** — ability to add/remove individual recipe cards from the dashboard view, similar to the manual canvas add/remove.
+7. **Multi-metric datasets** — recon currently picks one `primaryMetric`; datasets with Revenue + Units + Margin need a metric picker.
+8. **Dashboard description field** — `shared_dashboards.description` exists in DB, never set or displayed.
+9. **Narrative copy button** — one-click copy in NarrativePanel.
+10. **Mobile responsiveness** — filter bar and charts need review on small screens.
+11. **Empty state for `/share/[id]`** — better 404 when a shared dashboard is deleted or ID is invalid.
 
 ---
 
@@ -146,7 +187,8 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
 3. PDF export — highest-value unbuilt feature listed in Pro pricing
 4. Client management dashboard — Agency differentiator
 5. White-label branding — Agency differentiator
-6. Polish items
+6. Recipe user controls + multi-metric support
+7. Polish items
 
 ---
 
@@ -158,12 +200,13 @@ app/
   dashboard/page.js          Main dashboard (all state lives here)
   share/[id]/page.js         Public share view
   api/narrative/route.js     Claude Sonnet narrative + quota tracking
-  api/recon/route.js         Claude Haiku data recon (on upload)
+  api/recon/route.js         Claude Haiku — data profile + chart recipes (rewritten 2026-03-30)
   api/share/route.js         Create/fetch shared dashboards
   api/tier/route.js          User tier lookup
 
 components/
-  DashboardCanvas.js         Curated canvas with add/remove + global time axis
+  DashboardCanvas.js         Recipe mode + manual canvas with time axis
+  ChartRecipeCard.js         Renders any chart recipe (bar/line/donut/stacked) — new 2026-03-30
   ColumnCard.js              Single column chart card with Compare by
   InsightBoard.js            Legacy top-8 layout (kept for reference)
   CSVUpload.js               Drag-drop upload UI
@@ -174,7 +217,7 @@ components/
   TierGateModal.js           Upgrade prompt modal
 
 lib/
-  csvParser.js               CSV parsing, type detection, analysis, URL augmentation (550+ lines)
+  csvParser.js               CSV parsing, type detection, analysis, chart recipe execution (~800 lines)
   supabase.js                Supabase client with no-op stub for local dev
   tiers.js                   Tier config + canUseFeature() helper
 
