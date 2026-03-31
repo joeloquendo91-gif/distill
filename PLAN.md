@@ -161,6 +161,10 @@ The recon doesn't use per-dataset rules. It uses a question-driven framework tha
 
 ## What's Still Missing
 
+### Fix First (Next Session)
+
+0. **Recon prompt — Year column not used for growth question** — when a `Year` column exists, the AI ignores it and uses `Quarter` instead for the "IS REVENUE GROWING OVER TIME?" recipe. This produces a misleading chart: Q1–Q4 totals collapse all years together, so Q1 looks biggest simply because it accumulates 3+ years of data — not because it's a strong quarter. Fix: update the recon prompt to explicitly instruct the AI to prefer a `Year` column over `Quarter` when answering the growth-over-time question. One-line prompt change in `app/api/recon/route.js`. Also: recon is returning "throughout 2019" as the data context for a dataset that spans 2019–2022 — likely because it's only reading sample values from early rows. Prompt needs to account for the full date range.
+
 ### Phase 2 — Revenue & accounts
 
 1. **Stripe integration** — no payment flow exists; pricing CTAs go to `/dashboard`. Need Stripe Checkout for Pro/Agency upgrades and a webhook to update `user_tiers.tier` in Supabase.
