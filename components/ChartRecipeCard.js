@@ -78,11 +78,17 @@ function SeriesLegend({ series }) {
 function SimpleBarChart({ data }) {
   const items = data.entries.slice(0, 10);
   return (
-    <ResponsiveContainer width="100%" height={180}>
-      <BarChart data={items} margin={{ top: 4, right: 12, bottom: 4, left: 0 }}>
+    <ResponsiveContainer width="100%" height={200}>
+      <BarChart data={items} margin={{ top: 4, right: 8, bottom: 4, left: 4 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
         <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
-        <YAxis hide tickFormatter={fmtVal} />
+        <YAxis
+          tick={{ fontSize: 9, fill: "#9ca3af" }}
+          axisLine={false}
+          tickLine={false}
+          tickFormatter={fmtVal}
+          width={38}
+        />
         <Tooltip content={<SimpleTooltip />} />
         <Bar dataKey="value" radius={[3, 3, 0, 0]}>
           {items.map((_, i) => <Cell key={i} fill={PALETTE[i % PALETTE.length]} />)}
@@ -95,16 +101,22 @@ function SimpleBarChart({ data }) {
 function HorizontalBarChart({ data }) {
   const items = data.entries.slice(0, 8);
   return (
-    <ResponsiveContainer width="100%" height={Math.max(120, items.length * 34)}>
-      <BarChart data={items} layout="vertical" margin={{ top: 0, right: 48, bottom: 0, left: 0 }}>
-        <XAxis type="number" hide tickFormatter={fmtVal} />
+    <ResponsiveContainer width="100%" height={Math.max(140, items.length * 36)}>
+      <BarChart data={items} layout="vertical" margin={{ top: 0, right: 8, bottom: 20, left: 0 }}>
+        <XAxis
+          type="number"
+          tick={{ fontSize: 9, fill: "#9ca3af" }}
+          axisLine={false}
+          tickLine={false}
+          tickFormatter={fmtVal}
+        />
         <YAxis
           type="category"
           dataKey="label"
           tick={{ fontSize: 10, fill: "#9ca3af" }}
           axisLine={false}
           tickLine={false}
-          width={90}
+          width={100}
         />
         <Tooltip content={<SimpleTooltip />} />
         <Bar dataKey="value" radius={[0, 3, 3, 0]}>
@@ -117,10 +129,10 @@ function HorizontalBarChart({ data }) {
 
 function LineChart({ data }) {
   const items = data.entries;
-  const tickInterval = items.length > 8 ? Math.ceil(items.length / 5) - 1 : 0;
+  const tickInterval = items.length > 10 ? Math.ceil(items.length / 6) - 1 : 0;
   return (
-    <ResponsiveContainer width="100%" height={180}>
-      <AreaChart data={items} margin={{ top: 5, right: 16, bottom: 16, left: 16 }}>
+    <ResponsiveContainer width="100%" height={200}>
+      <AreaChart data={items} margin={{ top: 5, right: 8, bottom: 16, left: 4 }}>
         <defs>
           <linearGradient id="recipeLineGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#1D9E75" stopOpacity={0.25} />
@@ -135,7 +147,13 @@ function LineChart({ data }) {
           tickLine={false}
           interval={tickInterval}
         />
-        <YAxis hide tickFormatter={fmtVal} />
+        <YAxis
+          tick={{ fontSize: 9, fill: "#9ca3af" }}
+          axisLine={false}
+          tickLine={false}
+          tickFormatter={fmtVal}
+          width={38}
+        />
         <Tooltip content={<SimpleTooltip />} />
         <Area
           type="monotone"
