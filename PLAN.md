@@ -76,7 +76,7 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
 - `suggestedComparisons` chips still returned for the legacy compare-by feature
 - `max_tokens` increased to 1500
 
-#### AI chart recipes — Dashboard mode (new 2026-03-30)
+#### AI chart recipes — Dashboard mode (new 2026-03-30, fixed 2026-03-30)
 - `DashboardCanvas` renders `ChartRecipeCard` components when recipes are available
 - Falls back to manual column-card canvas when recon hasn't returned recipes yet
 - "All Columns" view always shows the column cards unchanged
@@ -89,6 +89,12 @@ NEXT_PUBLIC_DEV_TIER=agency   # dev only — bypasses tier/auth checks
   - `stacked_absolute` — stacked bar showing volume AND composition
 - `computeChartData(rows, recipe)` in csvParser executes any recipe against live filtered rows
 - `computeKPIs(rows, dataProfile)` derives headline numbers (total, YoY%, top entity)
+
+#### Chart rendering fixes (2026-03-30)
+- **Date sorting bug fixed** — line charts with raw date xDim (e.g. "15-Jul-2019") now call `_computeDateAggregated` which parses dates, groups by month or year depending on span, and sorts chronologically. Previously raw date strings fell through `getTimeRank` and sorted by value, scrambling the x-axis
+- **Y axis visible on all chart types** — bar, horizontal bar, and line charts now show formatted tick values ($75K, 1.2M, etc.); stacked charts already had Y axis
+- **Horizontal bar X axis** — value scale now shown along the bottom
+- Chart heights increased slightly (180→200px) for better readability
 
 #### Business KPI tiles (upgraded 2026-03-30)
 - When recon `dataProfile` is available: shows Total metric, YoY%, Top entity + value, data quality
