@@ -1,0 +1,65 @@
+{
+  "intro": "A donut chart is one of the clearest ways to show how parts add up to a whole, and it is easier to read than a standard pie chart when you need to label multiple segments. If you want to make a donut chart from your data, you can do it in Excel, Google Sheets, or by uploading a CSV to Distill and getting one in seconds. This guide covers all three options.",
+
+  "whatIs": {
+    "heading": "What Is a Donut Chart?",
+    "body": "A donut chart is a circular chart with a hollow center, similar to a pie chart but with the middle cut out. Each arc segment represents a category's share of the total. The empty center can display a summary value, a label, or simply make the chart feel less cluttered than a filled pie."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Donut Chart?",
+    "bullets": [
+      "You want to show part-to-whole proportions for five or fewer categories, such as budget allocations or market share by region.",
+      "You need to place a key metric or total in the chart's center to give the proportions immediate context.",
+      "You are comparing composition across two groups side by side and a pie chart feels too visually heavy."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Donut Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet and select the category labels in one column and their corresponding values in the next column.",
+      "Click the Insert tab in the ribbon, then click the pie chart icon in the Charts group.",
+      "In the dropdown, select Doughnut. Excel inserts a donut chart with default formatting.",
+      "Right-click the chart and choose Select Data to confirm the correct range is selected, then click OK.",
+      "Double-click a segment to open Format Data Series. Adjust the Doughnut Hole Size slider (60-70% is a common choice for readability).",
+      "Add data labels by clicking the chart, then clicking the plus icon and checking Data Labels. Format them to show category name and percentage."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Donut Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Select your category labels and values, including the header row.",
+      "Click Insert in the menu, then choose Chart. Google Sheets opens the Chart Editor panel.",
+      "In the Chart type dropdown under Setup, scroll down and select Donut chart.",
+      "Under Customize, click Pie chart and use the Donut hole slider to set the hole size to your preference.",
+      "Click Slice to add labels showing category names, values, or percentages.",
+      "Click outside the editor to close it and position the chart on your sheet."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you have your data in a CSV file, Distill removes all the manual setup. Upload the file and Distill reads your columns, auto-selects the best chart types for your data, and renders a donut chart alongside other visualizations immediately. There is no formula to write, no chart wizard to navigate, and no account required. The free tier supports CSV files up to 1,000 rows, which covers the vast majority of category-breakdown datasets people work with day to day."
+  },
+
+  "gifAlt": "A screen recording of a CSV file being dragged into Distill, which automatically generates a donut chart showing the category breakdown from the uploaded data.",
+
+  "faqs": [
+    {
+      "q": "Can I make a donut chart without Excel?",
+      "a": "Yes. Google Sheets has a built-in donut chart option under Insert > Chart. You can also upload a CSV to Distill, which generates one automatically with no spreadsheet software needed."
+    },
+    {
+      "q": "How many segments should a donut chart have?",
+      "a": "Keep it to five or fewer. Beyond that, segments become too narrow to read and the chart loses its usefulness. If you have more categories, consider grouping smaller ones into an 'Other' segment or switching to a bar chart."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
