@@ -1,0 +1,65 @@
+{
+  "intro": "An area chart from CSV data is one of the clearest ways to show how a value builds or changes over time. If you have a spreadsheet with dates and numeric values, you can turn it into an area chart in Excel or Google Sheets with a few clicks. Or you can upload the CSV to Distill and get the chart generated for you in seconds, no setup required.",
+
+  "whatIs": {
+    "heading": "What Is an Area Chart?",
+    "body": "An area chart is a line chart with the space between the line and the axis filled in. The filled area makes it easier to see volume and cumulative change at a glance. It works best with continuous data over time, such as weekly sales totals, monthly website traffic, or daily temperature readings."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use an Area Chart?",
+    "bullets": [
+      "You want to show how a single metric accumulates or changes over a time period, such as monthly revenue or running totals.",
+      "You are comparing two or three series and want to show their relative contribution to a whole, using a stacked area chart.",
+      "Your data has a clear time axis and you want to emphasize the magnitude of change, not just the direction of the trend."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make an Area Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel by going to File > Open, selecting your file, and confirming the delimiter settings in the import wizard.",
+      "Arrange your data so the date or time column is in column A and your numeric values are in column B (or further right for multiple series).",
+      "Select the data range you want to chart, including the header row.",
+      "Go to the Insert tab, click the Charts group, and select the Area chart icon. Choose '2-D Area' for a standard area chart or 'Stacked Area' to compare multiple series.",
+      "Click on the chart title to rename it, and use the Chart Design tab to adjust colors and axis labels as needed.",
+      "To save the chart, right-click it and choose 'Save as Picture', or keep it embedded in the workbook and export the sheet."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make an Area Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Upload your CSV to Google Drive, then open it in Google Sheets by right-clicking and selecting Open with > Google Sheets.",
+      "Confirm that dates are in the first column and numeric values are in the columns to the right.",
+      "Select the data range you want to visualize, including headers.",
+      "Click Insert > Chart. Google Sheets will suggest a chart type automatically.",
+      "In the Chart Editor panel on the right, open the Chart type dropdown and select 'Area chart'. For multiple series, choose 'Stacked area chart'.",
+      "Customize the title, axis labels, and colors using the Customize tab in the Chart Editor, then close the panel."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you just want to see your data as a chart without configuring axes or adjusting chart type menus, Distill is a quicker path. Upload your CSV and Distill reads every column, picks appropriate chart types, and renders them instantly. For time-based data, it generates area and line charts automatically and writes a short plain-language narrative summarizing what the data shows. The result is a shareable dashboard you can send to anyone with a link. No account is needed and the free tier supports CSV files up to 1,000 rows."
+  },
+
+  "gifAlt": "Screen recording of a CSV file being dragged into Distill, which automatically generates an area chart showing values over time alongside a written summary.",
+
+  "faqs": [
+    {
+      "q": "Can I make an area chart without Excel?",
+      "a": "Yes. Google Sheets supports area charts natively and is free. You can also upload your CSV directly to Distill, which generates the chart for you without any manual configuration."
+    },
+    {
+      "q": "What is the difference between a line chart and an area chart?",
+      "a": "An area chart is essentially a line chart with the region below the line filled with color. The fill helps readers perceive volume and cumulative change more easily than a bare line. For simple trend comparisons, a line chart is often cleaner; when magnitude matters, an area chart adds useful visual weight."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
