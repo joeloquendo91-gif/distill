@@ -1,0 +1,65 @@
+{
+  "intro": "A treemap chart turns hierarchical or categorical data into a grid of nested rectangles, where each rectangle's size represents a value. If you have a CSV with categories and numeric totals, a treemap is one of the fastest ways to see which categories dominate. You can build one in Excel or Google Sheets, or upload your CSV to Distill and have a treemap generated for you in seconds.",
+
+  "whatIs": {
+    "heading": "What Is a Treemap Chart?",
+    "body": "A treemap displays data as a set of rectangles, each sized in proportion to a numeric value. Categories are shown as individual tiles, and when data is hierarchical, parent groups contain smaller child tiles. Treemaps work best when you have one categorical column and one numeric column and you want to compare the relative size of each category at a glance."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Treemap Chart?",
+    "bullets": [
+      "You want to compare the relative share of many categories in a single view, such as product lines by revenue.",
+      "Your data has a hierarchy, like region broken down by country and then by city sales figures.",
+      "You need to spot which categories are large or small without reading a table of numbers."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Treemap Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel. Make sure you have at least one column for category labels and one column for numeric values.",
+      "Select both columns, including the header row.",
+      "Go to the Insert tab on the ribbon.",
+      "Click on Hierarchy Charts in the Charts group, then select Treemap from the dropdown.",
+      "Excel inserts a treemap. Click on the chart title to rename it something descriptive.",
+      "Use the Chart Design tab to adjust colors or add data labels if you want each tile to display its value."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Treemap Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Google Sheets by going to File, then Import, and uploading your file.",
+      "Select the category column and the numeric value column, including their headers.",
+      "Click Insert, then Chart.",
+      "In the Chart Editor panel on the right, open the Chart type dropdown and scroll down to find Treemap chart.",
+      "Sheets renders the treemap. Each rectangle is labeled by category and sized by value.",
+      "Adjust colors or min/max color scale under the Customize tab in the Chart Editor to make patterns easier to read."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you just need the chart without the setup, upload your CSV to Distill. It reads your columns automatically, identifies categorical and numeric fields, and generates a treemap along with other relevant charts in one step. There is no account required and no formatting to configure. You also get an AI-written summary that describes which categories are largest and what patterns stand out. Once generated, you can share the dashboard with a single link."
+  },
+
+  "gifAlt": "Screen recording of a CSV file being dragged into Distill, with a treemap chart appearing automatically alongside an AI-written summary of the largest categories.",
+
+  "faqs": [
+    {
+      "q": "Can I make a treemap chart without Excel?",
+      "a": "Yes. Google Sheets supports treemap charts natively through its Insert Chart menu. You can also upload your CSV to Distill and get a treemap without installing or configuring anything."
+    },
+    {
+      "q": "How many categories can a treemap display clearly?",
+      "a": "Treemaps start to get crowded above 20 to 30 categories, because small tiles become hard to read. If you have many categories, consider grouping smaller ones into an 'Other' bucket or using a bar chart instead to preserve readability."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
