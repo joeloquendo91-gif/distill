@@ -1,0 +1,65 @@
+{
+  "intro": "A bubble chart is one of the clearest ways to show three variables at once, and if your data is already in a CSV, you're most of the way there. The tricky part is the setup: Excel and Google Sheets both support bubble charts, but neither makes it obvious. This guide walks through both tools step by step. If you want to skip the configuration entirely, Distill can generate a bubble chart from CSV data as soon as you upload the file.",
+
+  "whatIs": {
+    "heading": "What Is a Bubble Chart?",
+    "body": "A bubble chart is a variation of a scatter plot where each data point is represented as a circle. The X and Y axes position each bubble, while the size of the bubble encodes a third numeric value. It works best when you have at least three numeric columns and want to show how all three relate across a set of categories or entities."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Bubble Chart?",
+    "bullets": [
+      "You have three numeric variables per row and want to see how they interact, such as revenue, units sold, and profit margin by product.",
+      "You need to compare the relative scale of a third metric across many data points without adding a separate chart.",
+      "You want to spot outliers or clusters in multi-dimensional data that a bar or line chart would flatten into a single dimension."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Bubble Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel. Make sure you have at least three numeric columns: one for the X axis, one for the Y axis, and one for bubble size.",
+      "Select the three data columns. If the columns are not adjacent, hold Ctrl and click each column header to select them together.",
+      "Go to the Insert tab, click the scatter chart icon in the Charts group, then choose Bubble from the dropdown.",
+      "Excel will generate the chart using the first selected column as X values, the second as Y values, and the third as bubble sizes. Check the axis labels to confirm the mapping is correct.",
+      "To relabel the axes, double-click each axis title and type descriptive names that match your columns.",
+      "To adjust bubble scaling, right-click the data series, select Format Data Series, and change the Scale bubble size to option to a percentage that makes the differences visible without overlapping."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Bubble Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV into Google Sheets via File > Import, then select your file and choose to insert it into the current sheet.",
+      "Select the three columns you want to use: X values, Y values, and bubble size. Each row will become one bubble.",
+      "Go to Insert > Chart. Google Sheets will likely default to a bar or line chart, so open the Chart Editor on the right side.",
+      "In the Chart type dropdown, scroll down to find Bubble chart and select it.",
+      "Under Setup, confirm that the X, Y, and Size fields map to the correct columns. Rename them if needed.",
+      "Switch to the Customize tab to adjust colors, add a title, or change how bubble sizes are scaled relative to each other."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Both Excel and Google Sheets require you to manually select columns, navigate chart menus, and fix axis mappings before you see anything useful. Distill removes all of that. Upload your CSV and Distill automatically reads the column types, picks appropriate chart configurations, and generates your bubble chart along with a written summary of what the data shows. It supports CSV files up to 1,000 rows for free and requires no account to get started."
+  },
+
+  "gifAlt": "A screen recording showing a CSV file being dragged into Distill, which then automatically generates a bubble chart with labeled axes and sized bubbles based on the uploaded data.",
+
+  "faqs": [
+    {
+      "q": "Can I make a bubble chart without Excel?",
+      "a": "Yes. Google Sheets has a built-in bubble chart option under Insert > Chart. Distill is another option: upload your CSV and it generates the chart automatically, with no spreadsheet software needed."
+    },
+    {
+      "q": "How many columns do I need in my CSV to make a bubble chart?",
+      "a": "You need at least three numeric columns: one for the horizontal position, one for the vertical position, and one that controls the size of each bubble. A fourth text column can be used to label each bubble with a name or category."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
