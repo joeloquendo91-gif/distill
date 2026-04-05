@@ -1,0 +1,71 @@
+{
+  "intro": "Visualizing employee performance data turns a spreadsheet full of numbers into patterns you can actually act on. Whether you track output metrics, goal completion rates, or quarterly review scores, the right chart makes it easy to spot who needs support and where the team is thriving. This guide covers how to build those charts in Excel and Google Sheets, plus a faster option if you want results without the manual setup.",
+
+  "whatIs": {
+    "heading": "What Is an Employee Performance Chart?",
+    "body": "An employee performance chart is any visualization that maps individual or team metrics against a common scale, time period, or goal. Common formats include bar charts comparing output across employees, line charts tracking progress over time, and scatter plots correlating hours worked with output. The right format depends on whether you are comparing people, tracking change, or looking for outliers."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use Employee Performance Charts?",
+    "bullets": [
+      "Quarterly reviews: show each employee's goal completion rate side by side so managers can prepare talking points before the meeting.",
+      "Team planning: identify which team members are consistently at capacity and which have room for additional projects.",
+      "Performance improvement plans: plot an individual's output week over week to measure whether a coaching intervention is working.",
+      "Compensation analysis: compare performance scores across salary bands to check whether pay aligns with contribution.",
+      "Onboarding tracking: chart new-hire ramp times against a benchmark to flag anyone who may need extra support early."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Employee Performance Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel. Each row should represent one employee, with columns for name, metric (e.g., tasks completed), and time period.",
+      "Select the employee name column and the metric column together. Hold Ctrl to select non-adjacent columns if needed.",
+      "Go to Insert, then Charts, and choose Bar Chart (clustered) for a single metric comparison, or Line Chart if you are plotting change over time.",
+      "Click Chart Title and replace the placeholder with a descriptive label, such as 'Tasks Completed by Employee, Q1 2026'.",
+      "Sort the data before charting if rank order matters: right-click the metric column, select Sort, and choose Largest to Smallest.",
+      "To add a target or benchmark line, add a column with the same value for every row (e.g., 50), include it in your selection, and format that series as a line on a secondary axis."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Employee Performance Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Google Sheets (File > Import, or drag the file directly onto the browser tab).",
+      "Select the columns you want to chart: employee names and the performance metric you care about.",
+      "Click Insert, then Chart. Sheets will auto-suggest a chart type. Switch it to Bar chart in the Chart editor panel on the right.",
+      "In the Customize tab, add a chart title and label the vertical axis with the metric name so the chart is self-explanatory.",
+      "To compare multiple metrics at once, add additional data series in the Setup tab. Each series will appear as a separate bar group.",
+      "Use the Sort range option (Data menu) to order employees by their metric before charting, so the highest performers appear at the top."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you have employee performance data in a CSV, Distill can turn it into charts the moment you upload the file. There is no chart builder to configure and no axis labels to set manually. Distill reads your column headers, picks appropriate chart types for each metric, and writes a plain-English narrative summary of what the data shows. It works for any CSV up to 1,000 rows and requires no account to get started. For recurring reviews, you can re-upload an updated CSV each cycle and share the new dashboard with a link."
+  },
+
+  "gifAlt": "Screen recording of a CSV with employee names and performance scores being uploaded to Distill, which instantly generates a bar chart ranking employees by score with an AI-written summary.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles the same steps and is free. You can also upload your CSV directly to Distill, which generates charts automatically without any spreadsheet software."
+    },
+    {
+      "q": "What columns do I need in my CSV to make a useful performance chart?",
+      "a": "At minimum you need one column for employee names (or IDs) and one numeric column for the metric you are tracking, such as tasks completed, revenue closed, or score. A date or period column lets you plot trends over time. Additional columns let you add more series to compare multiple metrics at once."
+    },
+    {
+      "q": "How do I handle sensitive employee data when using a third-party tool?",
+      "a": "Consider anonymizing names before uploading by replacing them with initials or IDs. Distill does not require an account and does not store your CSV after the session ends, but using anonymized data is a good practice any time you move HR data outside your own systems."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
