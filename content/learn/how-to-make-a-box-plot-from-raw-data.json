@@ -1,0 +1,65 @@
+{
+  "intro": "If you have a column of numbers and want to understand its spread at a glance, a box plot from raw data is the right tool. Box plots show the median, quartiles, and outliers in a single compact chart, making it easy to compare distributions across groups. You can build one in Excel or Google Sheets with a few steps, or upload your CSV to Distill and get it done in seconds.",
+
+  "whatIs": {
+    "heading": "What Is a Box Plot?",
+    "body": "A box plot (also called a box-and-whisker plot) summarizes a numeric dataset using five values: the minimum, first quartile (Q1), median, third quartile (Q3), and maximum. The box spans Q1 to Q3, the line inside the box marks the median, and the whiskers extend to the data's range. Points that fall outside the whiskers are flagged as outliers. It works best with continuous numeric data where you want to see how values are distributed, not just their average."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Box Plot?",
+    "bullets": [
+      "Comparing distributions across categories, such as test scores by class or salaries by department.",
+      "Spotting outliers in a dataset before running further analysis.",
+      "Summarizing a large numeric column without listing every value or building a full histogram."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Box Plot in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel. Make sure each numeric column has a header row.",
+      "Select the column (or columns) you want to visualize.",
+      "Click Insert > Insert Statistic Chart > Box and Whisker.",
+      "Excel builds the chart using its default settings. Right-click the chart and choose Select Data if you need to adjust which columns are included.",
+      "To show outliers as individual points, right-click any data series, choose Format Data Series, and confirm that Show Inner Points or Show Outlier Points is checked.",
+      "Add a chart title by clicking the default title text and typing a label. Then save the file."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Box Plot in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV into Google Sheets via File > Import.",
+      "Select the cells that contain your numeric data, including the header.",
+      "Click Insert > Chart.",
+      "In the Chart Editor panel on the right, open the Chart type dropdown and scroll to Candlestick chart. Google Sheets does not have a native box plot, so a candlestick chart is the closest built-in option.",
+      "To get a true box plot, install a Google Sheets add-on such as 'Charts' by Google or use a script. Alternatively, calculate Q1, median, and Q3 with the QUARTILE function and feed those into the candlestick chart manually.",
+      "Label your axes using Customize > Chart and axis titles, then share or download the chart."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Excel requires at least four clicks and some formatting decisions before you see a chart. Google Sheets does not even have a native box plot. Distill removes that friction. Upload your CSV, and Distill scans every numeric column, picks the right chart type automatically, and renders box plots alongside histograms and summaries without any configuration. The result is shareable with a single link. Free for CSVs up to 1,000 rows, and no account is required."
+  },
+
+  "gifAlt": "Screen recording of a CSV being dragged into Distill, followed by a box plot appearing automatically for a numeric column.",
+
+  "faqs": [
+    {
+      "q": "Can I make a box plot without Excel?",
+      "a": "Yes. Google Sheets can approximate one using a candlestick chart and the QUARTILE function. Distill is the faster option: upload your CSV and it generates box plots automatically with no formulas required."
+    },
+    {
+      "q": "What is the difference between a box plot and a histogram?",
+      "a": "A histogram shows how many values fall into each bin, giving you the shape of the distribution. A box plot shows summary statistics (median, quartiles, range, and outliers) in a compact form. Box plots are better for comparing multiple groups side by side; histograms are better for understanding the full shape of a single distribution."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
