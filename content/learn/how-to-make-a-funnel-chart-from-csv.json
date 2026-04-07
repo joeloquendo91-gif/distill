@@ -1,0 +1,65 @@
+{
+  "intro": "A funnel chart from CSV data is one of the clearest ways to show where people drop off in a multi-step process. Whether you're tracking a sales pipeline, a signup flow, or a marketing campaign, a funnel chart makes the numbers readable at a glance. This guide walks through how to build one in Excel and Google Sheets, and shows a faster path if you just want the chart without the setup.",
+
+  "whatIs": {
+    "heading": "What Is a Funnel Chart?",
+    "body": "A funnel chart is a stacked bar-style chart that shows values decreasing across a sequence of stages. Each bar is centered and narrower than the one above it, forming a funnel shape. It works best with ordered, stage-based data where each step represents a subset of the previous one, such as leads, qualified leads, proposals, and closed deals."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Funnel Chart?",
+    "bullets": [
+      "You have a sales pipeline and want to show how many deals survive each stage.",
+      "You're analyzing a signup or checkout flow and need to identify the step with the highest drop-off.",
+      "You want to present conversion data to a non-technical audience in a way that's immediately understood."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Funnel Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open Excel and enter your stage names in column A and the corresponding values in column B. For example: Leads, Qualified, Proposal, Closed.",
+      "Select both columns, including the headers.",
+      "Go to Insert, click the Charts dropdown, and choose Funnel. Excel 2016 and later include this chart type natively.",
+      "If you don't see the Funnel option, insert a Bar chart instead, then right-click the chart and choose Change Chart Type to find it.",
+      "Click the chart title to rename it and add axis labels if needed via Chart Design > Add Chart Element.",
+      "Format the fill colors under Format > Data Series to match your brand or improve contrast."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Funnel Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your Google Sheet and enter stage names in column A and values in column B.",
+      "Select both columns with their headers.",
+      "Click Insert, then Chart.",
+      "In the Chart Editor panel on the right, open the Chart type dropdown and scroll down to find Funnel chart.",
+      "If Funnel chart is not listed, select Bar chart as a fallback. Google Sheets added native funnel support in 2023, so update your account if it's missing.",
+      "Customize labels, colors, and the chart title using the Customize tab in the Chart Editor."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your funnel data is already in a CSV, Distill can save you the setup entirely. Upload the file and Distill reads your columns, identifies the stage-and-value structure, and auto-generates a funnel chart along with an AI-written summary of the drop-off pattern. There is nothing to configure. The free tier supports files up to 1,000 rows and requires no account to try. You can share the result with a single link."
+  },
+
+  "gifAlt": "A screen recording of a CSV file with funnel stage data being uploaded to Distill, which instantly generates a funnel chart and a written summary of the conversion drop-off.",
+
+  "faqs": [
+    {
+      "q": "Can I make a funnel chart without Excel?",
+      "a": "Yes. Google Sheets supports funnel charts natively as of 2023. You can also upload your CSV to Distill and get a funnel chart generated automatically without opening any spreadsheet tool."
+    },
+    {
+      "q": "What format does my CSV need to be in for a funnel chart?",
+      "a": "Your CSV needs at least two columns: one for the stage names (text) and one for the values at each stage (numbers). The rows should be ordered from the largest stage at the top to the smallest at the bottom. Most pipeline exports from CRMs like Salesforce or HubSpot already follow this structure."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
