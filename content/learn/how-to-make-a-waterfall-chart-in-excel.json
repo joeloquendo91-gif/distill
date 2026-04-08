@@ -1,0 +1,65 @@
+{
+  "intro": "A waterfall chart breaks down how a starting value changes through a series of gains and losses to reach a final total. If you need to visualize a P&L statement, a budget variance, or a cash flow summary, this is the right chart. You can make a waterfall chart in Excel or Google Sheets with some manual setup, or upload your CSV to Distill and get one generated automatically.",
+
+  "whatIs": {
+    "heading": "What Is a Waterfall Chart?",
+    "body": "A waterfall chart (also called a bridge chart or cascade chart) shows how an initial value is affected by a series of intermediate increases and decreases to arrive at a final total. Each bar floats from where the previous one ended, so you can see the cumulative effect at a glance. It works best with sequential data where each step adds to or subtracts from a running total."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Waterfall Chart?",
+    "bullets": [
+      "Showing a profit-and-loss breakdown where revenue, costs, and expenses each affect the bottom line as separate items.",
+      "Visualizing a budget vs. actual variance so stakeholders can see exactly where spending exceeded or came in under plan.",
+      "Displaying cash flow over a period, with inflows and outflows shown as distinct positive and negative segments."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Waterfall Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Arrange your data in two columns: one for category labels (e.g. Revenue, Cost of Goods, Gross Profit) and one for the values. Keep subtotals and end totals in their own rows.",
+      "Select both columns, then go to Insert > Charts and choose Waterfall. This chart type is built into Excel 2016 and later.",
+      "Click any bar that represents a subtotal or final total. Right-click it and select Format Data Point, then check 'Set as total' to anchor it at the baseline.",
+      "Double-click any bar to open the Format Data Series panel. Adjust colors for positive, negative, and total bars so the chart is easy to read.",
+      "Click the default chart title and replace it with a descriptive label for your data.",
+      "Right-click the chart and choose 'Save as Template' if you want to reuse this format for future reports."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Waterfall Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Set up your data in two columns: labels in column A, values in column B. Put subtotals and totals in their own rows.",
+      "Select your data range, then click Insert > Chart.",
+      "In the Chart Editor panel, open the Chart Type dropdown and choose Waterfall chart.",
+      "Under the Customize tab, expand the Waterfall section. Toggle 'Subtotals' on for any bars that should be anchored to zero rather than floating.",
+      "Adjust connector lines and bar colors in the same Customize panel to distinguish increases from decreases clearly.",
+      "Use the three-dot menu on the chart to download as PNG or publish a shareable link for your team."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your data is already in a CSV, Distill removes all the setup. Upload your file and Distill reads the columns, picks the right chart types, and renders them alongside an AI-written narrative that explains the numbers. For financial or variance data, that means your running totals are visualized and described without touching a single chart editor. Distill is free for CSV files up to 1,000 rows and requires no account to get started."
+  },
+
+  "gifAlt": "Screen recording of a CSV with financial category and value columns being uploaded to Distill, which automatically generates a waterfall chart showing gains, losses, and a final total.",
+
+  "faqs": [
+    {
+      "q": "Can I make a waterfall chart without Excel?",
+      "a": "Yes. Google Sheets has a built-in waterfall chart type under Insert > Chart. If you want to skip manual setup entirely, Distill generates one automatically from a CSV upload and requires no account."
+    },
+    {
+      "q": "How do I show subtotals correctly in a waterfall chart?",
+      "a": "In Excel, select the subtotal or total bar, right-click, choose Format Data Point, and check 'Set as total.' In Google Sheets, enable 'Subtotals' under the Waterfall section in the Customize tab. Both options pin the selected bar to the zero baseline instead of floating it from the previous value."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
