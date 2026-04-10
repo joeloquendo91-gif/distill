@@ -1,0 +1,66 @@
+{
+  "intro": "If you have customer data in a spreadsheet, whether it's a CRM export, an e-commerce order list, or a support ticket log, charts make it far easier to read than rows of numbers. This guide shows how to visualize customer data from a spreadsheet in Excel and Google Sheets, and how to skip most of those steps with Distill.",
+
+  "whatIs": {
+    "heading": "What Is Customer Data Visualization?",
+    "body": "Customer data visualization means turning rows of customer records into charts, graphs, or dashboards that reveal patterns at a glance. It works best with data that has clear categories or numeric measures: customer segments, purchase counts, order values, region, churn status, or lifetime value. A good visual makes trends and outliers obvious without requiring the viewer to parse a table."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Customer Data?",
+    "bullets": [
+      "You need to present customer segments or demographics to a non-technical audience.",
+      "You want to compare purchase behavior, order frequency, or average order value across groups.",
+      "You are tracking churn, retention, or customer growth over time and need a quick snapshot.",
+      "You exported a CRM or support tool to CSV and need to understand the distribution of accounts or tickets."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Customer Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel (File > Open, or drag it in). Confirm the columns are correctly parsed.",
+      "Select the columns you want to chart. For example, select a category column like 'Segment' and a numeric column like 'Total Orders'.",
+      "Go to Insert > Charts and choose the chart type that fits your data: bar charts for comparing groups, line charts for trends over time, pie or donut charts for share of total.",
+      "Excel will generate a draft chart. Click the chart title to rename it, and use the Chart Design tab to adjust colors and style.",
+      "If your data needs summarizing first, use a PivotTable (Insert > PivotTable) to count or sum values by category before charting.",
+      "Save the file. To share the chart, copy-paste it into a Word or PowerPoint file, or export the sheet as a PDF."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Customer Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV via File > Import. Choose 'Replace spreadsheet' or 'Insert new sheet' depending on your setup.",
+      "Highlight the data range you want to chart, including column headers.",
+      "Click Insert > Chart. Google Sheets will suggest a chart type based on your data.",
+      "In the Chart Editor panel, change the chart type if needed. Bar and column charts work well for comparing customer segments; line charts work for time-based data.",
+      "To group or summarize data first, select your range and use Data > Pivot table to count customers by segment, region, or status.",
+      "Once satisfied, click the three-dot menu on the chart and choose 'Publish chart' or copy the shareable link to send it to others."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you have your customer data in a CSV, Distill can turn it into charts in seconds without any setup. Upload the file, and Distill auto-detects your columns, picks appropriate chart types, and generates a full visual dashboard alongside an AI-written summary. There is no pivot table to configure, no chart editor to navigate, and no account required. It is free for CSV files up to 1,000 rows, which covers most CRM exports, customer lists, and support logs."
+  },
+
+  "gifAlt": "Screen recording showing a customer data CSV being dragged into Distill, which automatically generates bar charts, a summary table, and an AI narrative about customer segments.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize customer data without Excel?",
+      "a": "Yes. Google Sheets handles CSV imports and chart creation just as well as Excel, and it is free. Distill is another option: upload your CSV and get charts without opening a spreadsheet application at all."
+    },
+    {
+      "q": "What chart types work best for customer data?",
+      "a": "Bar charts are good for comparing counts across segments or regions. Line charts show customer growth or churn over time. Scatter plots reveal relationships between two numeric values, like order frequency versus order value. The right choice depends on what question you are trying to answer."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
