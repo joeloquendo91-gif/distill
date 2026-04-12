@@ -1,0 +1,65 @@
+{
+  "intro": "Making a Gantt chart from a spreadsheet is one of the most common requests from project managers who live in Excel or Google Sheets. The problem is that neither tool has a native Gantt chart type, so most people end up building a workaround using stacked bar charts. If you want a project timeline from your CSV data without the manual setup, Distill generates one automatically when you upload your file.",
+
+  "whatIs": {
+    "heading": "What Is a Gantt Chart?",
+    "body": "A Gantt chart is a horizontal bar chart that displays a project schedule. Each row represents a task, and the bar spans from the task's start date to its end date. It works best with structured data that includes a task name, a start date, and a duration or end date."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Gantt Chart?",
+    "bullets": [
+      "When you need to show a project timeline and communicate which tasks overlap or run in parallel.",
+      "When presenting a project plan to stakeholders who need a visual summary rather than a table of dates.",
+      "When managing multiple tasks across a team and you want to spot scheduling conflicts at a glance."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Gantt Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Set up your data in three columns: Task Name, Start Date, and Duration (in days). Duration is the number of days between start and end.",
+      "Select your Task Name and Start Date columns, then insert a Stacked Bar chart from the Insert menu.",
+      "Right-click the chart and choose Select Data. Add Duration as a second data series.",
+      "Click the Start Date bars in the chart, open Format Data Series, and set the fill to No Fill. This makes the start offset invisible, leaving only the duration bars visible.",
+      "Format the vertical axis: right-click it, choose Format Axis, and check 'Categories in reverse order' so tasks read top to bottom.",
+      "Adjust the horizontal axis to match your project date range by setting minimum and maximum values. Right-click the axis, choose Format Axis, and enter the date serial numbers for your project start and end."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Gantt Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Organize your data with columns for Task Name, Start Date, and Duration. Add a helper column that converts your start date to a number of days from a fixed project start date, using a formula like =A2-$A$2.",
+      "Select your Task Name column and the two numeric columns (offset and duration). Insert a Stacked Bar chart from the Insert menu.",
+      "In the Chart Editor, go to Customize, select the first series (offset), and set the fill color to None so it becomes invisible.",
+      "Under the Vertical axis settings in the Chart Editor, check 'Reverse axis order' so task 1 appears at the top.",
+      "Update the horizontal axis title to show your actual project dates by clicking the chart title fields.",
+      "Resize the chart to give each row enough height to read the task labels clearly."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Both Excel and Google Sheets require several workarounds to produce a Gantt chart because neither has a built-in chart type for project timelines. Distill takes a different approach: upload a CSV with your task names, start dates, and end dates, and it automatically generates a timeline chart along with an AI-written summary of your project schedule. There is no formula setup, no invisible bar trick, and no axis formatting to configure. The free tier supports CSV files up to 1,000 rows and requires no account to get started."
+  },
+
+  "gifAlt": "A screen recording of a CSV file with project task data being dragged into Distill, which automatically generates a Gantt-style timeline chart and a written summary of the project schedule.",
+
+  "faqs": [
+    {
+      "q": "Can I make a Gantt chart without Excel?",
+      "a": "Yes. Google Sheets supports the same stacked bar workaround as Excel, though the steps differ slightly. Distill is an even faster option: upload your CSV and it builds a project timeline for you with no manual setup required."
+    },
+    {
+      "q": "How many tasks can a Gantt chart show before it gets hard to read?",
+      "a": "Charts with more than 20 to 30 tasks tend to get crowded, especially when task names are long. For larger projects, consider grouping tasks by phase and creating one chart per phase, or filtering the data to show only current or upcoming tasks."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
