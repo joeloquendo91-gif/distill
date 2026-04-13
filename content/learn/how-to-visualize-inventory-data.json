@@ -1,0 +1,65 @@
+{
+  "intro": "If you manage inventory in a spreadsheet, raw numbers only get you so far. A chart makes it easy to see which products are running low, which are overstocked, and where turnover is slow. This guide shows how to visualize inventory data in Excel and Google Sheets, and how Distill lets you skip most of the manual steps by auto-generating charts the moment you upload your CSV.",
+
+  "whatIs": {
+    "heading": "What Is an Inventory Chart?",
+    "body": "An inventory chart is any visualization that plots stock quantities, turnover rates, or reorder thresholds across products or time periods. Bar charts and line charts are the most common formats. They work best with data that has at least one column for product names or SKUs and one numeric column for quantity, value, or days of supply."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use an Inventory Chart?",
+    "bullets": [
+      "You need to spot which SKUs are below reorder point at a glance, without scrolling through hundreds of rows.",
+      "You want to show weekly or monthly stock movement to a buyer, warehouse manager, or supplier.",
+      "You are presenting an inventory audit and need a clear visual summary of current stock levels by category."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Inventory Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your inventory CSV in Excel. Make sure column A contains product names or SKUs and column B contains the quantity on hand.",
+      "Select both columns, including the header row.",
+      "Click Insert, then choose Bar Chart or Column Chart from the Charts group.",
+      "Excel inserts a default chart. Click on the chart title and rename it to something descriptive, such as 'Stock on Hand by SKU'.",
+      "To add a reorder threshold line, type your reorder quantity in a new column C for each row. Select all three columns, re-insert the chart, and change the series type for column C to a Line chart using the Change Chart Type menu.",
+      "Format axis labels and sort rows by quantity (Data > Sort) to make low-stock items appear at the bottom of a horizontal bar chart."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Inventory Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your inventory CSV in Google Sheets via File > Import, or paste the data directly into a new sheet.",
+      "Select the columns that contain your product names and quantities, including their headers.",
+      "Click Insert, then Chart. Google Sheets will suggest a chart type based on your data.",
+      "If the suggested chart is not a bar chart, open the Chart Editor on the right and select Bar chart from the Chart type dropdown.",
+      "In the Customize tab, update the chart title and adjust the horizontal axis range to match your data.",
+      "To highlight items below a threshold, use conditional formatting on the source cells: select the quantity column, go to Format > Conditional formatting, and set a color rule for values below your reorder point."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Distill takes a different approach. You upload your inventory CSV and it reads every column automatically, then generates bar charts, line charts, and a written summary without any configuration. There is no chart wizard to work through and no formatting to do. If your file has a date column alongside quantities, Distill will plot the trend line as well. The result is a shareable dashboard you can send to a colleague with a single link. It is free for files up to 1,000 rows and requires no account to get started."
+  },
+
+  "gifAlt": "A screen recording of an inventory CSV being dragged into Distill, which automatically generates a bar chart of stock quantities by product SKU.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles inventory CSVs just as well and is free to use. If you want to skip the chart setup entirely, Distill generates charts automatically when you upload your file, with no spreadsheet software required."
+    },
+    {
+      "q": "What columns does my inventory CSV need for charting to work?",
+      "a": "At minimum, you need one text column for product names or SKUs and one numeric column for quantities. If you have a date column, tools like Distill can also show stock levels over time as a line chart."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
