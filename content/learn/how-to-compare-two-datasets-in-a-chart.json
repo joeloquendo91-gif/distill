@@ -1,0 +1,71 @@
+{
+  "intro": "Comparing two datasets in a chart is one of the most common tasks in data analysis. Whether you are tracking this year's sales against last year's, or testing two product lines side by side, the right chart makes the difference obvious at a glance. Excel and Google Sheets both support this, but the setup takes more steps than most people expect. Distill lets you upload a CSV and get a comparison chart in seconds, with no manual configuration.",
+
+  "whatIs": {
+    "heading": "What Is a Dual-Dataset Chart?",
+    "body": "A dual-dataset chart plots two separate data series on the same axes so you can compare them directly. It works best when both series share a common dimension, such as time, category, or group. Common formats include grouped bar charts, multi-series line charts, and combination charts that pair a bar series with a line series."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Compare Two Datasets in a Chart?",
+    "bullets": [
+      "Year-over-year comparison: plot this year's monthly revenue alongside last year's to spot growth or decline.",
+      "A/B testing results: show conversion rates for two variants in the same chart to make the winner clear.",
+      "Budget vs. actuals: display planned spend and real spend by category so gaps are immediately visible.",
+      "Two product lines: compare units sold for Product A and Product B across the same time range.",
+      "Before and after: visualize a metric before and after a change, such as a pricing adjustment or campaign launch."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Compare Two Datasets in a Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Arrange your data in two columns side by side. Column A holds the shared dimension (dates, categories). Column B holds the first series values. Column C holds the second series values. Add a header row.",
+      "Step 2. Select all three columns including the header row.",
+      "Step 3. Go to Insert > Charts. Choose a Clustered Bar or Line chart depending on your data type. Excel will plot both series automatically.",
+      "Step 4. Click the chart to select it, then click Chart Design > Select Data if you need to rename the series. Use the legend entries panel to assign clear labels.",
+      "Step 5. To use a secondary axis for series with different scales, right-click the second series in the chart, choose Format Data Series, and select Secondary Axis.",
+      "Step 6. Add a chart title and axis labels via Chart Design > Add Chart Element. Save the file."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Compare Two Datasets in a Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Lay out your data with a shared dimension in Column A, the first series in Column B, and the second series in Column C. Include headers in row 1.",
+      "Step 2. Highlight all three columns.",
+      "Step 3. Click Insert > Chart. Google Sheets will auto-detect the structure and plot both series. If it chooses the wrong chart type, open the Chart Editor and change the chart type to Combo, Line, or Bar.",
+      "Step 4. In the Chart Editor, go to the Customize tab. Under Series, select each series individually to change colors, line styles, or axis assignment.",
+      "Step 5. To add a secondary axis, select the second series in the Customize tab and check the Axis dropdown. Switch it to Right Axis.",
+      "Step 6. Add a title under Customize > Chart and Axis Titles, then click outside the chart to finish."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you have your data in a CSV, Distill can save you all of those steps. Upload the file and Distill reads every column, identifies numeric series, and builds comparison charts automatically. You get grouped bars, multi-series lines, and scatter plots generated in one pass, plus an AI-written summary that calls out the differences between your series. No axis configuration, no series renaming, no secondary axis setup. The result is shareable with a link, and the free tier supports CSVs up to 1,000 rows with no account required."
+  },
+
+  "gifAlt": "Screen recording of a two-column CSV being uploaded to Distill, which instantly generates a grouped bar chart comparing both data series side by side.",
+
+  "faqs": [
+    {
+      "q": "Can I compare two datasets without Excel?",
+      "a": "Yes. Google Sheets handles dual-series charts well and is free. Distill is even faster: upload a CSV and it generates comparison charts automatically without any manual chart configuration."
+    },
+    {
+      "q": "What chart type works best for comparing two datasets?",
+      "a": "It depends on the data. Use a grouped bar chart to compare categories. Use a multi-series line chart to compare trends over time. Use a scatter plot if you want to see the correlation between two numeric variables. Combination charts, which pair a bar and a line series, work well when the two series have different units or scales."
+    },
+    {
+      "q": "What if my two datasets have very different value ranges?",
+      "a": "Use a secondary axis. In Excel, right-click the smaller series and choose Format Data Series, then select Secondary Axis. In Google Sheets, select the series in the Customize tab and switch the axis to Right Axis. This keeps both series readable on the same chart."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
