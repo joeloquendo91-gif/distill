@@ -1,0 +1,65 @@
+{
+  "intro": "A combo chart in Excel layers two chart types on the same plot, most often a bar chart and a line chart. This makes it easy to compare two related metrics that have different scales, like monthly revenue and its growth rate. If your data is already in a CSV, you can skip the manual steps entirely and upload it to Distill to get a combo chart generated automatically.",
+
+  "whatIs": {
+    "heading": "What Is a Combo Chart?",
+    "body": "A combo chart (also called a combination chart) overlays two different chart types on one set of axes. The most common version pairs a clustered bar chart with a line chart. It works best when you have two numeric series that share the same category axis but differ too much in scale to read clearly on a single y-axis."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Combo Chart?",
+    "bullets": [
+      "When you need to show an absolute value alongside a rate or percentage, such as total monthly sales revenue plotted next to month-over-month growth.",
+      "When two metrics share the same time or category axis but have very different value ranges, making a single y-axis misleading or hard to read.",
+      "When you want to emphasize a trend line against grouped totals, such as average order value against total orders per quarter."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Combo Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Open your spreadsheet and select the data range you want to chart. Include both data series and the category column (e.g., month names).",
+      "Step 2. Click Insert in the top menu, then find the Charts group and click the chart icon to open the Insert Chart dialog.",
+      "Step 3. Click the All Charts tab in the dialog, then select Combo from the list on the left.",
+      "Step 4. Excel shows a preview with dropdowns for each series. Use the Chart Type dropdown to assign one series to Clustered Bar and the other to Line.",
+      "Step 5. Check the Secondary Axis checkbox for the series with a different scale. This adds a second y-axis on the right side of the chart.",
+      "Step 6. Click OK. To adjust formatting, double-click any chart element such as a bar, axis label, or legend entry."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Combo Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Select your data range in Google Sheets, including headers. Both series must be in adjacent columns.",
+      "Step 2. Click Insert in the menu bar, then click Chart. A default chart and the Chart Editor panel will appear.",
+      "Step 3. In the Chart Editor, click the Chart type dropdown and scroll down to find Combo chart. Click it.",
+      "Step 4. In the Series section, click on each series name to expand its options. Use the Type dropdown to set it to Bars or Line as needed.",
+      "Step 5. To add a secondary axis, click the three-dot menu next to a series and select Right axis.",
+      "Step 6. Close the Chart Editor. Click the chart once to select it, then drag it to where you want it on the sheet."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Building a combo chart in Excel or Sheets takes a dozen clicks, and getting the secondary axis scaled correctly is easy to get wrong. Distill handles this automatically. Upload a CSV with two or more numeric columns and Distill reads the column types, generates the appropriate charts, and writes a plain-English narrative explaining what the data shows. The whole process takes seconds and the result is a shareable link. No account is required."
+  },
+
+  "gifAlt": "Screen recording of a CSV file being dragged into Distill, which then automatically generates a combo chart with bar and line series on a shared time axis.",
+
+  "faqs": [
+    {
+      "q": "Can I make a combo chart without Excel?",
+      "a": "Yes. Google Sheets supports combo charts natively through the Chart Editor. You can also upload your CSV to Distill, which detects the best chart type for each column and generates the chart for you without any manual configuration."
+    },
+    {
+      "q": "What is a secondary axis and when do I need one?",
+      "a": "A secondary axis is a second y-axis on the right side of the chart. Use it when two series have very different value ranges, for example when one series is in thousands of dollars and another is a percentage. Without a secondary axis, the smaller-scale series will appear flat and unreadable."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
