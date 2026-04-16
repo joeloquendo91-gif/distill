@@ -1,61 +1,61 @@
 {
-  "intro": "A heatmap from data is one of the clearest ways to spot patterns across two dimensions at once. Instead of scanning rows of numbers, you see color intensity tell the story: dark cells are high, light cells are low. If you have a CSV or spreadsheet with a grid of values, you can build a heatmap in Excel or Google Sheets using conditional formatting, or upload it to Distill and get one generated for you automatically.",
+  "intro": "If you have a grid of values and want to spot patterns at a glance, a heatmap from data is the right chart. Heatmaps use color intensity to encode numbers, so high and low values jump out immediately without reading every cell. Excel and Google Sheets can both produce them, though the setup takes a few steps. If you want something faster, Distill builds a heatmap automatically when you upload a CSV.",
 
   "whatIs": {
     "heading": "What Is a Heatmap?",
-    "body": "A heatmap is a chart that uses color to represent numeric values in a table. Each cell in the grid gets a shade based on how large or small its value is relative to the others. They work best when you have two categorical dimensions (like days of the week vs. hours of the day, or products vs. regions) and a numeric value at each intersection."
+    "body": "A heatmap is a chart that represents individual values in a matrix using color. Darker or warmer colors typically indicate higher values, and lighter or cooler colors indicate lower ones. Heatmaps work best when you have two categorical dimensions (like day of week and hour of day) and one numeric measure to display at each intersection."
   },
 
   "whenToUse": {
     "heading": "When Should You Use a Heatmap?",
     "bullets": [
-      "You want to find which combinations of two categories produce the highest or lowest values, such as which sales rep performed best in which region.",
-      "You're analyzing time-based patterns, like website traffic by hour and day of the week, where visual color gradients reveal peaks instantly.",
-      "You need to present a correlation matrix or a large numeric table to a non-technical audience who won't read raw numbers."
+      "You want to show activity patterns across two dimensions, such as website traffic by day and hour.",
+      "You need to compare performance across multiple categories at once, such as sales by region and product line.",
+      "You are looking for clusters or outliers in a large matrix of numbers that would be hard to read as a table."
     ]
   },
 
   "excelSteps": {
-    "heading": "How to Make a Heatmap in Excel",
+    "heading": "How to Create a Heatmap in Excel",
     "subheading": "Step-by-step instructions",
     "steps": [
-      "Step 1. Open your CSV in Excel. Make sure rows represent one category (e.g. product names) and columns represent another (e.g. months), with numeric values in each cell.",
-      "Step 2. Select the range of numeric cells you want to color-code. Do not include the row or column headers in the selection.",
-      "Step 3. Click 'Home' in the ribbon, then 'Conditional Formatting', then 'Color Scales'.",
-      "Step 4. Choose a color scale preset, such as green-yellow-red (green for high values, red for low) or reverse it to match your context.",
-      "Step 5. To customize the scale, click 'Conditional Formatting' again, then 'Manage Rules', select the rule, and click 'Edit Rule' to set specific min, midpoint, and max colors and values.",
-      "Step 6. Add a chart title by typing above the table, and optionally hide the numbers by setting the font color to match the cell background if you want a cleaner visual."
+      "Step 1. Arrange your data in a matrix with row labels in column A, column headers in row 1, and numeric values filling the remaining cells.",
+      "Step 2. Select the range that contains only the numeric values (not the labels).",
+      "Step 3. Go to Home, click Conditional Formatting, and choose Color Scales.",
+      "Step 4. Pick a two-color or three-color scale. A common choice is red for high values, white for the midpoint, and blue for low values.",
+      "Step 5. Add your row and column labels back by selecting and formatting them as bold so the grid is readable.",
+      "Step 6. Optionally, shrink the row height and column width so the colored cells form a tight grid that looks like a traditional heatmap."
     ]
   },
 
   "sheetsSteps": {
-    "heading": "How to Make a Heatmap in Google Sheets",
+    "heading": "How to Create a Heatmap in Google Sheets",
     "subheading": "Step-by-step instructions",
     "steps": [
-      "Step 1. Open your spreadsheet in Google Sheets. Arrange your data as a matrix: one category across rows, another across columns, and numeric values in each cell.",
-      "Step 2. Select the numeric data range, not including the headers.",
-      "Step 3. Click 'Format' in the top menu, then select 'Conditional formatting'.",
-      "Step 4. In the panel that appears on the right, click the 'Color scale' tab.",
-      "Step 5. Set the minimum, midpoint, and maximum colors. For example, use white for low, yellow for mid, and dark green for high values.",
-      "Step 6. Click 'Done'. The color scale is applied instantly. Add labels or a title row above the table to make the chart self-explanatory when shared."
+      "Step 1. Lay out your data in the same matrix format: row categories in column A, column categories in row 1, and numeric values in the body.",
+      "Step 2. Select the numeric values in the matrix body.",
+      "Step 3. Open the Format menu and click Conditional formatting.",
+      "Step 4. In the sidebar, switch the format rules dropdown to Color scale.",
+      "Step 5. Set the Minpoint, Midpoint (optional), and Maxpoint colors to create the gradient you want.",
+      "Step 6. Click Done. Resize the cells to make them square if you want the chart to look like a grid rather than a wide table."
     ]
   },
 
   "distillSection": {
     "heading": "A Faster Way: Skip the Manual Steps with Distill",
-    "body": "If you have your data in a CSV, Distill removes all the setup. Upload your file and Distill reads the structure automatically, generates a heatmap along with other relevant charts, and writes a plain-language summary of what the data shows. There is nothing to configure and no account required. It works for CSVs up to 1,000 rows and you can share the result with a link. For teams that produce regular reports from exported data, this cuts the time from raw file to finished visual down to seconds."
+    "body": "Conditional formatting in Excel or Sheets works, but it takes setup, and resizing cells to look right adds extra time. Distill skips all of that. Upload a CSV and Distill detects the structure of your data, auto-selects the right chart types, and generates a heatmap along with the other relevant visualizations. You get a shareable dashboard in seconds, with no formulas, no formatting rules, and no account required for CSV files up to 1,000 rows."
   },
 
-  "gifAlt": "A screen recording of a CSV file being dragged into Distill, which then automatically generates a heatmap with a color scale applied across the data grid.",
+  "gifAlt": "A screen recording showing a CSV file being dragged into Distill, which then automatically generates a heatmap and other charts from the uploaded data.",
 
   "faqs": [
     {
-      "q": "Can I do this without Excel?",
-      "a": "Yes. Google Sheets supports color-scale conditional formatting and works the same way. If you want to skip both tools entirely, Distill accepts a CSV upload and generates a heatmap for you without any manual formatting steps."
+      "q": "Can I create a heatmap without Excel?",
+      "a": "Yes. Google Sheets supports color-scale conditional formatting that produces the same effect. Distill is another option: upload your CSV and it builds the heatmap for you with no spreadsheet setup needed."
     },
     {
-      "q": "What format does my data need to be in for a heatmap?",
-      "a": "Your data should be in a matrix format: one set of categories as row labels, another as column headers, and a single numeric value in each cell where they intersect. A flat list or a single-column dataset will not produce a meaningful heatmap without reshaping first."
+      "q": "What data format does a heatmap require?",
+      "a": "A heatmap needs data in a matrix format: rows and columns each represent one dimension, and each cell holds a single numeric value. If your data is in a flat list with separate columns for each dimension, you will need to pivot it into a matrix first before applying color scales in Excel or Sheets."
     },
     {
       "q": "Is Distill free to use?",
