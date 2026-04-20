@@ -1,0 +1,65 @@
+{
+  "intro": "If you have financial data in a CSV, whether it is a budget export, an accounting report, or a month-end close, charts make it far easier to read than rows of numbers. Visualizing financial data from a CSV gives you a clear picture of revenue trends, expense breakdowns, and cash flow patterns without needing to build formulas by hand. This guide shows how to do it in Excel and Google Sheets, and how to skip most of the setup with Distill.",
+
+  "whatIs": {
+    "heading": "What Is Financial Data Visualization?",
+    "body": "Financial data visualization means converting numeric financial records into charts, graphs, or dashboards that make patterns and outliers obvious. It works best with structured data that has clear numeric measures and time or category dimensions: monthly revenue, expense categories, profit margins, budget versus actual, or cash flow by quarter. A good financial chart lets a reader grasp the story in a few seconds instead of scanning a table."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Financial Data?",
+    "bullets": [
+      "When you need to present budget performance or revenue trends to stakeholders who do not read raw spreadsheets.",
+      "When you have an accounting or ERP export and want to compare actuals against targets across departments or time periods.",
+      "When you are tracking cash flow month over month and need a quick visual that flags dips or anomalies."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Financial Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your CSV in Excel via File > Open. Verify that numeric columns are formatted as numbers, not text, by checking the cell format in the Home tab.",
+      "If the data needs summarizing, create a PivotTable first: go to Insert > PivotTable, drag your category field to Rows, and your numeric field to Values.",
+      "Select the data range or PivotTable you want to chart, then go to Insert > Charts and choose a type. Line charts work well for trends over time; bar charts suit category comparisons; waterfall charts show running totals and variances.",
+      "Click the chart title to rename it. Use the Chart Design tab to adjust colors and style so the chart matches your reporting format.",
+      "Add data labels by right-clicking a data series and selecting Add Data Labels to make key values readable directly on the chart.",
+      "Save the file. To share, copy-paste the chart into a PowerPoint deck or PDF, or email the Excel file directly."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Financial Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your CSV via File > Import. Choose the correct separator (comma for standard CSVs) and select 'Replace spreadsheet' or 'Insert new sheet'.",
+      "If your data needs grouping, use Data > Pivot table to summarize totals by month, category, or department before charting.",
+      "Highlight the data range you want to chart, including column headers, then click Insert > Chart.",
+      "In the Chart Editor panel, select the chart type that fits your data. Line charts suit monthly trends; column charts work for comparing expense categories; stacked bar charts show how components add up to a total.",
+      "Use the Customize tab to add a title, label the axes, and adjust colors to match your report style.",
+      "Click the three-dot menu on the chart and choose 'Publish chart' or share the Sheet link to distribute the visual to your team."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If configuring pivot tables and chart axes in Excel or Sheets takes too long, Distill gets you to the same result in seconds. Upload your financial CSV and Distill auto-detects your columns, picks appropriate chart types for each one, and generates a full visual dashboard alongside a plain-English summary of what the data shows. There is no setup, no formula writing, and no chart editor to navigate. The free tier covers CSV files up to 1,000 rows, which handles most budget exports, P&L statements, and cash flow reports. No account is required."
+  },
+
+  "gifAlt": "Screen recording of a financial CSV being uploaded to Distill, which automatically generates line charts for revenue trends and bar charts for expense categories, alongside an AI-written summary.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize financial data without Excel?",
+      "a": "Yes. Google Sheets handles CSV imports and chart creation just as well, and it is free. Distill is another option: upload your CSV and get charts without opening a spreadsheet application at all."
+    },
+    {
+      "q": "What chart types work best for financial data?",
+      "a": "Line charts are best for showing revenue or expense trends over time. Bar and column charts work well for comparing values across categories or departments. Waterfall charts are useful for showing how individual items contribute to a running total, such as a budget bridge or cash flow statement."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
