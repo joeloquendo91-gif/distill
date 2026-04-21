@@ -1,0 +1,65 @@
+{
+  "intro": "A radar chart lets you plot several variables for one or more subjects on a single diagram, making it easy to spot strengths, weaknesses, and patterns at a glance. If you need to make a radar chart from a spreadsheet, Excel and Google Sheets both support it natively. For a faster route, you can upload a CSV to Distill and get a radar chart generated automatically, with no chart-building required.",
+
+  "whatIs": {
+    "heading": "What Is a Radar Chart?",
+    "body": "A radar chart (also called a spider chart or web chart) arranges multiple numeric axes around a central point, with each axis representing one variable. Each subject gets a polygon connecting its values across all axes. The shape of the polygon reveals which variables are high or low relative to the others."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Radar Chart?",
+    "bullets": [
+      "Comparing a product or candidate across several criteria at once, such as speed, cost, reliability, and support.",
+      "Showing performance profiles for multiple team members or items side by side, where the polygon shapes reveal different patterns.",
+      "Displaying survey results where respondents rated several dimensions, so readers can see which dimensions score highest."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Radar Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your spreadsheet. Put category labels in the first column and one numeric column per subject you want to compare.",
+      "Select the entire data range, including the category labels and all numeric columns.",
+      "Click the Insert tab, then click the Charts group dialog arrow (or select Recommended Charts).",
+      "In the chart picker, choose the Other Charts category and select Radar. Pick the plain Radar option (not filled or with markers, unless you prefer those).",
+      "Click OK. Excel inserts the chart onto the sheet.",
+      "Use the Chart Design tab to add a title, adjust colors, or switch rows and columns if the axes or series look wrong."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Radar Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your sheet. Put category labels in column A and numeric values for each subject in the columns to the right.",
+      "Select all your data, including the header row and labels.",
+      "Click Insert, then Chart. Google Sheets opens the Chart editor panel on the right.",
+      "In the Chart type dropdown, scroll down to Other and select Radar chart.",
+      "Check the Chart editor to confirm your data range is correct and that rows vs. columns are interpreted the way you expect.",
+      "Click the Customize tab to adjust axis labels, colors, and the chart title, then close the panel."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you have your data in a CSV, Distill can save you the manual chart-building work. Upload your file and Distill reads every column automatically, then generates charts based on the data it finds. You get a shareable dashboard in seconds, with no formulas, no axis configuration, and no chart menus to navigate. The free tier supports CSV files up to 1,000 rows, and no account is needed to try it."
+  },
+
+  "gifAlt": "Screen recording of a CSV file being dragged into Distill, which then automatically generates a radar chart comparing multiple variables across the uploaded data.",
+
+  "faqs": [
+    {
+      "q": "Can I make a radar chart without Excel?",
+      "a": "Yes. Google Sheets supports radar charts natively under Insert > Chart > Radar chart. You can also upload a CSV to Distill, which generates charts automatically without any chart-building steps."
+    },
+    {
+      "q": "How many variables should a radar chart have?",
+      "a": "Radar charts work best with three to ten variables. Fewer than three gives you a triangle that is hard to read, and more than ten axes tend to crowd together and become difficult to interpret."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
