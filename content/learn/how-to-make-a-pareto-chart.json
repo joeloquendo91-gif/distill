@@ -1,0 +1,71 @@
+{
+  "intro": "A Pareto chart combines a bar chart and a line chart to show which factors account for most of a problem or outcome. It applies the 80/20 rule visually: the tallest bars on the left represent the issues that cause the most impact, and the cumulative line tells you exactly what percentage of the total you have addressed once you fix them. Excel and Google Sheets both support Pareto charts, but the setup requires a cumulative percentage column and some chart layering. If your data is in a CSV, Distill can skip all that and generate a Pareto chart automatically.",
+
+  "whatIs": {
+    "heading": "What Is a Pareto Chart?",
+    "body": "A Pareto chart is a bar chart sorted from highest to lowest value, with a secondary line showing the running cumulative percentage. It is based on the Pareto principle, which holds that a small number of causes typically produce the majority of effects. The chart is widely used in quality control, operations, and business analysis to identify which problems or categories deserve the most attention."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Pareto Chart?",
+    "bullets": [
+      "Defect analysis: identify which types of manufacturing defects account for the most product failures, so teams can focus fixes where they matter most.",
+      "Customer complaints: rank complaint categories by volume to see which issues affect the largest share of customers.",
+      "Inventory management: find which SKUs account for the majority of sales or carrying costs so you can prioritize restocking decisions.",
+      "Support ticket triage: sort support categories by ticket count to direct staffing toward the highest-volume problem areas.",
+      "Revenue concentration: show which products, regions, or customers generate most of the revenue to guide sales strategy."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Pareto Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Set up two columns: one for category names and one for values. Sort the rows from highest to lowest value.",
+      "Step 2. Add a third column for cumulative percentage. In the first row use =B2/SUM($B$2:$B$last). In each subsequent row add the previous cumulative percentage to the current row's share. Format the column as percentage.",
+      "Step 3. Select the category and value columns (not the cumulative column yet). Insert a Clustered Column chart.",
+      "Step 4. Right-click the chart and choose Select Data. Add the cumulative percentage column as a new series.",
+      "Step 5. Click the cumulative percentage series in the chart. Right-click and choose Change Series Chart Type. Set it to Line and check Secondary Axis. Click OK.",
+      "Step 6. Add a chart title and axis labels. The left axis shows raw counts and the right axis shows 0% to 100%."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Pareto Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Put category names in Column A and values in Column B, sorted from largest to smallest.",
+      "Step 2. Add Column C for cumulative percentage. In C2 enter =B2/SUM($B$2:$B$last). In C3 and below enter =C2+(B3/SUM($B$2:$B$last)). Format Column C as percentage.",
+      "Step 3. Select Columns A, B, and C including headers. Click Insert > Chart.",
+      "Step 4. In the Chart Editor, change the chart type to Combo chart. Google Sheets will plot Column B as bars and Column C as a line by default.",
+      "Step 5. In the Customize tab, select the cumulative percentage series and switch its axis to Right Axis so it scales from 0% to 100%.",
+      "Step 6. Add a chart title under Customize > Chart and Axis Titles, then close the editor."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Building a Pareto chart manually means sorting your data, writing cumulative percentage formulas, inserting a combo chart, and configuring a secondary axis. Distill handles all of this for you. Upload a CSV and Distill reads the columns, detects which ones suit a Pareto layout, and generates the chart automatically. You also get an AI-written summary that identifies the top contributors and states what percentage of the total they represent. No formulas, no series configuration, no axis setup. The result is shareable with a single link, and the free tier supports CSV files up to 1,000 rows with no account required."
+  },
+
+  "gifAlt": "Screen recording of a CSV containing category names and counts being uploaded to Distill, which automatically generates a Pareto chart with sorted bars and a cumulative percentage line.",
+
+  "faqs": [
+    {
+      "q": "Can I make a Pareto chart without Excel?",
+      "a": "Yes. Google Sheets supports Pareto charts using a Combo chart type with a secondary axis. Distill is faster: upload a CSV and it generates the chart automatically, including the cumulative percentage line, without any manual formula work."
+    },
+    {
+      "q": "Does my data need to be sorted before I build the chart?",
+      "a": "Yes, if you are building it manually in Excel or Google Sheets. The bars must run from highest to lowest for the chart to communicate the 80/20 idea clearly. If you sort after inserting the chart, you will need to rebuild or update the data range. Distill sorts the data automatically when it detects a Pareto pattern."
+    },
+    {
+      "q": "What is the 80/20 line on a Pareto chart?",
+      "a": "The cumulative percentage line reaches 80% somewhere along the x-axis. The categories to the left of that point are the vital few that account for 80% of the total. This tells you where to focus improvement efforts. Some Pareto charts draw a horizontal reference line at 80% to make this threshold obvious."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
