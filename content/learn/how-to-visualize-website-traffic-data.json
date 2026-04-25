@@ -1,0 +1,70 @@
+{
+  "intro": "If you export website traffic data from Google Analytics or Search Console, you end up with a CSV full of numbers that are hard to read in a spreadsheet. Visualizing that data as charts makes it far easier to spot trends, compare time periods, and explain performance to stakeholders. This guide walks through how to visualize website traffic data in Excel and Google Sheets, and shows a faster path if you want charts without the manual setup.",
+
+  "whatIs": {
+    "heading": "What Is a Website Traffic Chart?",
+    "body": "A website traffic chart is any visual that plots metrics like sessions, pageviews, clicks, or bounce rate over time or across dimensions like page, channel, or country. Line charts are most common for time-based traffic data. Bar charts work well for comparing channels or pages. The right chart depends on whether you are showing change over time, comparing categories, or breaking down a total into parts."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Website Traffic Data?",
+    "bullets": [
+      "When reporting weekly or monthly performance to a team that does not log into analytics tools directly.",
+      "When comparing traffic before and after a site change, campaign launch, or algorithm update.",
+      "When presenting channel breakdown (organic, paid, referral, direct) to show where visitors come from.",
+      "When you need to share a clear, standalone summary without giving someone access to your analytics account."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Website Traffic Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Export your data as a CSV from Google Analytics (Reports > Export) or Google Search Console (Performance > Export). Open it in Excel.",
+      "Step 2. Clean the file. Delete any header rows or summary rows that analytics tools add above the data. Your first row should be column names like Date, Sessions, Pageviews, Clicks.",
+      "Step 3. Select your Date column and Sessions (or any metric) column. Hold Ctrl to select non-adjacent columns.",
+      "Step 4. Go to Insert > Charts and choose Line Chart for time-series data, or Bar Chart to compare categories like traffic by channel.",
+      "Step 5. Right-click the chart and select Select Data to add more metric series (e.g., add Pageviews as a second line). Use the secondary axis option if the values differ greatly in scale.",
+      "Step 6. Label your axes, add a title, and adjust the date axis formatting so it shows readable intervals (weekly, monthly) rather than every single day."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Website Traffic Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Export your analytics data as a CSV and open it in Google Sheets via File > Import, or drag the file directly into Drive.",
+      "Step 2. Remove any extra header or footer rows added by the export so row 1 contains your column headers.",
+      "Step 3. Select the Date and Sessions columns. For non-adjacent columns, hold Cmd (Mac) or Ctrl (Windows) while clicking the column headers.",
+      "Step 4. Click Insert > Chart. Sheets usually auto-detects a line chart for date-based data. If it does not, open Chart type in the Chart Editor and choose Line chart.",
+      "Step 5. In the Chart Editor under Setup, add additional series like Clicks or Bounce Rate to compare metrics on the same chart.",
+      "Step 6. Use the Customize tab to set axis labels, adjust the date format, and change colors to distinguish each metric line clearly."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Exporting a CSV from Google Analytics or Search Console and uploading it to Distill takes about 30 seconds. Distill reads your columns automatically, detects date fields, and generates line charts, bar charts, and a written summary without any configuration. There is no spreadsheet formatting to clean up, no axis labels to set manually, and no account required. If you need to share the result, Distill gives you a shareable link you can send directly. It is free for CSV files up to 1,000 rows, which covers most standard analytics exports."
+  },
+
+  "gifAlt": "Screen recording of a Google Analytics CSV being uploaded to Distill, which automatically generates a line chart of sessions over time and a bar chart of traffic by channel.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize website traffic data without Excel?",
+      "a": "Yes. Google Sheets handles analytics CSV exports well and is free. Distill is another option: upload your CSV and get charts immediately, with no spreadsheet setup required."
+    },
+    {
+      "q": "What chart type works best for website traffic data?",
+      "a": "A line chart is best for showing sessions or pageviews over time because it makes trends and dips obvious. Use a bar chart when comparing traffic across channels, countries, or pages where time is not the main dimension."
+    },
+    {
+      "q": "My Google Analytics export has extra header rows that break the chart. How do I fix it?",
+      "a": "Delete any rows above your column headers before inserting a chart. Analytics exports often include a report title and date range in the first few rows. Your data should start with row 1 as the header row (Date, Sessions, etc.) and row 2 as the first data point."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
