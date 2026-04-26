@@ -1,0 +1,65 @@
+{
+  "intro": "Social media platforms let you export your analytics as a CSV, but turning those numbers into useful charts takes a few extra steps. Whether you want to visualize social media data to track engagement over time, compare posts by reach, or show follower growth to a client, the right chart makes the numbers easier to act on. This guide covers how to do it in Excel and Google Sheets, plus a faster option if you'd rather skip the manual setup.",
+
+  "whatIs": {
+    "heading": "What Is a Social Media Data Chart?",
+    "body": "A social media data chart is any visualization built from exported platform analytics, such as impressions, engagement rate, follower count, or click-through rate. The data usually comes as a CSV downloaded from Meta Business Suite, LinkedIn Analytics, Instagram Insights, or a scheduling tool like Buffer or Hootsuite. Line charts work best for metrics that change over time, bar charts are better for comparing posts or campaigns, and scatter plots can surface correlations between posting frequency and reach."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Social Media Data?",
+    "bullets": [
+      "You need to show a client or manager how a campaign performed over a month or quarter.",
+      "You want to compare engagement across different content types, such as video posts versus image posts.",
+      "You are auditing posting frequency to see whether it correlates with follower growth or reach."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Social Media Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your analytics as a CSV from the platform, for example via Meta Business Suite > Insights > Export, or LinkedIn Analytics > Export.",
+      "Open the CSV in Excel. Check that each column is clearly labeled, such as Date, Impressions, Reach, and Engagement Rate.",
+      "Select the date column and the metric column you want to chart. Hold Ctrl to select non-adjacent columns.",
+      "Click Insert in the top menu, then choose Recommended Charts or pick a chart type manually. A line chart works well for time-based metrics.",
+      "Add a title and axis labels by clicking the chart and using the Chart Design and Format tabs.",
+      "To compare two metrics with different scales, right-click the second data series, choose Format Data Series, and select Secondary Axis."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Social Media Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Download your analytics as a CSV and open it in Google Sheets, or import it via File > Import > Upload.",
+      "Clean up the columns if needed. Some platforms add blank header rows at the top of exported files, so delete those first.",
+      "Highlight the date column and the metric column you want to visualize.",
+      "Click Insert > Chart. Sheets will usually suggest a line chart for date-based data, which is a good starting point.",
+      "In the Chart Editor panel, switch the chart type if needed, add additional data series, or adjust the date axis format under the Customize tab.",
+      "Click the three-dot menu on the chart and choose Publish Chart to embed it in a report or share a live link with your team."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you want to see your social media data as charts without building a spreadsheet from scratch, Distill is worth trying. Upload your exported CSV and Distill automatically detects your date and numeric columns, generates charts for each metric, and writes a short plain-language summary of what the data shows. It works with any CSV from any platform, handles up to 1,000 rows for free, and requires no account to get started. Sharing your charts with a client or colleague takes one click."
+  },
+
+  "gifAlt": "Screen recording of a social media analytics CSV being uploaded to Distill, which automatically generates a line chart showing engagement over time and an AI-written summary.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles CSV imports well and its chart builder covers all the main chart types. If you want even less setup, Distill accepts a CSV upload and builds charts automatically, with no spreadsheet skills required."
+    },
+    {
+      "q": "Which chart type works best for social media data?",
+      "a": "Line charts are best for metrics that change over time, such as daily impressions or weekly follower growth. Bar charts work better for comparing performance across individual posts or campaigns. Use a scatter plot if you want to check whether posting frequency correlates with engagement rate."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
