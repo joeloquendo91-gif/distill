@@ -1,0 +1,65 @@
+{
+  "intro": "A grouped bar chart is one of the clearest ways to compare multiple categories across different groups. If you have sales data broken down by region and quarter, for example, a grouped bar chart puts those numbers side by side so the differences jump out immediately. This guide walks through how to create a grouped bar chart in Excel and Google Sheets, and shows you a faster option if you just want the chart without the setup.",
+
+  "whatIs": {
+    "heading": "What Is a Grouped Bar Chart?",
+    "body": "A grouped bar chart displays two or more data series as clusters of bars placed next to each other for each category. Each bar in a cluster represents a different group or series, making it easy to compare values both within a category and across categories. It works best when you have a categorical variable (like product names, months, or regions) and want to compare those categories across two to five groups."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Grouped Bar Chart?",
+    "bullets": [
+      "You want to compare sales figures for multiple products across several time periods without losing the individual product detail.",
+      "You have survey responses broken into segments (age groups, departments, locations) and need to show how each segment answered each question.",
+      "You are presenting budget vs. actual figures across multiple cost centers and need both numbers visible at once."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Create a Grouped Bar Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Arrange your data in a table with categories in the first column and each group as a separate column header. For example: Category | Group A | Group B | Group C.",
+      "Select the entire table, including headers.",
+      "Go to the Insert tab and click the Bar Chart or Column Chart icon. Choose Clustered Bar (horizontal) or Clustered Column (vertical) depending on your preference.",
+      "Excel will generate a grouped chart. If any series is missing, right-click the chart, select Select Data, and add the missing series manually.",
+      "Click the chart title and replace it with a descriptive label. Add axis labels via Chart Design > Add Chart Element > Axis Titles.",
+      "Adjust bar gap width if the clusters look too crowded: right-click a bar, choose Format Data Series, and reduce the Gap Width to around 50-100%."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Create a Grouped Bar Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Set up your data with categories in column A and each group in its own column, with column headers in row 1.",
+      "Select all cells including the headers.",
+      "Click Insert > Chart. Google Sheets will pick a chart type automatically.",
+      "In the Chart Editor panel on the right, open the Chart type dropdown and select Bar chart or Column chart. Sheets will group the series by default when multiple data columns are selected.",
+      "Under the Customize tab, click Series to change colors for each group so they are easy to tell apart.",
+      "Add a chart title and axis labels under the Customize > Chart & axis titles section, then close the editor."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your data is already in a CSV, Distill handles the entire setup for you. Upload the file and Distill reads the column structure, picks appropriate chart types including grouped bars for multi-series data, and generates the charts automatically. You get a shareable dashboard without touching Excel or Sheets. The free tier supports CSV files up to 1,000 rows and no account is needed to try it."
+  },
+
+  "gifAlt": "Screen recording of a CSV with three data series being uploaded to Distill, which automatically generates a grouped bar chart comparing each series across all categories.",
+
+  "faqs": [
+    {
+      "q": "Can I create a grouped bar chart without Excel?",
+      "a": "Yes. Google Sheets handles grouped bar charts natively, just select your data and insert a clustered bar or column chart. Distill is another option if your data is in a CSV file and you want charts generated without any manual configuration."
+    },
+    {
+      "q": "What is the difference between a grouped bar chart and a stacked bar chart?",
+      "a": "A grouped bar chart places bars for each series side by side within each category, making it easy to compare individual series values directly. A stacked bar chart stacks the series on top of each other, which is better for showing part-to-whole relationships but harder to compare individual values across categories."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
