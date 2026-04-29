@@ -1,0 +1,71 @@
+{
+  "intro": "Ecommerce data piles up fast. Orders, returns, revenue by product, traffic by channel — it's all sitting in a spreadsheet doing nothing useful until you chart it. The fastest way to visualize ecommerce data is to export your store's CSV and drop it into a tool that builds the charts for you. This guide walks through how to do it in Excel and Google Sheets, and shows you a quicker path if you'd rather skip the manual setup.",
+
+  "whatIs": {
+    "heading": "What Is Ecommerce Data Visualization?",
+    "body": "Ecommerce data visualization means turning raw transaction records, product metrics, and customer stats into charts and dashboards. It works best with tabular data: one row per order, product, or session, with columns for dates, amounts, categories, and counts. The goal is to spot trends, compare performance, and make faster decisions without reading rows of numbers."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Your Ecommerce Data?",
+    "bullets": [
+      "When you want to see which products drive the most revenue, not just which sell the most units.",
+      "When you're reviewing monthly performance and need to show stakeholders a clear trend, not a spreadsheet.",
+      "When you're trying to find which traffic source converts best and your raw data is a flat CSV export.",
+      "When you want to track cart abandonment or return rates over time and need a chart that updates as data changes.",
+      "When you're preparing a report for investors, a manager, or a client who needs visuals, not tables."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Ecommerce Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your data from your ecommerce platform (Shopify, WooCommerce, etc.) as a CSV and open it in Excel.",
+      "Check that your date column is formatted as Date, not text. Select the column, right-click, and choose Format Cells to fix it.",
+      "For a revenue-over-time chart, select your date and revenue columns. Hold Ctrl to select non-adjacent columns.",
+      "Go to Insert, then Charts, and pick Line Chart. Excel will plot revenue on the Y axis and dates on the X axis.",
+      "To see revenue by product category, add a PivotTable: click Insert, then PivotTable. Drag your category column to Rows and your revenue column to Values.",
+      "Click any cell in the PivotTable, then go to Insert and choose a Bar or Column chart to visualize the breakdown by category."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Ecommerce Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Upload your ecommerce CSV to Google Drive and open it with Google Sheets.",
+      "To chart revenue by month, use a helper column with =TEXT(A2,\"YYYY-MM\") to group raw order dates into months.",
+      "Create a summary table with SUMIF to total revenue per month: =SUMIF(month_column, target_month, revenue_column).",
+      "Select your summary table, then go to Insert and choose Chart. Google Sheets will suggest a column or line chart.",
+      "For a product breakdown, highlight your product and revenue columns and insert a bar chart. Use the Chart Editor to sort bars by value.",
+      "To share the dashboard, click the Share button and set access to \"Anyone with the link can view.\" The charts update automatically when data changes."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you just want the charts without the pivot tables and helper columns, Distill takes a different approach. Upload your ecommerce CSV and Distill reads each column automatically, generating bar charts, line charts, and summaries without any configuration. You get a visual overview of your orders, revenue, and product data in seconds. The free tier supports files up to 1,000 rows, which covers most store exports. No account is required to try it."
+  },
+
+  "gifAlt": "A screen recording of a CSV file with ecommerce order data being dragged into Distill, which instantly generates a revenue trend line chart and a product category bar chart.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize ecommerce data without Excel?",
+      "a": "Yes. Google Sheets handles CSV imports and chart creation just as well as Excel for most ecommerce use cases. You can also upload your CSV directly to Distill and get charts with no spreadsheet work at all."
+    },
+    {
+      "q": "What columns should my ecommerce CSV include for the best charts?",
+      "a": "At minimum, include an order date, order total or revenue, and at least one categorical column such as product name, category, or traffic source. With those three, you can build revenue-over-time charts and category breakdowns. Customer ID or region columns add more depth if available."
+    },
+    {
+      "q": "How do I chart revenue by product category from a flat order CSV?",
+      "a": "In Excel, use a PivotTable to group rows by category and sum the revenue column. In Google Sheets, use SUMIF or a pivot table under the Data menu. In Distill, category and revenue columns are detected automatically and charted without extra steps."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
