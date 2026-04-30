@@ -1,0 +1,65 @@
+{
+  "intro": "If you need to visualize project data, the fastest path is to export your tasks as a CSV and drop it into a chart tool. Whether you're tracking task completion, sprint velocity, or resource allocation, a few well-chosen charts make it easy to see where a project stands and where it's stuck. This guide covers how to do that in Excel and Google Sheets, then shows a shortcut that skips the manual setup entirely.",
+
+  "whatIs": {
+    "heading": "What Is Project Data Visualization?",
+    "body": "Project data visualization turns raw task and timeline data into charts that show progress, bottlenecks, and workload at a glance. It works best with tabular data: rows of tasks, assignees, statuses, due dates, and story points that are hard to interpret as a plain list. Turning that data into a bar chart, timeline, or stacked chart makes patterns visible immediately."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Project Data?",
+    "bullets": [
+      "You want to show stakeholders how many tasks are complete, in progress, or blocked without walking them through a spreadsheet.",
+      "You need to identify which team members or sprints are carrying the most work so you can rebalance before a deadline slips.",
+      "You are preparing a project status report and want a chart that updates automatically when you re-export the CSV from your project management tool."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Project Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your project data as a CSV from Jira, Asana, Trello, Monday.com, or any similar tool. Open the file in Excel.",
+      "Check your columns. You typically need at least two: a category column (such as Status or Assignee) and a numeric column (such as Task Count or Story Points). Add a helper column to count tasks per category if needed using COUNTIF.",
+      "Select the two columns you want to chart. For a task status breakdown, select the Status column and your count column.",
+      "Go to Insert > Charts and choose a chart type. A clustered bar chart works well for comparing categories. A stacked bar chart works well for showing composition (for example, tasks by status per assignee).",
+      "Click the chart title to rename it to something descriptive, such as 'Tasks by Status — Sprint 14'.",
+      "Format the axes and legend so they are readable. Right-click the category axis and choose Format Axis to rotate labels if they overlap."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Project Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your project data as a CSV and import it into Google Sheets via File > Import.",
+      "Use COUNTIF or a pivot table to aggregate your data. For example, count tasks per status: =COUNTIF(StatusColumn, 'Done').",
+      "Build a summary table with two columns: one for the category label (Status, Assignee, Priority) and one for the count.",
+      "Select the summary table, then go to Insert > Chart. Google Sheets will suggest a chart type based on your data shape.",
+      "Switch to a bar or column chart if the default is not what you need. Open the Chart editor and use the Chart type dropdown.",
+      "Use the Customize tab in the Chart editor to adjust colors, add a title, and label the axes clearly before sharing or embedding the chart."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you just need a clear picture of your project data without building pivot tables or formatting axes, upload your exported CSV to Distill. Distill reads the columns automatically and generates charts for each one, so you get a task status breakdown, assignee workload view, and priority distribution in seconds. There is no account required and the free tier handles CSV files up to 1,000 rows, which covers most sprint or project exports. You can share the resulting dashboard with a link so your team sees the same charts without needing access to the raw file."
+  },
+
+  "gifAlt": "Screen recording of a project task CSV being uploaded to Distill, with bar charts and status breakdowns appearing automatically for each column.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize project data without Excel?",
+      "a": "Yes. Google Sheets handles CSV imports and chart creation for free. Distill is even faster: upload your CSV and charts appear automatically, with no formulas or chart configuration required."
+    },
+    {
+      "q": "What columns should my project CSV have to get useful charts?",
+      "a": "At minimum, include a status column (Done, In Progress, Blocked), an assignee column, and a due date or sprint column. Numeric fields like story points or estimated hours let you build workload charts. The more structured your export, the more useful the automatic charts will be."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
