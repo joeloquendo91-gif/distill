@@ -1,0 +1,65 @@
+{
+  "intro": "Visualizing sales pipeline data turns a wall of CRM rows into something your whole team can actually act on. A good pipeline chart shows you instantly where deals are stacking up, which stages are leaking, and how much revenue is at risk. If your data is in a CSV, you can build these charts in Excel or Google Sheets in a few minutes, or skip the manual steps and upload directly to Distill.",
+
+  "whatIs": {
+    "heading": "What Is a Sales Pipeline Chart?",
+    "body": "A sales pipeline chart maps your open deals across each stage of the sales process, from first contact through to closed. It works best with data that has at least a stage column and a deal value column. The most common formats are funnel charts (showing volume shrinkage by stage) and bar charts grouped by stage or rep."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Sales Pipeline Chart?",
+    "bullets": [
+      "You want to spot which stage is causing the most deal drop-off so you know where to focus coaching or process fixes.",
+      "You need a weekly snapshot of forecasted revenue by stage to share with leadership without building a custom report.",
+      "You are comparing pipeline health across territories, reps, or product lines to find where one team is outperforming another."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Sales Pipeline Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Export your CRM data as a CSV and open it in Excel. Make sure you have at least two columns: one for deal stage and one for deal value.",
+      "Step 2. Create a summary table using a pivot table. Go to Insert > PivotTable, select your data range, and place 'Stage' in Rows and 'Deal Value' in Values (set to Sum).",
+      "Step 3. Sort the pivot table so stages appear in order from earliest to latest in your sales process.",
+      "Step 4. Select the pivot table and go to Insert > Chart. Choose a Bar chart (clustered) or a Funnel chart if you are on Excel 2019 or later.",
+      "Step 5. Right-click the chart and choose 'Select Data' to adjust series labels and confirm each stage name reads correctly.",
+      "Step 6. Add a chart title like 'Open Pipeline by Stage', format axis labels for currency, and delete gridlines for cleaner presentation."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Sales Pipeline Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Import your CRM CSV into Google Sheets via File > Import, selecting 'Replace spreadsheet' and comma as the delimiter.",
+      "Step 2. Insert a pivot table: click Insert > Pivot table, use the current sheet as the data range, and open the pivot editor on a new sheet.",
+      "Step 3. Add 'Stage' to Rows and 'Deal Value' to Values, set the aggregation to SUM, and sort rows by the natural order of your pipeline stages.",
+      "Step 4. Select the pivot table summary, then click Insert > Chart. In the Chart Editor, choose 'Bar chart' under chart type.",
+      "Step 5. Under the 'Customize' tab, set the chart and axis titles. Format the vertical axis as currency using the number format field.",
+      "Step 6. Click the three-dot menu on the chart and select 'Publish chart' to generate a shareable link, or copy it into a Slides deck for your next team meeting."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your pipeline data is already in a CSV, Distill removes the pivot table setup entirely. Upload the file and Distill reads your columns, picks the right chart types automatically, and generates a full visual dashboard in seconds. You get a funnel view, a bar breakdown by stage, and an AI-written narrative that calls out your biggest drop-off points, all without touching a formula. The dashboard is shareable with a single link, so you can send it to your team or drop it in a Slack message without any export steps. Distill's free tier handles CSV files up to 1,000 rows with no account required."
+  },
+
+  "gifAlt": "A screen recording of a sales pipeline CSV being dragged into Distill, which instantly generates a funnel chart and bar chart broken down by deal stage.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize sales pipeline data without Excel?",
+      "a": "Yes. Google Sheets handles pipeline charts well and is free to use. If you want something faster with no setup, Distill lets you upload a CSV and get charts instantly without any spreadsheet work."
+    },
+    {
+      "q": "What columns do I need in my CSV to build a pipeline chart?",
+      "a": "At minimum you need a column for deal stage and a column for deal value. Columns for close date, rep name, or product line let you slice the data further, but the core chart works with just those two."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
