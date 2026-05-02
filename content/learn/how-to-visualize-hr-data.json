@@ -1,0 +1,65 @@
+{
+  "intro": "HR teams manage a lot of data. Headcount, attrition, hiring pipeline, absence rates, compensation bands, the list is long. The challenge is not collecting it. It is making sense of it fast enough to be useful. If you want to visualize HR data without building reports from scratch, this guide walks you through how to do it in Excel, Google Sheets, and Distill.",
+
+  "whatIs": {
+    "heading": "What Is HR Data Visualization?",
+    "body": "HR data visualization means turning spreadsheet rows into charts and graphs that make workforce trends readable at a glance. It works best with structured exports from an HRIS, payroll system, or applicant tracking system. Common data types include headcount by department, monthly attrition rates, time-to-hire, and leave balances."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize HR Data?",
+    "bullets": [
+      "You need to report headcount or attrition to leadership and want something clearer than a table.",
+      "You are tracking hiring pipeline progress across roles and need to spot bottlenecks by stage.",
+      "You are monitoring absence rates or overtime hours over time and want to see patterns across months or teams."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize HR Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your HR data from your HRIS or payroll tool as a CSV and open it in Excel.",
+      "Clean the data: remove blank rows, make sure each column has a clear header, and check that date fields use a consistent format.",
+      "Select the columns you want to chart. For attrition over time, that is usually a date column and a headcount or departure count column.",
+      "Click Insert, then choose your chart type. A line chart works well for trends over time. A bar or column chart works well for comparing departments or roles.",
+      "Right-click the chart and choose Select Data to confirm the series names and axis labels are correct.",
+      "Format the chart: add a title, remove unnecessary gridlines, and adjust the axis scale if the default range makes changes look too flat or too dramatic."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize HR Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your HR CSV into Google Sheets via File > Import. Choose comma-separated values and select to replace the current sheet or create a new one.",
+      "Review the imported data. Use Format > Number to make sure date columns are recognized as dates, not plain text.",
+      "Select the range you want to chart, including the header row.",
+      "Click Insert > Chart. Google Sheets will suggest a chart type based on your selection. You can change it in the Chart editor on the right.",
+      "Under the Setup tab, verify the X-axis and Series are mapped to the correct columns.",
+      "Use the Customize tab to add a chart title, adjust colors to match your team's reporting style, and turn off the legend if you only have one data series."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you export your HR data as a CSV, Distill can generate charts and a written summary automatically when you upload the file. There is no chart setup, no axis configuration, and no formatting to do. Distill reads your column headers, detects numeric and date fields, and builds the most relevant visualizations for you. The free tier supports CSV files up to 1,000 rows and covers the majority of HR exports from tools like BambooHR, Workday, or Google Sheets. No account is required to try it."
+  },
+
+  "gifAlt": "Screen recording of a CSV containing HR headcount and attrition data being dragged into Distill, with bar and line charts appearing automatically alongside a written summary of workforce trends.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize HR data without Excel?",
+      "a": "Yes. Google Sheets handles HR CSV imports well and has a built-in chart editor that works for most common HR charts. Distill is another option: upload your CSV and it generates charts without any setup. Both are free to use."
+    },
+    {
+      "q": "What chart types work best for HR data?",
+      "a": "Line charts are good for headcount and attrition trends over time. Bar or column charts work well for comparing metrics across departments or job levels. A stacked bar chart is useful for showing workforce composition changes from one period to the next."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
