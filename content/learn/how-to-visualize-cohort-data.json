@@ -1,0 +1,65 @@
+{
+  "intro": "If you have cohort data in a CSV and need to visualize it, the approach depends on how much manual work you want to do. Most teams use Excel or Google Sheets, but building a cohort retention chart from scratch takes time. Distill lets you upload your CSV and generate cohort visualizations automatically, with no formulas or chart setup required.",
+
+  "whatIs": {
+    "heading": "What Is a Cohort Chart?",
+    "body": "A cohort chart groups users, customers, or events by a shared starting point, such as signup month or first purchase date, and tracks how each group behaves over time. It works best with tabular data that has an acquisition period in one dimension and a time-elapsed metric in another. The most common formats are a retention heatmap, where color intensity shows drop-off, and a set of line charts with one line per cohort."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Cohort Chart?",
+    "bullets": [
+      "You want to compare retention rates across signup months to see whether a product change improved or hurt long-term engagement.",
+      "You are tracking revenue retention by cohort to understand whether customers acquired in a specific period spend more over their lifetime.",
+      "You need to present churn patterns to a stakeholder and want a single visual that shows both the trend and the scale of drop-off at each time step."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Cohort Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Arrange your data with cohort labels in the first column (e.g., Jan 2024, Feb 2024) and time periods as column headers (e.g., Week 1, Week 2, Week 3).",
+      "Fill in the retention percentage or user count for each cohort-period combination.",
+      "Select the entire table, including all headers.",
+      "Go to Insert > Charts and choose Line Chart to display each cohort as a separate line over time.",
+      "For a heatmap view instead, keep the data selected, go to Home > Conditional Formatting > Color Scales, and apply a two- or three-color gradient so higher retention values appear darker.",
+      "Add axis labels and a chart title that name the cohort definition (e.g., signup month) and the metric you are tracking (e.g., percent retained)."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Cohort Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Set up your data with cohort labels as row headers and time periods as column headers, matching the format you would use in Excel.",
+      "Enter retention values for each cell, using either percentages or raw counts.",
+      "Select the full table, then click Insert > Chart.",
+      "In the Chart Editor panel, choose Line chart to plot each cohort as a separate series.",
+      "For a heatmap view, close the Chart Editor, select the data range, and go to Format > Conditional formatting. Choose Color scale and adjust the midpoint and max colors to reflect good and poor retention.",
+      "Edit the chart title and axis labels so the cohort grouping and the retention metric are both clear."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your cohort data is already in a CSV, Distill handles the visualization without any manual setup. Upload the file and Distill auto-detects the column structure, generates charts for each numeric series, and writes a short narrative summarizing the patterns it finds. You do not need to format a table, configure conditional formatting, or choose chart types yourself. The free tier supports files up to 1,000 rows and requires no account to try."
+  },
+
+  "gifAlt": "A screen recording of a cohort retention CSV being uploaded to Distill, which automatically generates retention charts and a written summary of the cohort trends.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize cohort data without Excel?",
+      "a": "Yes. Google Sheets supports cohort charts using the same table layout and line chart approach described above. If you want to skip setup entirely, Distill accepts any CSV and generates charts automatically, including for cohort retention data."
+    },
+    {
+      "q": "What format should my cohort CSV be in?",
+      "a": "The standard format has one row per cohort, with the cohort label in the first column and retention or activity values in the remaining columns, one per time period. Including column headers in the first row helps Distill and other tools label chart axes correctly."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
