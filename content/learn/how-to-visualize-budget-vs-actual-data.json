@@ -1,0 +1,70 @@
+{
+  "intro": "Comparing budget vs actual data is one of the most common tasks in finance and operations, yet it takes longer than it should in most spreadsheet tools. Whether you're reviewing monthly spend against a plan or presenting quarterly variance to leadership, visualizing budget vs actual data makes the gaps obvious at a glance. This guide shows you how to build that chart in Excel and Google Sheets, and how to skip most of the manual work with Distill.",
+
+  "whatIs": {
+    "heading": "What Is a Budget vs Actual Chart?",
+    "body": "A budget vs actual chart places your planned figures and real figures side by side for each category or time period. The most common formats are grouped bar charts (one bar for budget, one for actual) and waterfall charts that highlight the positive or negative variance. It works best with data that has at least two numeric columns: one representing a target or plan, and one representing what was recorded."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Budget vs Actual Chart?",
+    "bullets": [
+      "Monthly financial reviews where you need to show department heads which line items are over or under budget.",
+      "Board or investor updates that require a clear summary of planned versus realized revenue or expenses.",
+      "Operations reporting where you track production targets against actual output across multiple teams or product lines.",
+      "Project budget tracking when stakeholders need to see cost overruns before they compound."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Make a Budget vs Actual Chart in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Organize your data in three columns: a category or date column (e.g., month or department), a Budget column, and an Actual column. Make sure each row is one comparable period or category.",
+      "Add a fourth column called Variance with the formula =C2-B2 (Actual minus Budget) copied down for each row. Positive means over budget; negative means under.",
+      "Select all four columns, go to Insert, and choose a Clustered Bar or Clustered Column chart. Excel will plot Budget and Actual as side-by-side bars automatically.",
+      "Right-click the Variance series in the chart and select Change Series Chart Type. Switch it to a Line with Markers. This gives you a combined chart showing variance trend alongside the raw bars.",
+      "Format the Variance line: right-click, Format Data Series, and set a secondary axis so the variance scale doesn't compress your main bars.",
+      "Add data labels to the Variance line by selecting it and clicking Chart Elements, then Data Labels. This makes the over/under amount readable without hovering."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Make a Budget vs Actual Chart in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Set up three columns: Category (or date), Budget, and Actual. Each row should represent one comparable item, such as a month or a cost center.",
+      "In a fourth column, enter a Variance formula: =C2-B2 for each row. This gives you the difference between actual and budgeted values.",
+      "Select the Category, Budget, and Actual columns (hold Ctrl or Cmd to select non-adjacent columns), then go to Insert and click Chart.",
+      "In the Chart Editor, choose Bar chart or Column chart. Google Sheets will automatically group the Budget and Actual bars for each category.",
+      "To add variance as an overlay, click the three-dot menu in the chart editor, choose Edit Chart, go to the Series panel, and add the Variance column as a new series. Set its type to Line.",
+      "Enable a right-side axis for the Variance line under Customize, then add data labels to make the variance values visible directly on the chart."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you have your budget and actual figures in a CSV, Distill can turn them into a chart without any of the steps above. Upload your file and Distill automatically detects your numeric columns, groups related series, and generates comparison charts alongside a written summary of where the biggest gaps are. There is no formula work, no chart type selection, and no axis configuration. For files up to 1,000 rows, it is completely free and requires no account to try."
+  },
+
+  "gifAlt": "Screen recording of a CSV with Budget and Actual columns being uploaded to Distill, which instantly generates a grouped bar chart and a written variance summary.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles budget vs actual charts well using the same column setup and the built-in chart editor. Distill is another option: upload a CSV and it generates the comparison chart for you with no spreadsheet work required."
+    },
+    {
+      "q": "What chart type works best for budget vs actual comparisons?",
+      "a": "A grouped bar or column chart is the clearest choice for most audiences because it places budget and actual side by side for each category. A waterfall chart works better when you want to highlight cumulative variance across a period, such as showing how individual line-item differences add up to a total overspend."
+    },
+    {
+      "q": "How do I highlight which categories are over budget?",
+      "a": "In Excel and Google Sheets, you can use conditional formatting on the Variance column to color cells red when the value is positive (over budget) and green when negative. In a chart, you can manually recolor individual bars, though this has to be updated each time the data changes. Distill flags outliers automatically in the narrative it generates alongside the chart."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
