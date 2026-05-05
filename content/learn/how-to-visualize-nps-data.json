@@ -1,0 +1,65 @@
+{
+  "intro": "Net Promoter Score data tells you how customers feel, but a spreadsheet full of raw scores makes that hard to see. Visualizing NPS data turns those numbers into a clear picture: who your promoters are, where your detractors cluster, and whether sentiment is improving over time. The fastest way to get there is to export your NPS results as a CSV and upload it to a tool that auto-generates the charts for you.",
+
+  "whatIs": {
+    "heading": "What Is NPS Data?",
+    "body": "NPS (Net Promoter Score) data comes from a simple survey question: 'On a scale of 0 to 10, how likely are you to recommend us?' Respondents are grouped into Promoters (9-10), Passives (7-8), and Detractors (0-6). Your NPS score is the percentage of Promoters minus the percentage of Detractors, giving a number between -100 and +100. Visualizing the raw score distribution and the segment breakdown is the best way to understand what the number actually means."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize NPS Data?",
+    "bullets": [
+      "After each survey wave, to see how your score changed and whether specific score buckets shifted.",
+      "When presenting results to stakeholders who need to see the Promoter/Passive/Detractor breakdown at a glance.",
+      "When comparing NPS across customer segments, products, or regions to identify where satisfaction is highest or lowest."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize NPS Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Open your NPS export CSV in Excel. You should have at least two columns: respondent ID and score (0-10).",
+      "Add a helper column labeled 'Segment'. Use an IF formula to classify each row: =IF(B2>=9,\"Promoter\",IF(B2>=7,\"Passive\",\"Detractor\")).",
+      "To chart score distribution, use COUNTIF to count responses for each score (0 through 10). Put the counts in a small table next to your data.",
+      "Select that count table, go to Insert > Chart, and choose a clustered bar or column chart. Label the x-axis 'Score' and the y-axis 'Responses'.",
+      "For the segment breakdown, use COUNTIF on the Segment column to count Promoters, Passives, and Detractors. Build a small summary table with those three numbers.",
+      "Select the summary table and insert a donut or pie chart to show the share of each segment. Format slices with distinct colors (green, yellow, red)."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize NPS Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Import your NPS CSV into Google Sheets via File > Import. Make sure scores land in a single numeric column.",
+      "Add a Segment column and classify each row with a nested IFS formula: =IFS(B2>=9,\"Promoter\",B2>=7,\"Passive\",B2<=6,\"Detractor\").",
+      "Create a frequency table using COUNTIF for each score from 0 to 10 in a separate area of the sheet.",
+      "Select the frequency table, click Insert > Chart, and choose a bar chart. In Chart Editor, set the x-axis to Score and values to count.",
+      "For the segment summary, use COUNTIF three times to tally Promoters, Passives, and Detractors. Put the results in a two-column table.",
+      "Insert a donut chart from that summary table. Google Sheets will automatically color the slices; adjust them to green, grey, and red for clarity."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your NPS tool can export a CSV, Distill can chart it in seconds. Upload the file and Distill reads every column automatically: it spots your score column, builds a distribution bar chart, and calculates segment counts without any formulas or configuration on your part. You get an AI-written summary of what the data shows, plus a shareable link you can send to anyone without them needing an account. For teams that run NPS surveys regularly, this cuts the reporting step from 20 minutes to under one."
+  },
+
+  "gifAlt": "Screen recording of a CSV with NPS survey scores being dragged into Distill, which instantly generates a score distribution bar chart and a Promoter/Passive/Detractor donut chart with an AI-written summary.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize NPS data without Excel?",
+      "a": "Yes. Google Sheets handles NPS charts well using the same COUNTIF and IFS approach. If you want something even faster, Distill generates the charts automatically from your exported CSV with no formulas required."
+    },
+    {
+      "q": "What chart type works best for NPS data?",
+      "a": "A bar chart showing response counts for each score (0-10) gives the clearest view of how your respondents are distributed. Pair it with a donut chart showing the Promoter, Passive, and Detractor split. For tracking NPS over time, a simple line chart with one point per survey wave works well."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
