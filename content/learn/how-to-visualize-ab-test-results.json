@@ -1,0 +1,65 @@
+{
+  "intro": "When you run an A/B test, you end up with rows of data showing which variant each user saw and how they behaved. A chart turns that data into something stakeholders can read in seconds. The fastest way to visualize A/B test results is to export your data as a CSV and upload it to Distill, which generates comparison charts automatically without any setup.",
+
+  "whatIs": {
+    "heading": "What Is an A/B Test Results Chart?",
+    "body": "An A/B test results chart compares the performance of two or more variants across a shared metric, such as conversion rate, click rate, or revenue per user. It most often takes the form of a grouped bar chart, with one bar per variant. It works best when your data has at least one column identifying the variant and one numeric column measuring the outcome."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize A/B Test Results?",
+    "bullets": [
+      "When presenting results to stakeholders who need a quick visual answer rather than a table of numbers.",
+      "When comparing multiple metrics (click rate, conversion rate, average order value) across variants at once.",
+      "When tracking each variant's performance day by day over the test window to spot early trends."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize A/B Test Results in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Organize your data with a column for the variant name (e.g., Control, Variant B) and one column per metric you want to compare.",
+      "Step 2. Select the variant name column and the metric columns, including the header row.",
+      "Step 3. Go to Insert > Recommended Charts and choose Clustered Column or Clustered Bar.",
+      "Step 4. Right-click any bar, select Add Error Bars, and choose Standard Error to show the range of uncertainty around each result.",
+      "Step 5. Click Chart Design > Add Chart Element > Axis Titles and label both axes clearly.",
+      "Step 6. Click Chart Design > Add Chart Element > Data Labels to show the exact value on each bar."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize A/B Test Results in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Step 1. Structure your sheet with a column for the variant name and one column for each metric you want to compare.",
+      "Step 2. Select all the data including headers.",
+      "Step 3. Go to Insert > Chart. Google Sheets will usually suggest a column chart.",
+      "Step 4. In the Chart editor, confirm the Chart type is Column chart and the variant column is set as the X-axis.",
+      "Step 5. Open the Customize tab, expand Series, and toggle on Error bars to add uncertainty ranges.",
+      "Step 6. Click the three-dot menu on the chart and select Publish chart to get a shareable link."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "Most A/B testing platforms (Optimizely, VWO, Google Optimize, home-grown setups) let you export results as a CSV. Upload that file to Distill and it detects the variant column and numeric outcome columns automatically, then builds comparison bar charts and trend lines without any configuration from you. The resulting dashboard is shareable with a link, so you can send it to your team or drop it in a Slack message without anyone needing access to a spreadsheet."
+  },
+
+  "gifAlt": "Screen recording of a CSV with A/B test variant data being dragged into Distill, which auto-generates a grouped bar chart comparing conversion rates for each variant side by side.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize A/B test results without Excel?",
+      "a": "Yes. Google Sheets handles the same steps and is free. If you want something faster, export your test data as a CSV and upload it to Distill, which builds the comparison chart for you automatically."
+    },
+    {
+      "q": "What chart type works best for A/B test results?",
+      "a": "A grouped bar chart is the most readable format for comparing two or three variants on one or two metrics. If you are tracking each variant's performance over time during the test, a multi-series line chart is a better fit."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
