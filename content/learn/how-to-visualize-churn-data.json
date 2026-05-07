@@ -1,0 +1,65 @@
+{
+  "intro": "Customer churn data tells you who left, when, and at what rate — but a spreadsheet full of cancellation timestamps doesn't reveal patterns on its own. To visualize churn data effectively, you need charts that show rate over time, segments most at risk, and how retention changes between cohorts. This guide covers how to build those charts in Excel and Google Sheets, and how Distill can generate them from a CSV in seconds.",
+
+  "whatIs": {
+    "heading": "What Is a Churn Data Chart?",
+    "body": "A churn data chart tracks the rate at which customers, subscribers, or users stop using a product over a given period. It works best with time-series data, such as monthly cancellations alongside active users, or cohort tables showing what percentage of each group remained after 30, 60, and 90 days."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Churn Data Chart?",
+    "bullets": [
+      "Monthly or quarterly business reviews where leadership needs to see whether cancellation rates are rising or falling over time.",
+      "Product and customer success reporting that tracks which customer segments or plans have the highest drop-off.",
+      "Cohort analysis where you compare retention across different acquisition months to spot whether a product change improved or hurt long-term retention."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Churn Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Set up your spreadsheet with columns for Month, Active Customers at Start, Cancellations, and Churn Rate. Calculate Churn Rate with =C2/B2 (Cancellations divided by Active at Start) and format the column as a percentage.",
+      "Select the Month and Churn Rate columns. Hold Ctrl to select non-adjacent columns.",
+      "Go to Insert, then Charts, and choose Line. This plots churn rate over time so trends are immediately visible.",
+      "Right-click the chart and select Format Data Series. Add markers to each data point so individual months are easy to read.",
+      "Add a second data series for Active Customers on a secondary axis: right-click the chart, choose Select Data, add the Active Customers column, then right-click that series and choose Format Data Series to move it to the Secondary Axis.",
+      "Add axis labels and a chart title. Use a title like 'Monthly Churn Rate' so the chart stands alone when shared."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Churn Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Create columns for Month, Active Customers, Cancellations, and Churn Rate. In the Churn Rate column enter =C2/B2 and apply percentage formatting from Format, Number, Percent.",
+      "Select the Month and Churn Rate columns including headers.",
+      "Go to Insert and click Chart. In the Chart editor, select Line chart from the Chart type dropdown.",
+      "Click Customize, then Series, to change the line color and enable point markers so individual data points are visible.",
+      "To add a second series for Active Customers, click Setup in the Chart editor and then Add Series. Select the Active Customers column.",
+      "Still in Customize, click the Active Customers series and check 'Right axis' to plot it on a secondary y-axis. Add a chart title before sharing."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If your churn data is already in a CSV, Distill reads every column automatically and generates charts without any setup. Upload the file and Distill picks the right chart types for your time-series and numeric columns, producing a shareable dashboard in seconds. It is free for CSVs up to 1,000 rows and requires no account. For subscription businesses that pull a churn export every month, that removes the same repetitive work from every reporting cycle."
+  },
+
+  "gifAlt": "A screen recording of a CSV with Month, Active Customers, and Cancellations columns being uploaded to Distill, which instantly generates a line chart showing churn rate over time.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets supports the same line chart and secondary axis setup. Distill is faster: upload your churn CSV and the chart appears without any manual configuration."
+    },
+    {
+      "q": "What columns do I need in my CSV to chart churn rate?",
+      "a": "At minimum you need a date or period column (month or week), a count of active customers, and a count of cancellations for the same period. Churn rate can then be calculated as cancellations divided by active customers at the start of the period."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
