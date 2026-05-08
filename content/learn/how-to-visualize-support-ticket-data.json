@@ -1,0 +1,66 @@
+{
+  "intro": "Support ticket data piles up fast, but a raw export from Zendesk, Freshdesk, or Intercom is hard to read as a spreadsheet. To visualize support ticket data clearly, you need charts that show volume over time, category breakdowns, and resolution trends. This guide walks through the steps in Excel and Google Sheets, plus a faster option if you want charts in seconds.",
+
+  "whatIs": {
+    "heading": "What Is a Support Ticket Chart?",
+    "body": "A support ticket chart is any visualization built from helpdesk export data. It typically covers ticket volume by day or week, tickets broken down by category or agent, resolution time distributions, and CSAT score trends. The right chart type depends on what question you are answering: a bar chart for category comparisons, a line chart for trends over time, and a histogram for resolution time distributions."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use Support Ticket Charts?",
+    "bullets": [
+      "Weekly team reviews: show ticket volume and resolution time week-over-week so the team can spot spikes before they become problems.",
+      "Capacity planning: chart tickets per agent or queue to see where the workload is concentrated and where you need more coverage.",
+      "Customer experience reporting: visualize CSAT scores and first-response times over time when presenting to leadership or stakeholders.",
+      "Root cause analysis: break down ticket volume by category or product area to find which issues are driving the most contacts."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Support Ticket Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your ticket data as a CSV from your helpdesk (Zendesk: Reports > Export, Freshdesk: Analytics > Export). Open it in Excel.",
+      "Check the column headers. You typically get columns like Ticket ID, Created At, Category, Agent, Status, Resolution Time, and CSAT Score. Delete any columns you do not need.",
+      "For a volume-by-day chart, add a helper column that extracts the date from the Created At timestamp using =TEXT(A2, \"YYYY-MM-DD\"). Then use a Pivot Table (Insert > PivotTable) with Date as Rows and Ticket ID (Count) as Values.",
+      "Select the Pivot Table output, then Insert > Chart > Line Chart to see ticket volume over time. Adjust the date grouping in the PivotTable Field Settings if you want weekly or monthly buckets instead of daily.",
+      "For a category breakdown, create a second Pivot Table with Category as Rows and Ticket ID (Count) as Values. Insert > Chart > Bar Chart to compare ticket volume across categories.",
+      "To chart resolution time, select the Resolution Time column and Insert > Chart > Histogram. Set the bin width to match a meaningful unit (hours or days) depending on your typical response windows."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Support Ticket Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Upload your helpdesk CSV to Google Drive, then open it with Google Sheets (right-click > Open with > Google Sheets).",
+      "Use Insert > Pivot Table to create a summary. Set Rows to your date or category column and Values to Ticket ID with summarization set to COUNTA.",
+      "For a time-based view, group the date rows by week or month: right-click a date cell in the Pivot Table, choose Create Pivot Date Group, and select Week or Month.",
+      "Select the Pivot Table data, then Insert > Chart. Google Sheets usually suggests a Bar or Column chart automatically. Switch to Line Chart in Chart Editor > Chart type if you want to show trends.",
+      "For CSAT trends, add CSAT Score as a second series. In Chart Editor, go to Series and add the CSAT column. Check Use right axis to give it its own scale so it does not compress the ticket volume line.",
+      "Click Share > Copy Link (change access to Anyone with the link) to send the chart to teammates without downloading anything."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you do not want to set up Pivot Tables and manually configure chart types, Distill handles all of that automatically. Upload your helpdesk CSV and Distill reads every column, picks the right chart type for each one, and generates a full visual summary in seconds. Numeric columns like resolution time become histograms, date columns become line charts, and categorical columns like agent or category become bar charts. The result is a shareable dashboard you can send to your team with one link. No account required and free for CSV files up to 1,000 rows."
+  },
+
+  "gifAlt": "Screen recording of a Zendesk ticket export CSV being dragged into Distill, which instantly generates bar charts by category, a line chart of ticket volume over time, and a histogram of resolution times.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets handles helpdesk CSV exports well and supports Pivot Tables and charts without any software to install. Distill is an even faster option: upload the CSV and charts are generated automatically with no setup at all."
+    },
+    {
+      "q": "What columns do I need in my helpdesk export to make useful charts?",
+      "a": "At minimum you need a creation date, a category or ticket type, and a status or resolution field. CSAT score and resolution time are useful if your helpdesk captures them. Most platforms (Zendesk, Freshdesk, Intercom, Help Scout) include all of these in their standard CSV exports."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
