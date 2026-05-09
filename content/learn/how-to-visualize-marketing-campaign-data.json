@@ -1,0 +1,65 @@
+{
+  "intro": "Marketing campaign data piles up fast. Whether you pull reports from Google Ads, Meta, or your email platform, the raw numbers are hard to read in a spreadsheet. The fastest way to make sense of it is to visualize marketing campaign data as a chart. This guide walks through how to do that in Excel and Google Sheets, plus a faster option if you want to skip the manual setup.",
+
+  "whatIs": {
+    "heading": "What Is a Marketing Campaign Chart?",
+    "body": "A marketing campaign chart plots performance metrics like clicks, impressions, spend, or conversions across campaigns or over time. Bar charts work well for comparing results across campaigns side by side. Line charts are better for tracking how a single metric changes week to week or month to month."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Use a Marketing Campaign Chart?",
+    "bullets": [
+      "You want to compare ad spend and results across multiple campaigns or channels in one view.",
+      "You need to show a client or manager which channel drove the most conversions last month.",
+      "You are reviewing weekly email or paid search performance and need a quick read on the trend."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Marketing Campaign Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your campaign data as a CSV from your ad platform or email tool.",
+      "Open the file in Excel. Confirm each row represents one campaign or one date, and that metrics like spend, clicks, and conversions are in separate columns.",
+      "Select the columns you want to chart, for example Campaign Name and Conversions, including the column headers.",
+      "Go to Insert, then Charts, and choose a bar chart for side-by-side comparisons or a line chart for date-based trends.",
+      "Add a chart title and label both axes so the chart reads clearly without extra explanation.",
+      "Copy the chart into a slide or report for sharing with your team."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Marketing Campaign Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your campaign data as a CSV, then open it in Google Sheets via File and Import.",
+      "Clean up the data so each row is one campaign or one date, with metrics in their own columns.",
+      "Highlight the columns you want to chart, including their headers.",
+      "Click Insert, then Chart. Sheets will suggest a chart type based on your selection.",
+      "Switch to a bar chart for comparing campaigns, or a line chart if your data is organized by date.",
+      "Customize the title and axis labels, then share the sheet link or paste the chart into a doc."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you have your campaign data as a CSV, Distill gets you to charts in seconds. Upload the file and Distill reads your columns automatically, picks the right chart types, and writes a plain-English summary of what the data shows. You get bar charts, line charts, and summary tables all at once, without opening a single menu. The free tier handles CSV files up to 1,000 rows and needs no account to try."
+  },
+
+  "gifAlt": "A screen recording of a marketing campaign CSV being uploaded to Distill, with bar and line charts of spend, clicks, and conversions generated automatically.",
+
+  "faqs": [
+    {
+      "q": "Can I do this without Excel?",
+      "a": "Yes. Google Sheets can import a CSV and build charts through the Insert menu, with no software to install. If you want something faster, Distill generates charts automatically from any uploaded CSV with no setup required."
+    },
+    {
+      "q": "What columns should my campaign CSV include?",
+      "a": "At minimum, include a campaign name or date column and at least one metric column such as spend, clicks, or conversions. More columns give you more chart options, but two columns is enough to start."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
