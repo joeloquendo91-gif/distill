@@ -1,0 +1,66 @@
+{
+  "intro": "Email marketing platforms like Mailchimp, Klaviyo, and HubSpot let you export campaign stats as a CSV, but a spreadsheet full of open rates and click-through numbers is hard to read at a glance. The fastest way to visualize email marketing data is to upload that CSV to a chart tool and let it generate bar charts, line charts, and summary stats automatically. This guide walks through how to do it in Excel and Google Sheets, and shows a faster alternative that skips the manual setup.",
+
+  "whatIs": {
+    "heading": "What Is an Email Marketing Chart?",
+    "body": "An email marketing chart turns raw campaign metrics, such as open rates, click-through rates, unsubscribes, and revenue per send, into a visual format you can scan and compare. Bar charts work well for comparing campaigns side by side. Line charts are better for showing how a metric changes across sends over time. The right chart depends on whether you are comparing campaigns or tracking a trend."
+  },
+
+  "whenToUse": {
+    "heading": "When Should You Visualize Email Marketing Data?",
+    "bullets": [
+      "You have more than five campaigns and need to compare open rates or revenue side by side without scanning rows in a spreadsheet.",
+      "You want to show a stakeholder or client how email performance has trended over weeks or months.",
+      "You are running A/B tests on subject lines or send times and need a clear visual to confirm which variant outperformed the other.",
+      "You are building a monthly marketing report and need charts that will paste cleanly into a slide deck or document."
+    ]
+  },
+
+  "excelSteps": {
+    "heading": "How to Visualize Email Marketing Data in Excel",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your campaign report as a CSV from your email platform (Mailchimp: Reports > Export; Klaviyo: Analytics > Campaigns > Export).",
+      "Open the CSV in Excel. Each row should represent one campaign, with columns for send date, subject line, opens, clicks, and any other metrics you track.",
+      "Select the columns you want to chart. For a bar chart comparing open rates, select the Subject Line column and the Open Rate column while holding Ctrl.",
+      "Go to Insert > Charts and choose a Clustered Bar or Column chart. Excel will plot each campaign as its own bar.",
+      "To show a trend over time, select the Send Date column and one metric column (such as Click Rate), then insert a Line chart instead.",
+      "Format axis labels and add a chart title so the chart is readable when exported to a slide or document."
+    ]
+  },
+
+  "sheetsSteps": {
+    "heading": "How to Visualize Email Marketing Data in Google Sheets",
+    "subheading": "Step-by-step instructions",
+    "steps": [
+      "Export your campaign data as a CSV from your email platform and open Google Sheets. Go to File > Import and upload the CSV file.",
+      "Clean up the data if needed: remove any summary rows at the top or bottom that your platform adds, and make sure the first row contains column headers.",
+      "Select the two columns you want to chart. For comparing campaigns, select the campaign name column and the metric column (such as Open Rate) together.",
+      "Click Insert > Chart. Google Sheets will suggest a chart type. For campaign comparisons, choose Bar chart. For trends over time, choose Line chart.",
+      "In the Chart Editor panel on the right, confirm that the X-axis shows campaign names or dates and that the Series shows your metric.",
+      "Click the three-dot menu on the chart and choose Download to export it as a PNG or PDF for use in a report."
+    ]
+  },
+
+  "distillSection": {
+    "heading": "A Faster Way: Skip the Manual Steps with Distill",
+    "body": "If you do not want to spend time selecting columns, choosing chart types, and formatting axes, Distill handles all of that automatically. Upload your email marketing CSV and Distill reads the column names, detects which fields are numeric, and generates charts for each metric right away. You get bar charts for campaign comparisons and line charts for time-based trends without any configuration. The charts are shareable via a link, so you can send a live dashboard to a teammate or client without exporting anything. Distill is free for CSV files up to 1,000 rows and does not require an account to try."
+  },
+
+  "gifAlt": "A screen recording of an email marketing CSV being dragged into Distill, which then automatically generates bar charts comparing open rates and click-through rates across campaigns.",
+
+  "faqs": [
+    {
+      "q": "Can I visualize email marketing data without Excel?",
+      "a": "Yes. Google Sheets is a free option and works well for smaller exports. If you want to skip the setup entirely, Distill lets you upload the CSV and get charts in seconds without installing anything or creating an account."
+    },
+    {
+      "q": "Which chart type works best for email marketing metrics?",
+      "a": "Use a bar chart to compare a single metric, like open rate or revenue, across multiple campaigns. Use a line chart when you want to see how a metric changes over time across sequential sends. If you have both a volume metric (emails sent) and a rate metric (click rate), a combo chart with a secondary axis lets you plot both without distorting the scale."
+    },
+    {
+      "q": "Is Distill free to use?",
+      "a": "Yes. Distill's free tier supports CSV files up to 1,000 rows and includes all chart types. No account is required to try it."
+    }
+  ]
+}
